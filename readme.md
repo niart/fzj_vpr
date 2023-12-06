@@ -1,8 +1,8 @@
-# Hybrid Guided VAE for Rapid Visual Place Recognition:
+# Hybrid Guided VAE for Rapid Visual Place Recognition [^1]
 
-This project is built on the top of repository [Hybrid Guided VAE](https://github.com/kennetms/Accenture_Hybrid_Guided_VAE). 
 
-A glance at **[dataset recording](https://www.youtube.com/watch?v=3YV6RFQt1Os)**; The report of this project can be accessed [HERE](https://drive.google.com/drive/folders/1UDGhIhu8RIIPHSEBMTT_6EEVZ31Ey2lC?usp=sharing)
+
+A glance at **[dataset recording](https://www.youtube.com/watch?v=3YV6RFQt1Os)**; The report of this project can be accessed **[HERE](https://drive.google.com/drive/folders/1UDGhIhu8RIIPHSEBMTT_6EEVZ31Ey2lC?usp=sharing)**.
 
 ## To run the experiment:
 
@@ -16,15 +16,9 @@ Then, ```cd fzj_vpr/utils```, and ```python train_hybrid_vae_guided_base.py```
 ### 3. To train the model yourself:
 ```cd run```, and then ```run.py```
 
-key algorithm:
-The reward function is in ```gym/envs/mojuco/triant.py```;
-The training algorithm is in ```train_bug/DDPG4.py```.
-
-If you want to cite this game:
-```
-@misc{triplesumo,
-  howpublished = {Wang, N., Das, G.P., Millard, A.G. (2022). Learning Cooperative Behaviours in Adversarial Multi-agent Systems. In: Pacheco-Gutierrez, S., Cryer, A., Caliskanelli, I., Tugal, H., Skilton, R. (eds) Towards Autonomous Robotic Systems. TAROS 2022. Lecture Notes in Computer Science(), vol 13546. Springer, Cham. https://doi.org/10.1007/978-3-031-15908-4_15} 
-```  
+## key algorithm:
+The architecture of hybrid VAE is in ```fzj_vpr/utils/hybrid_beta_vae.py```;
+The training algorithm is in ```fzj_vpr/utils/hybrid_vae_guided_base.py```.
 
 An overview of TripleSumo interface:
 <p align="center">
@@ -43,6 +37,5 @@ Steps the team needed to win along training the newly added player:
 <img src="https://github.com/niart/triplesumo/blob/main/steps.png" width=50% height=50%>
 </p>
 
-[^1]: This project is an extension of platform [Robosumo](https://github.com/openai/robosumo) with new interfaces. 
-
+[^1]: This project is built on the top of repository **[Hybrid Guided VAE](https://github.com/kennetms/Accenture_Hybrid_Guided_VAE)**. 
 
