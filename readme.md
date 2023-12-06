@@ -1,6 +1,6 @@
 **@Thorben:
 I have summarized the modifications I made at the top of each .py file.**
-# Hybrid Guided VAE for Rapid Visual Place Recognition [^1]
+## Hybrid Guided VAE for Rapid Visual Place Recognition [^1]
 
 A glance at **[dataset recording](https://www.youtube.com/watch?v=3YV6RFQt1Os)**; The report of this project can be accessed **[HERE](https://drive.google.com/drive/folders/1UDGhIhu8RIIPHSEBMTT_6EEVZ31Ey2lC?usp=sharing)**.
 
@@ -15,9 +15,11 @@ The training algorithm is in ```fzj_vpr/utils/hybrid_vae_guided_base.py```.
 
 ### To run the experiment:
 
-#### 1. Setup environment: 
+#### 0. Setup environment: 
 First and foremost, ```git clone https://github.com/niart/fzj_vpr.git```;
 Then, ```cd fzj_vpr```, and use Anaconda to create a virtual environment `fzj_vpr' with ```conda env create -f env.yml```; Activate the virtual environment with ```conda activate fzj_vpr```.
+
+#### 1. Download dataset: ```fzj_vpr/dataset/```
 
 #### 2. To test the trained model:
 Firstly, download the model ```epoch00390.tar``` from [HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing) and put it in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```.
