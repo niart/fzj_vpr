@@ -1,3 +1,6 @@
+# I did not modify this .py file much, except that: 
+# I modified the parameters of decoder so that it accommodates a 128*128 output from the decoder;
+# Other important settins of parameters are 
 #!/bin/python
 #-----------------------------------------------------------------------------
 #----------------------------------------------------------------------------- 
@@ -150,10 +153,6 @@ class CLS_SQ(nn.Module):
         pass
         
 
-
-        
-    
-
 class VAE(nn.Module):
     def __init__(self, input_shape, ngf=16, out_features=128, seq_len=300, dimz=64, encoder_params={}):
         super(VAE, self).__init__()
@@ -247,8 +246,7 @@ class VAE(nn.Module):
     
 class CustomLIFLayer(LIFLayer):
     sg_function = torch.sigmoid
-    
-    
+        
     
 class SpikeClassifier(nn.Module):
     def __init__(self, input_shape, ngf=16, out_features=128, seq_len=300, dimz=32, encoder_params={}, burnin=0):
