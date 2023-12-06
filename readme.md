@@ -1,7 +1,13 @@
 # Hybrid Guided VAE for Rapid Visual Place Recognition:
 
 A glance at **[dataset recording](https://www.youtube.com/watch?v=3YV6RFQt1Os)**;
-Download the model from: https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing
+
+To run the experiment:
+Use Anaconda to create a virtual environment 'fzj_vpr' with ```conda env create -f env.yml```; Then ```conda activate fzj_vpr```.
+
+4. ```git clone https://github.com/niart/triplesumo.git``` and ```cd triplesumo```
+To test the trained model:
+firstly Download the model from: https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing
 Run the experiment:
 1. Setup environment:
 1. Download [Mujoco200](https://www.roboti.us/download.html), rename the package into mujoco200, then extract it in 
