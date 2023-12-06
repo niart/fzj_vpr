@@ -4,24 +4,15 @@ A glance at **[dataset recording](https://www.youtube.com/watch?v=3YV6RFQt1Os)**
 
 To run the experiment:
 
-First and foremost, use Anaconda to create a virtual environment ```fzj_vpr``` with ```conda env create -f env.yml```; Then ```conda activate fzj_vpr```. Afterwards, ```git clone https://github.com/niart/fzj_vpr.git``` and ```cd fzj_vpr```
+First and foremost, use Anaconda to create a virtual environment ```fzj_vpr``` with ```conda env create -f env.yml```; Then ```conda activate fzj_vpr```. Afterwards, ```git clone https://github.com/niart/fzj_vpr.git```.
 
 To test the trained model:
 
-Firstly, download the model ```epoch00390.tar``` from [HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing) and put it in ```fzj_vpr/run/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```
+Firstly, download the model ```epoch00390.tar``` from [HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing) and put it in ```fzj_vpr/run/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```.
+Then, ```cd fzj_vpr/utils```, and ```python train_hybrid_vae_guided_base.py```
 
-
-
-Run the experiment:
-1. Setup environment:
-1. Download [Mujoco200](https://www.roboti.us/download.html), rename the package into mujoco200, then extract it in 
-   ```/home/your_username/.mujoco/ ```, then download the [license](https://www.roboti.us/license.html) into the same directory
-2. Add ```export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/your_username/.mujoco/mujoco200/bin``` to your ```~/.bashrc```, and then ```source ~/.bashrc```
-3. Use Anaconda to create a virtual environment 'triple_sumo' with ```conda env create -f env.yml```; Then ```conda activate triple_sumo```.
-4. ```git clone https://github.com/niart/triplesumo.git``` and ```cd triplesumo```
-5. Use the ```envs``` foler of this repository to replace the ```gym/envs``` installed in your conda environment triplesumo. 
-6. To train blue agent in an ongoing game between red and green, run ```cd train_bug```, then```python runmain2.py```. 
-7. If you meet error ```Creating window glfw ... ERROR: GLEW initalization error: Missing GL version```, you may add ```export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so``` to ```~/.bashrc```, then ```source ~/.bashrc```. 
+To train the model yourself:
+```cd run```, and then ```run.py```
 
 key algorithm:
 The reward function is in ```gym/envs/mojuco/triant.py```;
