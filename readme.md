@@ -4,7 +4,7 @@ I have summarized the modifications I made at the top of each .py file.**
 
 A glance at **[dataset recording](https://www.youtube.com/watch?v=3YV6RFQt1Os)**; The report of this project can be accessed **[HERE](https://drive.google.com/drive/folders/1UDGhIhu8RIIPHSEBMTT_6EEVZ31Ey2lC?usp=sharing)**.
 
-### Key files:
+### A quick look at key files:
 1) key settings: The parameters for training are in ```/fzj_vpr/train/train_params.yml```;
 The parameters for testing are in ```/fzj_vpr/utils/test_params.yml```
 
