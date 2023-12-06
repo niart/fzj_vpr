@@ -57,7 +57,7 @@ to
 ```t2 = transforms.ExpFilterEvents(tau=tau1, length = int(6*tau1), tpad=int(6*tau1), device='cuda' )``` to 
 ```t2 = transforms.ExpFilterEvents(tau=tau1, channels =4, length = int(6*tau1), tpad=int(6*tau1), device='cuda' )```;
 
-4) In 
+4) In ```anaconda3/envs/fzj_vpr/lib/python3.7/site-packages/torchneuromorphic/transforms.py/class ExpFilterEvents(FilterEvents)```, change ```groups = 2``` to ```groups = 4```.
 
 <!-- 
 An overview of TripleSumo interface:
