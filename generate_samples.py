@@ -8,7 +8,8 @@ import matplotlib.pyplot as plt
 import csv
 
 # 读取文件
-file = AedatFile("/Users/nwang/all_preprocessed_dataset/2nd_record/0_2nd_record.aedat4")
+# modify the path below to the actual path of xxx.aedat4 file
+file = AedatFile("/Users/nwang/all_preprocessed_dataset/2nd_record/0_2nd_record.aedat4") 
 # 设置多个事件保存步长
 frames_num = 50 # how many frames in a sample?
 # 设置一个事件读取步长

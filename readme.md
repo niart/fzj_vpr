@@ -12,13 +12,17 @@ The parameters for testing are in ```/fzj_vpr/utils/test_params.yml```
 The architecture of hybrid VAE is in ```fzj_vpr/utils/hybrid_beta_vae.py```;
 The training algorithm is in ```fzj_vpr/utils/hybrid_vae_guided_base.py```.
 
-### Run the experiment:
+### Run the experiment: 
 
 #### 0. Pre-process dataset
-If you start from a xxx.aedat4 file,  run ```python generate_samples.py``` to generate a series of .npy files into ```fzj_vpr/dataset/```.
+You can skip this step if you download a preprocessed dataset from xxx. Otherwise, if you start from a xxx.aedat4 file:
+
+1) Align event camera with motion capture system: 
+
+2) run ```python generate_samples.py``` to generate a series of .npy files into ```fzj_vpr/dataset/```.
 Each .npy file contains a dictionary {data, label}.
 
-You can skip this step if you download preprocessed dataset from 
+
 
 
 #### 1. Setup environment: 
