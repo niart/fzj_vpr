@@ -79,3 +79,10 @@ Steps the team needed to win along training the newly added player:
 
 [^1]: This project is built on the top of repository **[Hybrid Guided VAE](https://github.com/kennetms/Accenture_Hybrid_Guided_VAE)**. 
 
+### Evaluation for Zero-shot learning
+
+
+### Evaluation for generalization
+
+
+### Localization of robot solely based on event camera input
