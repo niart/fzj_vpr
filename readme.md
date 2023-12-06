@@ -1,3 +1,10 @@
+<p align="center">
+<img src="https://github.com/niart/fzj_vpr/blob/a29fbfb322614a81e8d9aaeaadc61e920db6f665/pic/align.png" width=50% height=50%>
+</p>
+
+
+
+
 **@Thorben:
 I have summarized the modifications I made at the top of each .py file.**
 ## Hybrid Guided VAE for Rapid Visual Place Recognition [^1]
