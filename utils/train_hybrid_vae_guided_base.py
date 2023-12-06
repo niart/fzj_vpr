@@ -1087,7 +1087,7 @@ class HybridGuidedVAETrainer():
 if __name__=="__main__":
     # use this for testing. Should have separate files with command line arguments and such to handle training and testing stuff
     
-    param_file = '/Users/nwang/wide_guided/parameters/test.yml'
+    param_file = '/fzj_vpr/utils/test_params.yml'
     dataset_path = '/Users/nwang/all_preprocessed_dataset/chop_still_50_firstcamera_0/'
     dataset_path_test = '/Users/nwang/all_preprocessed_dataset/chop_still_50_firstcamera_1/'
     

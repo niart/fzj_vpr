@@ -1,6 +1,6 @@
 # I did not modify this .py file much, except that: 
 # I modified the parameters of decoder so that it accommodates a 128*128 output from the decoder;
-# Other important settings of parameters are in 
+# Other important modifications of parameters are in /run/train_params.yml
 #!/bin/python
 #-----------------------------------------------------------------------------
 #----------------------------------------------------------------------------- 
