@@ -16,9 +16,10 @@ The training algorithm is in ```fzj_vpr/utils/hybrid_vae_guided_base.py```.
 ### To run the experiment:
 
 #### 0. Pre-process dataset
-into  ```fzj_vpr/dataset/```
+If you start from a xxx.aedat4 file,  run ```python generate_samples.py``` to generate a series of .npy files into ```fzj_vpr/dataset/```.
+Each .npy file contains a dictionary {data, label}.
 
-You can use to skip this step if you download preprocessed dataset from
+You can skip this step if you download preprocessed dataset from 
 
 
 #### 1. Setup environment: 
