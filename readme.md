@@ -1,6 +1,8 @@
 # Hybrid Guided VAE for Rapid Visual Place Recognition:
 
-A glance at **[dataset recording](https://www.youtube.com/watch?v=3YV6RFQt1Os)**;
+This project is built on the top of repository [Hybrid Guided VAE](https://github.com/kennetms/Accenture_Hybrid_Guided_VAE). 
+
+A glance at **[dataset recording](https://www.youtube.com/watch?v=3YV6RFQt1Os)**; The report of this project can be accessed [HERE](https://drive.google.com/drive/folders/1UDGhIhu8RIIPHSEBMTT_6EEVZ31Ey2lC?usp=sharing)
 
 ## To run the experiment:
 
