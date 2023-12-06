@@ -4,6 +4,15 @@ I have summarized the modifications I made at the top of each .py file.**
 
 A glance at **[dataset recording](https://www.youtube.com/watch?v=3YV6RFQt1Os)**; The report of this project can be accessed **[HERE](https://drive.google.com/drive/folders/1UDGhIhu8RIIPHSEBMTT_6EEVZ31Ey2lC?usp=sharing)**.
 
+### Key files:
+#### key settings:
+The parameters for training are in ```/fzj_vpr/run/train_params.yml```
+
+The parameters for testing are in ```/fzj_vpr/utils/test_params.yml```
+#### key algorithm:
+The architecture of hybrid VAE is in ```fzj_vpr/utils/hybrid_beta_vae.py```;
+The training algorithm is in ```fzj_vpr/utils/hybrid_vae_guided_base.py```.
+
 ### To run the experiment:
 
 #### 1. Setup environment: 
@@ -16,14 +25,6 @@ Then, ```cd fzj_vpr/utils```, and ```python train_hybrid_vae_guided_base.py```
 #### 3. To train the model yourself:
 ```cd run```, and then ```python run.py```
 
-### Key files:
-#### key settings:
-The parameters for training are in ```/fzj_vpr/run/train_params.yml```
-
-The parameters for testing are in ```/fzj_vpr/utils/test_params.yml```
-#### key algorithm:
-The architecture of hybrid VAE is in ```fzj_vpr/utils/hybrid_beta_vae.py```;
-The training algorithm is in ```fzj_vpr/utils/hybrid_vae_guided_base.py```.
 <!-- 
 An overview of TripleSumo interface:
 <p align="center">
