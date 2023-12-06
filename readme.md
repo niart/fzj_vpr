@@ -14,7 +14,7 @@ The training algorithm is in ```fzj_vpr/utils/hybrid_vae_guided_base.py```.
 
 ### Run the experiment: 
 
-#### 0. Pre-process dataset
+#### 0. Preprocess dataset
 First and foremost, ```git clone https://github.com/niart/fzj_vpr.git```;
 Then, ```cd fzj_vpr```. 
 You can skip the rest of this step if you download a preprocessed dataset from xxx. Otherwise, if you start from a xxx.aedat4 file:
@@ -80,9 +80,12 @@ Steps the team needed to win along training the newly added player:
 [^1]: This project is built on the top of repository **[Hybrid Guided VAE](https://github.com/kennetms/Accenture_Hybrid_Guided_VAE)**. 
 
 ### Evaluation for Zero-shot learning
+Firstly, go through a similar pipeline as described in `preprocess dataset` to get four small new additonal dataset representing four new places.
 
+Then add the new dataset into 
 
 ### Evaluation for generalization
+Firstly, merge the four new additonal dataset mentioned in the last section into 
 
 
 ### Localization of robot solely based on event camera input
