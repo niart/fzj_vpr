@@ -14,7 +14,7 @@ Firstly, download the model ```epoch00390.tar``` from [HERE](https://drive.googl
 Then, ```cd fzj_vpr/utils```, and ```python train_hybrid_vae_guided_base.py```
 
 ### 3. To train the model yourself:
-```cd run```, and then ```run.py```
+```cd run```, and then ```python run.py```
 
 ## key algorithm:
 The architecture of hybrid VAE is in ```fzj_vpr/utils/hybrid_beta_vae.py```;
