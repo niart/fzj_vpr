@@ -18,8 +18,9 @@ Then, ```cd fzj_vpr/utils```, and ```python train_hybrid_vae_guided_base.py```
 
 ### Key files:
 #### key settings:
-The parameters for training are in /fzj_vpr/run/train_params.yml
-The parameters for testing are in /fzj_vpr/utils/test_params.yml
+The parameters for training are in ```/fzj_vpr/run/train_params.yml``
+
+The parameters for testing are in ```/fzj_vpr/utils/test_params.yml```
 #### key algorithm:
 The architecture of hybrid VAE is in ```fzj_vpr/utils/hybrid_beta_vae.py```;
 The training algorithm is in ```fzj_vpr/utils/hybrid_vae_guided_base.py```.
