@@ -17,7 +17,8 @@ The training algorithm is in ```fzj_vpr/utils/hybrid_vae_guided_base.py```.
 #### 0. Pre-process dataset
 You can skip this step if you download a preprocessed dataset from xxx. Otherwise, if you start from a xxx.aedat4 file:
 
-1) Align event camera with motion capture system: 
+1) Align event camera with motion capture system: ```python align.py```.
+This command will generate a 
 
 2) run ```python generate_samples.py``` to generate a series of .npy files into ```fzj_vpr/dataset/```.
 Each .npy file contains a dictionary {data, label}.
