@@ -15,7 +15,9 @@ The training algorithm is in ```fzj_vpr/utils/hybrid_vae_guided_base.py```.
 ### Run the experiment: 
 
 #### 0. Pre-process dataset
-You can skip this step if you download a preprocessed dataset from xxx. Otherwise, if you start from a xxx.aedat4 file:
+First and foremost, ```git clone https://github.com/niart/fzj_vpr.git```;
+Then, ```cd fzj_vpr```. 
+You can skip the rest of this step if you download a preprocessed dataset from xxx. Otherwise, if you start from a xxx.aedat4 file:
 
 1) Align event camera with motion capture system: ```python align.py```.
 This command will generate a **`number of event per sample - sample index'** graph, something similar to:
@@ -24,21 +26,21 @@ This command will generate a **`number of event per sample - sample index'** gra
 <img src="https://github.com/niart/fzj_vpr/blob/a29fbfb322614a81e8d9aaeaadc61e920db6f665/pic/align.png" width=50% height=50%>
 </p>
 
-If you find from the Xth sample on, the number of events in one sample suddenly increases, you need this number X for the ```generate_samples.py``` in the next step.
+If you find from the Xth sample on, the number of events in one sample suddenly increases, you need this number **X** for the ```generate_samples.py``` in the next step.
 
 2) run ```python generate_samples.py``` to generate a series of .npy files into ```fzj_vpr/dataset/```.
 Each .npy file contains a dictionary {data, label}.
 
 #### 1. Setup environment: 
-First and foremost, ```git clone https://github.com/niart/fzj_vpr.git```;
-Then, ```cd fzj_vpr```, and use Anaconda to create a virtual environment `fzj_vpr' with ```conda env create -f env.yml```; Activate the virtual environment with ```conda activate fzj_vpr```.
+Use Anaconda to create a virtual environment `fzj_vpr' with ```conda env create -f env.yml```; Activate the virtual environment with ```conda activate fzj_vpr```.
 
 #### 2. To test the trained model:
 Firstly, download the model ```epoch00390.tar``` from [HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing) and put it in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```.
 Then, ```cd fzj_vpr/utils```, and ```python train_hybrid_vae_guided_base.py```
 
 #### 3. To train the model yourself:
-```cd train```, and then ```python train.py```
+```cd train```, and then ```python train.py```.
+This step will result in a series of trained models `.tar` saved in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/```.
 
 <!-- 
 An overview of TripleSumo interface:
