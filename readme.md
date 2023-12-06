@@ -16,7 +16,8 @@ The training algorithm is in ```fzj_vpr/utils/hybrid_vae_guided_base.py```.
 ### To run the experiment:
 
 #### 1. Setup environment: 
-First and foremost, use Anaconda to create a virtual environment ```fzj_vpr``` with ```conda env create -f env.yml```; Then ```conda activate fzj_vpr```. Afterwards, ```git clone https://github.com/niart/fzj_vpr.git```.
+First and foremost, ```git clone https://github.com/niart/fzj_vpr.git```;
+Then, ```cd fzj_vpr```, and use Anaconda to create a virtual environment `fzj_vpr' with ```conda env create -f env.yml```; Activate the virtual environment with ```conda activate fzj_vpr```.
 
 #### 2. To test the trained model:
 Firstly, download the model ```epoch00390.tar``` from [HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing) and put it in ```fzj_vpr/run/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```.
