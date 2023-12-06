@@ -21,7 +21,7 @@ You can skip this step if you download a preprocessed dataset from xxx. Otherwis
 This command will generate a **number of event per sample - sample index** graph, something like this:
 
 <p align="center">
-<img src="https://github.com/niart/fzj_vpr/tree/1b691bc5559082ebdda2b30962773c35fe833fd0/pic/align.png" width=50% height=50%>
+<img src="https://github.com/niart/fzj_vpr/blob/a29fbfb322614a81e8d9aaeaadc61e920db6f665/pic/align.png" width=50% height=50%>
 </p>
 
 2) run ```python generate_samples.py``` to generate a series of .npy files into ```fzj_vpr/dataset/```.
