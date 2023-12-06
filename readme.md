@@ -4,13 +4,12 @@ A glance at **[dataset recording](https://www.youtube.com/watch?v=3YV6RFQt1Os)**
 
 To run the experiment:
 
-First and foremost, use Anaconda to create a virtual environment 'fzj_vpr' with ```conda env create -f env.yml```; Then ```conda activate fzj_vpr```.
-
-Then ```git clone https://github.com/niart/fzj_vpr.git``` and ```cd fzj_vpr```
+First and foremost, use Anaconda to create a virtual environment ```fzj_vpr``` with ```conda env create -f env.yml```; Then ```conda activate fzj_vpr```. Afterwards, ```git clone https://github.com/niart/fzj_vpr.git``` and ```cd fzj_vpr```
 
 To test the trained model:
 
-Firstly, download the model ```epoch00390.tar``` from: https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing and put it in ```fzj_vpr/run/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```
+Firstly, download the model ```epoch00390.tar``` from [HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing) and put it in ```fzj_vpr/run/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```
+
 
 
 Run the experiment:
