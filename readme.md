@@ -1,9 +1,8 @@
+@Thorben:
+I have summarized the modifications I made at the top of each .py file.
 # Hybrid Guided VAE for Rapid Visual Place Recognition [^1]
 
 A glance at **[dataset recording](https://www.youtube.com/watch?v=3YV6RFQt1Os)**; The report of this project can be accessed **[HERE](https://drive.google.com/drive/folders/1UDGhIhu8RIIPHSEBMTT_6EEVZ31Ey2lC?usp=sharing)**.
-
-@Thorben:
-I have summarized the modifications I made at the top of each .py file.
 
 ### To run the experiment:
 
