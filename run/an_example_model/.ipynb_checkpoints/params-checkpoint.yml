@@ -1,0 +1,87 @@
+Nhid:
+- 32
+- 64
+- 128
+Mhid: []
+inhib_layers:
+- 100
+- 100
+- 100
+cls_sq_layers:
+- 100
+- 100
+- 100
+alpha:
+- 0.99 
+alpharp:
+- 0.65
+batch_size: 30
+beta:
+- 0.97
+betas:
+- 0.
+- 0.95
+resume_from: an_example_model/checkpoints # resume from latest checkpoint of the specified model logfile. If you don't want to resume specify None
+device: cuda:0
+vae_beta: 1.2
+dimz: 100 #20 #32 #64
+num_classes: 10 
+is_guided: 1 
+start_epoch: 0
+use_aug: 1 # use augmented data, 1 is True, 0 is false
+num_augs: 1
+burnin_steps: 100
+class_weight: 1
+chunk_size_test: 200
+chunk_size_train: 200
+dataset_dir: ../data/
+dataset: torchneuromorphic.dvs_gestures.dvsgestures_dataloaders #dvs_gestures_dataloader
+return_meta: True # for dvsgesutres, return light and user data
+time_shuffle: True # Shuffle the data being presented in the time.
+deltat: 1000
+input_shape:
+- 2
+- 32
+- 32
+output_shape:
+- 2
+- 32
+- 32
+kernel_size:
+- 5
+lc_ampl: 0.5
+learning_rate: 
+- 3.0e-3
+- 3.0e-3
+- 3.0e-3
+- 1.0e-3 
+learning_method: 'bptt'
+loss: smoothL1
+lr_drop_factor: 1.5
+lr_drop_interval: 60
+num_epochs: 200
+num_conv_layers: 3
+num_mlp_layers: 0
+num_layers: 3
+num_dl_workers: 12
+optimizer: adamax
+out_channels: 10
+online_update: False
+pool_size:
+- 2
+- 1
+- 2
+- 1
+- 1
+- 1
+random_tau: false
+reg_l:
+- .0
+- .0
+- .0
+- .0
+stride:
+- 1
+- 1
+- 1
+test_interval: 10 #10
