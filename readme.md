@@ -6,7 +6,7 @@ A glance at **[dataset recording](https://www.youtube.com/watch?v=3YV6RFQt1Os)**
 
 ### Key files:
 #### key settings:
-The parameters for training are in ```/fzj_vpr/run/train_params.yml```
+The parameters for training are in ```/fzj_vpr/train/train_params.yml```
 
 The parameters for testing are in ```/fzj_vpr/utils/test_params.yml```
 #### key algorithm:
@@ -20,11 +20,11 @@ First and foremost, ```git clone https://github.com/niart/fzj_vpr.git```;
 Then, ```cd fzj_vpr```, and use Anaconda to create a virtual environment `fzj_vpr' with ```conda env create -f env.yml```; Activate the virtual environment with ```conda activate fzj_vpr```.
 
 #### 2. To test the trained model:
-Firstly, download the model ```epoch00390.tar``` from [HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing) and put it in ```fzj_vpr/run/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```.
+Firstly, download the model ```epoch00390.tar``` from [HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing) and put it in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```.
 Then, ```cd fzj_vpr/utils```, and ```python train_hybrid_vae_guided_base.py```
 
 #### 3. To train the model yourself:
-```cd run```, and then ```python run.py```
+```cd train```, and then ```python train.py```
 
 <!-- 
 An overview of TripleSumo interface:
