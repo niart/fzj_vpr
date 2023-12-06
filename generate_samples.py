@@ -56,16 +56,14 @@ while True:
         c += 1
         if c == frames_num/2 + 1:
             label_time = event.timestamp # the timestamp of the first event in 101th frame
-            #sample from 0th, increase in 6th!!   
-            #print('label_time, starting, event_frame_time', label_time, starting, event_frame_time)
+            # replace 211 with "X" you got from align.py
+            # replace 1514 with "Y" you got from reading the records of motion capture system. 1514 refers to the index of line which contains a suddent changes in coordinates.
             label_index = 1514 + int((label_time - starting - frames_num * event_frame_time * 211)*100/(10**6)) 
-
             
-            label_index = 1514 + int((label_time - starting - 50 * 2000 * 211)*100/(10**6))  
+            # Use the line below when dealing with addtional dataset for zero-shot learning
+            #label_index = 1514 + int((label_time - starting - 50 * 2000 * 211)*100/(10**6))
+            # Replace 1519 and 17615 with the two ends at which you chops moveless records  
             if label_index > 1519 and label_index < 17615:  
-            # if save_count < 211:
-            #     label = 10  #'K'
-            # else:
                 # Open the CSV file and read its contents
                 with open(label_file, 'r') as csv_file:
                     # Create a CSV reader
@@ -90,17 +88,6 @@ while True:
                 print('the {}th sample has label'.format(save_count), label)
             
         if c == frames_num: 
-            # #plot num_events_in_a_sample -- save_count
-            # plt_num_events_in_a_sample.append(num_events_in_a_sample)
-            # plt_save_count.append(save_count)
-            # plt.plot(plt_save_count, plt_num_events_in_a_sample, marker='o', linestyle='-')
-
-            # # Add labels and a title
-            # plt.xlabel('Sample Index (starting from 1)')
-            # plt.ylabel('Number of events in a Sample_trip0_firstcamera')
-            # plt.grid(True)
-            # plt.savefig("Number of Events in a Sample_trip0_firstcamera")
-            
             num_events_in_a_sample = 0              
             c = 0  # count number of samples being saved from one dataset
 
@@ -125,7 +112,6 @@ while True:
                 np.save('/Users/nwang/all_preprocessed_dataset/chop_still_50_firstcamera_0/50_2nd_record_trip0_firstcamera_{}.npy'.format(save_count), data_dict)
                 print("50_2nd_record_trip0_firstcamera_{}.npy is saved!!!".format(save_count), 'number of events is {}!!!!!!!!!'.format(num_events_in_a_sample))
                 save_count += 1
-  
 
     except StopIteration:
         break

@@ -18,17 +18,16 @@ The training algorithm is in ```fzj_vpr/utils/hybrid_vae_guided_base.py```.
 You can skip this step if you download a preprocessed dataset from xxx. Otherwise, if you start from a xxx.aedat4 file:
 
 1) Align event camera with motion capture system: ```python align.py```.
-This command will generate a **number of event per sample - sample index** graph, something like this:
+This command will generate a **`number of event per sample - sample index'** graph, something similar to:
 
 <p align="center">
 <img src="https://github.com/niart/fzj_vpr/blob/a29fbfb322614a81e8d9aaeaadc61e920db6f665/pic/align.png" width=50% height=50%>
 </p>
 
+If you find from the Xth sample on, the number of events in one sample suddenly increases, you need this number X for the ```generate_samples.py``` in the next step.
+
 2) run ```python generate_samples.py``` to generate a series of .npy files into ```fzj_vpr/dataset/```.
 Each .npy file contains a dictionary {data, label}.
-
-
-
 
 #### 1. Setup environment: 
 First and foremost, ```git clone https://github.com/niart/fzj_vpr.git```;
