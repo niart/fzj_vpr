@@ -6,14 +6,13 @@ A glance at **[dataset recording](https://www.youtube.com/watch?v=3YV6RFQt1Os)**
 
 ### Key files:
 #### key settings:
-The parameters for training are in ```/fzj_vpr/train/train_params.yml```
-
+The parameters for training are in ```/fzj_vpr/train/train_params.yml```;
 The parameters for testing are in ```/fzj_vpr/utils/test_params.yml```
 #### key algorithm:
 The architecture of hybrid VAE is in ```fzj_vpr/utils/hybrid_beta_vae.py```;
 The training algorithm is in ```fzj_vpr/utils/hybrid_vae_guided_base.py```.
 
-### To run the experiment:
+### Run the experiment:
 
 #### 0. Pre-process dataset
 If you start from a xxx.aedat4 file,  run ```python generate_samples.py``` to generate a series of .npy files into ```fzj_vpr/dataset/```.
