@@ -18,7 +18,11 @@ The training algorithm is in ```fzj_vpr/utils/hybrid_vae_guided_base.py```.
 You can skip this step if you download a preprocessed dataset from xxx. Otherwise, if you start from a xxx.aedat4 file:
 
 1) Align event camera with motion capture system: ```python align.py```.
-This command will generate a 
+This command will generate a **number of event per sample - sample index** graph, something like this:
+
+<p align="center">
+<img src="https://github.com/niart/fzj_vpr/tree/1b691bc5559082ebdda2b30962773c35fe833fd0/pic/align.png" width=50% height=50%>
+</p>
 
 2) run ```python generate_samples.py``` to generate a series of .npy files into ```fzj_vpr/dataset/```.
 Each .npy file contains a dictionary {data, label}.
@@ -40,7 +44,7 @@ Then, ```cd fzj_vpr/utils```, and ```python train_hybrid_vae_guided_base.py```
 <!-- 
 An overview of TripleSumo interface:
 <p align="center">
-<img src="https://github.com/niart/triplesumo/blob/main/triple.png" width=50% height=50%>
+<img src="https://github.com/niart/fzj_vpr/tree/1b691bc5559082ebdda2b30962773c35fe833fd0/pic/align.png" width=50% height=50%>
 </p>
 Rewards along training the newly added player with DDPG:
 <p align="center">
