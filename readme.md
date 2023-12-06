@@ -19,7 +19,7 @@ Then, ```cd fzj_vpr/utils```, and ```python train_hybrid_vae_guided_base.py```
 ## key algorithm:
 The architecture of hybrid VAE is in ```fzj_vpr/utils/hybrid_beta_vae.py```;
 The training algorithm is in ```fzj_vpr/utils/hybrid_vae_guided_base.py```.
-
+<!-- 
 An overview of TripleSumo interface:
 <p align="center">
 <img src="https://github.com/niart/triplesumo/blob/main/triple.png" width=50% height=50%>
@@ -35,7 +35,7 @@ Wining rate of the team(red+blue) during training and testing:
 Steps the team needed to win along training the newly added player:
 <p align="center">
 <img src="https://github.com/niart/triplesumo/blob/main/steps.png" width=50% height=50%>
-</p>
+</p> -->
 
 [^1]: This project is built on the top of repository **[Hybrid Guided VAE](https://github.com/kennetms/Accenture_Hybrid_Guided_VAE)**. 
 
