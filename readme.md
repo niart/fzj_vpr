@@ -43,6 +43,9 @@ Then, ```cd fzj_vpr/utils```, and ```python train_hybrid_vae_guided_base.py```
 ```cd train```, and then ```python train.py```.
 This step will result in a series of trained models `xxx.tar` saved in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/```.
 
+#### 4. To train/test on 4-channel event frames, you need these modifications:
+1) In ```/fzj_vpr/utils/hybrid_beta_vae.py```, change ```nn.ConvTranspose2d(ngf * 2, 4, 2, 2, 0, bias=False)``` to ```nn.ConvTranspose2d(ngf * 2, 4, 2, 2, 0, bias=False)```
+
 <!-- 
 An overview of TripleSumo interface:
 <p align="center">
