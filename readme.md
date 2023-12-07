@@ -60,27 +60,12 @@ to
 ```t2 = transforms.ExpFilterEvents(tau=tau1, length = int(6*tau1), tpad=int(6*tau1), device='cuda' )``` to 
 ```t2 = transforms.ExpFilterEvents(tau=tau1, channels =4, length = int(6*tau1), tpad=int(6*tau1), device='cuda' )```;
 
-4) In ```anaconda3/envs/fzj_vpr/lib/python3.7/site-packages/torchneuromorphic/transforms.py/class ExpFilterEvents(FilterEvents)```, change ```groups = 2``` to ```groups = 4```.
+4) Modify the PIP package torchneuromorphic [^2]: 
+In ```anaconda3/envs/fzj_vpr/lib/python3.7/site-packages/torchneuromorphic/transforms.py/class ExpFilterEvents(FilterEvents)```, change ```groups = 2``` to ```groups = 4```.
 
-<!-- 
-An overview of TripleSumo interface:
-<p align="center">
-<img src="https://github.com/niart/fzj_vpr/tree/1b691bc5559082ebdda2b30962773c35fe833fd0/pic/align.png" width=50% height=50%>
-</p>
-Rewards along training the newly added player with DDPG:
-<p align="center">
-<img src="https://github.com/niart/triplesumo/blob/main/3rewards.png" width=50% height=50%>
-</p>
-Wining rate of the team(red+blue) during training and testing:
-<p align="center">
-<img src="https://github.com/niart/triplesumo/blob/main/hybrid_rate.png" width=50% height=50%>
-</p>
-Steps the team needed to win along training the newly added player:
-<p align="center">
-<img src="https://github.com/niart/triplesumo/blob/main/steps.png" width=50% height=50%>
-</p> -->
 
-[^1]: This project is built on the top of repository **[Hybrid Guided VAE](https://github.com/kennetms/Accenture_Hybrid_Guided_VAE)**. 
+
+
 
 ### Evaluation for Zero-shot learning
 Firstly, go through a similar pipeline as described in `preprocess dataset` to get four small new additonal dataset representing four new places.
@@ -97,3 +82,7 @@ Firstly, merge the four new additonal dataset mentioned in the last section into
 2) ```python similarity.py```, which step will
 
 3) ```python historgram.py```, this step will
+
+[^1]: This project is built on the top of repository **[Hybrid Guided VAE](https://github.com/kennetms/Accenture_Hybrid_Guided_VAE)**. 
+
+[^2]: https://pypi.org/project/torchneuromorphic/
