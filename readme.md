@@ -92,3 +92,8 @@ Firstly, merge the four new additonal dataset mentioned in the last section into
 
 
 ### Localization of robot solely based on event camera input
+1) ```cd localization```, and ```python generate_latent_codes```. This step will generate four dictionaries which 
+
+2) ```python similarity.py```, which step will
+
+3) ```python historgram.py```, this step will
