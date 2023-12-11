@@ -16,8 +16,10 @@ The training algorithm is in ```fzj_vpr/utils/hybrid_vae_guided_base.py```.
 
 #### 0. Preprocess dataset
 First and foremost, ```git clone https://github.com/niart/fzj_vpr.git```;
-Then, ```cd fzj_vpr```. 
+Then, ```cd fzj_vpr/preprocess```. 
 You can skip the rest of this step if you download a preprocessed dataset from xxx. Otherwise, if you start from a xxx.aedat4 file:
+
+0) Mannually divide the arena into 4*4 sections:
 
 1) Align event camera with motion capture system: ```python align.py```.
 This command will generate a **`number of event per sample - sample index'** graph, something similar to:
