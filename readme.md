@@ -21,6 +21,10 @@ You can skip the rest of this step if you download a preprocessed dataset from x
 
 0) Mannually divide the arena into 4*4 sections:
 
+<p align="center">
+<img src="https://github.com/niart/fzj_vpr/blob/be2f063e5d29da0c0a65ed16f0d867a83d281aba/pic/arena.png" width=50% height=50%>
+</p>
+
 1) Align event camera with motion capture system: ```python align.py```.
 This command will generate a **`number of event per sample - sample index'** graph, something similar to:
 
