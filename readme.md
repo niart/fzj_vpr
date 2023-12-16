@@ -33,7 +33,7 @@ At the same time, in the termnial, the representing color for each class will be
 <p align="center">
 <img src="https://github.com/niart/fzj_vpr/blob/15af6c2fc26ec1858ee1ab15de003f94b57eb2fc/pic/colors.png" width=20% height=20%>
 </p>
-This color list will be used for TSNE project in ```/fzj_vpr/utils/train_hybrid_vae_guided_base.py```.
+This color list will be used for TSNE project in ```fzj_vpr/utils/train_hybrid_vae_guided_base.py```.
 
 B) Align event camera with motion capture system: ```python align.py```.
 This command will generate a **`number of event per sample - sample index'** graph, something similar to:
