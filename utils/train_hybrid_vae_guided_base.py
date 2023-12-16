@@ -163,11 +163,7 @@ class GestureDataset():
         # 提取data和label
         data = data_dict['data']
         label = data_dict['label']
-        #print('loaded data is.........', data)
-        #print('loaded label is..........', label)
-        one_hot_label = self.one_hot_encode(int(label))
-        #print('one_hot_label is............', one_hot_label)
-        
+        one_hot_label = self.one_hot_encode(int(label))        
         # data = data.astype(np.float32)
         # print(data.shape)
 
@@ -176,15 +172,9 @@ class GestureDataset():
         # Parameters
         time_steps = 50
         num_classes = 16
-
-        # Create a random tensor with values between 0 and 15
-        # target = torch.randint(0, 15, (time_steps, num_classes))
         target = [one_hot_label[:] for _ in range(time_steps)]
         #print('target is...........', target)
         return data, torch.tensor(target, dtype=torch.float32), torch.tensor(0, dtype=torch.float32), torch.tensor(0, dtype=torch.float32)
-
-
-
 
 class HybridGuidedVAETrainer():
     def __init__(self, param_file, dataset_path, dataset_path_test, use_other=False, ds=4):
@@ -211,20 +201,12 @@ class HybridGuidedVAETrainer():
         self.args.resume_from = self.params['resume_from']#
         if self.args.resume_from != 'None':
             self.checkpoint_dir = self.args.resume_from
-
-
         verbose = self.args.verbose
 
         self.device = self.params['device'] 
         ## Load Data
 
-        # dataset = importlib.import_module(self.params['dataset'])
-        # self.mapping = dataset.mapping
-        
-        
         self.filter_data, self.process_target = generate_process_target(self.params)
-        
-        # self.mapping = mapping
         
         self.generate_data_batch_from_aedat4(dataset_path, dataset_path_test, ds)
         
@@ -316,9 +298,6 @@ class HybridGuidedVAETrainer():
                 print('{}{} : {}'.format(k, ' ' * (m - len(k)), v))
 
         print('\n------Starting training Hybrid VAE-------') 
-
-
-
         # --------TRAINING LOOP----------
         self.num_classes = self.params['num_classes']
     
