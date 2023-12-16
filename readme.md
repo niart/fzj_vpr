@@ -35,7 +35,7 @@ B) Align event camera with motion capture system: ```python align.py```.
 This command will generate a **`number of event per sample - sample index'** graph, something similar to:
 
 <p align="center">
-<img src="https://github.com/niart/fzj_vpr/blob/a29fbfb322614a81e8d9aaeaadc61e920db6f665/pic/align.png" width=50% height=50%>
+<img src="https://github.com/niart/fzj_vpr/blob/15af6c2fc26ec1858ee1ab15de003f94b57eb2fc/pic/colors.png" width=50% height=50%>
 </p>
 
 If you find from the Xth sample on, the number of events in one sample suddenly increases, you need this number **X** for the ```generate_samples.py``` in the next step.
