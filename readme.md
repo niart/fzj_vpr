@@ -29,13 +29,17 @@ Then, ```python grid_heatmap_label.py```. This step will create a x_label.csv fi
 <p align="center">
 <img src="https://github.com/niart/fzj_vpr/blob/be2f063e5d29da0c0a65ed16f0d867a83d281aba/pic/arena.png" width=50% height=50%>
 </p>
-At the same time, in the termnial, the representing color for each class will be printed out. This color list will be used for TSNE project in ```/fzj_vpr/utils/train_hybrid_vae_guided_base.py```.
+At the same time, in the termnial, the representing color for each class will be printed out:
+<p align="center">
+<img src="https://github.com/niart/fzj_vpr/blob/15af6c2fc26ec1858ee1ab15de003f94b57eb2fc/pic/colors.png" width=20% height=20%>
+</p>
+This color list will be used for TSNE project in ```/fzj_vpr/utils/train_hybrid_vae_guided_base.py```.
 
 B) Align event camera with motion capture system: ```python align.py```.
 This command will generate a **`number of event per sample - sample index'** graph, something similar to:
 
 <p align="center">
-<img src="https://github.com/niart/fzj_vpr/blob/15af6c2fc26ec1858ee1ab15de003f94b57eb2fc/pic/colors.png" width=20% height=20%>
+<img src="https://github.com/niart/fzj_vpr/blob/363c64f121bfc2623518ce963be659dd7659912c/pic/align.png" width=50% height=50%>
 </p>
 
 If you find from the Xth sample on, the number of events in one sample suddenly increases, you need this number **X** for the ```generate_samples.py``` in the next step.
