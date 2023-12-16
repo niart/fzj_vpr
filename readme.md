@@ -29,7 +29,7 @@ Then, ```python grid_heatmap_label.py```. This step will create a x_label.csv fi
 <p align="center">
 <img src="https://github.com/niart/fzj_vpr/blob/be2f063e5d29da0c0a65ed16f0d867a83d281aba/pic/arena.png" width=50% height=50%>
 </p>
-At the same time, in the termnial
+At the same time, in the termnial, the representing color for each class will be printed out. This color list will be used for TSNE project in ```/fzj_vpr/utils/train_hybrid_vae_guided_base.py```.
 
 B) Align event camera with motion capture system: ```python align.py```.
 This command will generate a **`number of event per sample - sample index'** graph, something similar to:
