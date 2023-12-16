@@ -20,11 +20,12 @@ Then, ```cd fzj_vpr/preprocess```.
 You can skip the rest of this step if you download a preprocessed dataset from xxx. Otherwise, if you start from a xxx.aedat4 file:
 
 A) Mannually divide the arena into 4*4 sections:
-Firstly, ```python get_turtle```. This step is to take (X, Y) coordinates of turtlebot from the motion capture records of multiple objects, resulting in tutle_trip_x.csv
 
+Firstly, ```python get_turtle.py```. This step is to take (X, Y) coordinates of the turtlebot from the motion capture records of multiple objects, resulting in tutle_trip_x.csv. 
 Use ```interpolation.py``` to fill in empty entries if there're empty entries in tutle_trip_x.csv.
+We also need a file all_turtle.csv which contains all entries of turtlebot coordinates from different trips. You can do so by manually merging all tutle_trip_x.csv, or slightly modify ```get_turtle.py```.
 
-```python ```
+Then, ```python grid_heatmap_label.py```. This step will create a x_label.csv file which adds a columnb of "labels" 0-15 (or letters) to the tutle_trip_x.csv. It will also output a graph visualizing robot trajectory and the dividing of sections:
 
 <p align="center">
 <img src="https://github.com/niart/fzj_vpr/blob/be2f063e5d29da0c0a65ed16f0d867a83d281aba/pic/arena.png" width=50% height=50%>
