@@ -25,13 +25,13 @@ Firstly, ```python get_turtle.py```. This step is to take (X, Y) coordinates of 
 Use ```interpolation.py``` to fill in empty entries if there're empty entries in tutle_trip_x.csv.
 We also need a file all_turtle.csv which contains all entries of turtlebot coordinates from different trips. You can do so by manually merging all tutle_trip_x.csv, or slightly modify ```get_turtle.py```.
 
-Then, ```python grid_heatmap_label.py```. This step will create a x_label.csv file which adds a columnb of "labels" 0-15 (or letters) to the tutle_trip_x.csv. It will also output a graph visualizing robot trajectory and the dividing of sections:
-
+Then, ```python grid_heatmap_label.py```. This step will create a x_label.csv file which adds a columnb of "labels" 0-15 (or letters) to the tutle_trip_x.csv. It will also output a graph visualizing robot trajectory and the dividing of sections, as shown below:
 <p align="center">
 <img src="https://github.com/niart/fzj_vpr/blob/be2f063e5d29da0c0a65ed16f0d867a83d281aba/pic/arena.png" width=50% height=50%>
 </p>
+At the same time, in the termnial
 
-1) Align event camera with motion capture system: ```python align.py```.
+B) Align event camera with motion capture system: ```python align.py```.
 This command will generate a **`number of event per sample - sample index'** graph, something similar to:
 
 <p align="center">
@@ -40,7 +40,7 @@ This command will generate a **`number of event per sample - sample index'** gra
 
 If you find from the Xth sample on, the number of events in one sample suddenly increases, you need this number **X** for the ```generate_samples.py``` in the next step.
 
-2) run ```python generate_samples.py``` to generate a series of .npy files into ```fzj_vpr/dataset/```.
+C) run ```python generate_samples.py``` to generate a series of .npy files into ```fzj_vpr/dataset/```.
 Each .npy file contains a dictionary {data, label}.
 
 #### 1. Setup environment: 
