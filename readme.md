@@ -49,7 +49,7 @@ Each .npy file contains a dictionary {data, label}.
 
 #### 1. Setup environment: 
 Use Anaconda to create a virtual environment `fzj_vpr' with ```conda env create -f env.yml```; 
-Activate the virtual environment with ```conda activate fzj_vpr```.
+Then ```conda activate fzj_vpr```.
 
 #### 2. To test the trained model:
 Firstly, download the trained model ```epoch00390.tar``` from [HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing) and put it in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```.
