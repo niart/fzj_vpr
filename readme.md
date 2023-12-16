@@ -19,8 +19,8 @@ First and foremost, ```git clone https://github.com/niart/fzj_vpr.git```;
 Then, ```cd fzj_vpr/preprocess```. 
 You can skip the rest of this step if you download a preprocessed dataset from xxx. Otherwise, if you start from a xxx.aedat4 file:
 
-0) Mannually divide the arena into 4*4 sections:
-```python get_turtle``` This step is to take (X, Y) coordinates of turtlebot from the motion capture records of multiple objects, resulting in tutle_trip_x.csv
+A) Mannually divide the arena into 4*4 sections:
+Firstly, ```python get_turtle```. This step is to take (X, Y) coordinates of turtlebot from the motion capture records of multiple objects, resulting in tutle_trip_x.csv
 
 Use ```interpolation.py``` to fill in empty entries if there're empty entries in tutle_trip_x.csv.
 
