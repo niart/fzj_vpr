@@ -45,11 +45,12 @@ This command will generate a **`number of event per sample - sample index'** gra
 If you find from the Xth sample on, the number of events in one sample suddenly increases, you need this number **X** for the ```generate_samples.py``` in the next step.
 
 C) run ```python generate_samples.py``` to generate a series of .npy files into ```fzj_vpr/dataset/```.
-Each .npy file contains a dictionary {data, label}.
+Each .npy file contains a dictionary {data, label}. 
+This will be the actual dataset for training and testing.
 
 #### 1. Setup environment: 
 Use Anaconda to create a virtual environment `fzj_vpr' with ```conda env create -f env.yml```; 
-Then ```conda activate fzj_vpr```.
+Then ```conda activate fzj_vpr```
 
 #### 2. To test the trained model:
 Firstly, download the trained model ```epoch00390.tar``` from [HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing) and put it in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```.
