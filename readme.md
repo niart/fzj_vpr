@@ -47,7 +47,10 @@ If you find from the Xth sample on, the number of events in one sample suddenly 
 C) run ```python generate_samples.py``` (or ```python generate_samples_4channel.py``` if you're working on 4-channel event frames) to generate a series of .npy files into ```fzj_vpr/dataset/```.
 Each .npy file contains a dictionary {data, label}. 
 This will be the actual dataset for training and testing.
-If you need samples from the RGB frames for comparison, run ```python save_png.py```. This script preprocess the RGB frames in the same pipeline. 
+If you need samples from the RGB frames for comparison, run ```python save_png.py```. This script preprocess the RGB frames in the same pipeline. In this set of samples, in the name of each sample, the number after word "label" is the label, and the number after workd "timestamp" is the timestamp. 
+<p align="center">
+<img src="https://github.com/niart/fzj_vpr/blob/363c64f121bfc2623518ce963be659dd7659912c/pic/align.png" width=50% height=50%>
+</p>
 
 #### 1. Setup environment: 
 Use Anaconda to create a virtual environment `fzj_vpr' with ```conda env create -f env.yml```; 
