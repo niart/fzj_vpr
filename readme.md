@@ -76,16 +76,22 @@ to
 2) In ```train_params.yml``` or ```test_params.yml```, change ```input_shape: - 2``` to ```input_shape: - 4``` and ```output_shape: - 2``` to ```output_shape: - 4```;
 
 3) In ```/fzj_vpr/utils/utils.py/def generate_process_target()```, change 
-
-
 ```python
 t1 = transforms.ExpFilterEvents(tau=tau2, length = int(6*tau2), tpad=int(6*tau2), device='cuda' )
 ```
 to
-
-```t1 = transforms.ExpFilterEvents(tau=tau2, channels =4, length = int(6*tau2), tpad=int(6*tau2), device='cuda' )``` and 
-```t2 = transforms.ExpFilterEvents(tau=tau1, length = int(6*tau1), tpad=int(6*tau1), device='cuda' )``` to 
-```t2 = transforms.ExpFilterEvents(tau=tau1, channels =4, length = int(6*tau1), tpad=int(6*tau1), device='cuda' )```;
+```python
+t1 = transforms.ExpFilterEvents(tau=tau2, channels =4, length = int(6*tau2), tpad=int(6*tau2), device='cuda' )
+``` 
+and 
+```python
+t2 = transforms.ExpFilterEvents(tau=tau1, length = int(6*tau1), tpad=int(6*tau1), device='cuda' )
+``` 
+to 
+```python
+t2 = transforms.ExpFilterEvents(tau=tau1, channels =4, length = int(6*tau1), tpad=int(6*tau1), device='cuda')
+```
+;
 
 4) Modify the PIP package ```torchneuromorphic``` [^2]: 
 In ```anaconda3/envs/fzj_vpr/lib/python3.7/site-packages/torchneuromorphic/transforms.py/class ExpFilterEvents(FilterEvents)```, change ```groups = 2``` to ```groups = 4```.
