@@ -92,7 +92,7 @@ In ```anaconda3/envs/fzj_vpr/lib/python3.7/site-packages/torchneuromorphic/trans
 
 
 
-### Evaluation for Zero-shot learning
+### Evaluation for zero-shot classification
 Firstly, go through a similar pipeline as described in `preprocess dataset` to get four small new additonal dataset representing four new places.
 
 Then add the new dataset into 
