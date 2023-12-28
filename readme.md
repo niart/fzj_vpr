@@ -77,11 +77,10 @@ to
 
 3) In ```/fzj_vpr/utils/utils.py/def generate_process_target()```, change 
 
-<button onclick="copyToClipboard()">Copy</button>
 
 ```python
 t1 = transforms.ExpFilterEvents(tau=tau2, length = int(6*tau2), tpad=int(6*tau2), device='cuda' )
-
+```
 to
 
 ```t1 = transforms.ExpFilterEvents(tau=tau2, channels =4, length = int(6*tau2), tpad=int(6*tau2), device='cuda' )``` and 
