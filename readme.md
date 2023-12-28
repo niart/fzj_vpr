@@ -79,9 +79,8 @@ to
 
 <button onclick="copyToClipboard()">Copy</button>
 
-<script>
+```python
 t1 = transforms.ExpFilterEvents(tau=tau2, length = int(6*tau2), tpad=int(6*tau2), device='cuda' )
-</script>
 
 to
 
