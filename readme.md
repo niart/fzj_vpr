@@ -94,7 +94,15 @@ t2 = transforms.ExpFilterEvents(tau=tau1, channels =4, length = int(6*tau1), tpa
 ;
 
 4) Modify the PIP package ```torchneuromorphic``` [^2]: 
-In ```anaconda3/envs/fzj_vpr/lib/python3.7/site-packages/torchneuromorphic/transforms.py/class ExpFilterEvents(FilterEvents)```, change ```groups = 2``` to ```groups = 4```.
+In ```anaconda3/envs/fzj_vpr/lib/python3.7/site-packages/torchneuromorphic/transforms.py/class ExpFilterEvents(FilterEvents)```, change 
+```python
+groups = 2
+``` 
+to 
+```python
+groups = 4
+```
+.
 
 
 
