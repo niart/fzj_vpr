@@ -69,11 +69,32 @@ This step will result in a series of trained models `xxx.tar` saved in ```fzj_vp
 
 #### 4. To train/test on 4-channel event frames, you need these modifications:
 1) In ```/fzj_vpr/utils/hybrid_beta_vae.py```, change 
-```nn.ConvTranspose2d(ngf * 2, 4, 2, 2, 0, bias=False)``` 
+```python
+nn.ConvTranspose2d(ngf * 2, 4, 2, 2, 0, bias=False)
+``` 
 to 
-```nn.ConvTranspose2d(ngf * 2, 4, 2, 2, 0, bias=False)```;
+```python
+nn.ConvTranspose2d(ngf * 2, 4, 2, 2, 0, bias=False)
+```
+;
 
-2) In ```train_params.yml``` or ```test_params.yml```, change ```input_shape: - 2``` to ```input_shape: - 4``` and ```output_shape: - 2``` to ```output_shape: - 4```;
+2) In ```train_params.yml``` or ```test_params.yml```, change 
+```python
+input_shape: - 2
+``` 
+to 
+```python
+input_shape: - 4
+``` 
+and 
+```python
+output_shape: - 2
+``` 
+to 
+```python
+output_shape: - 4
+```
+;
 
 3) In ```/fzj_vpr/utils/utils.py/def generate_process_target()```, change 
 ```python
