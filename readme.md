@@ -17,7 +17,7 @@ The training algorithm is in ```fzj_vpr/utils/hybrid_vae_guided_base.py```.
 #### 0. Preprocess dataset
 First and foremost, ```git clone https://github.com/niart/fzj_vpr.git```;
 Then, ```cd fzj_vpr/preprocess```. 
-You can skip the rest of this step if you download preprocessed datasets (titled "wide/narrow_tripx.zip") from [HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing). Otherwise, if you start from a xxx.aedat4 file:
+You can skip the rest of this step if you download preprocessed datasets (titled "wide/narrow_tripx.zip") from [HERE](https://drive.google.com/drive/folders/1Tz2tVOaChiXmHDxMNNozGww2RLLo5FZ2?usp=sharing). Otherwise, if you start from a xxx.aedat4 file:
 
 A) Mannually divide the arena into 4*4 sections:
 
@@ -57,7 +57,7 @@ Use Anaconda to create a virtual environment `fzj_vpr' with ```conda env create 
 Then ```conda activate fzj_vpr```. 
 
 #### 2. To test the trained model:
-Firstly, download the trained model ```epoch00390.tar``` from [HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing) and put it in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```.
+Firstly, download the trained model ```epoch00390.tar``` from [HERE](https://drive.google.com/drive/folders/15F9Gf88z_g6yJmNX8b13HkPkOqwbVwlE?usp=sharing) and put it in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```.
 Then, ```cd fzj_vpr/utils```, and ```python train_hybrid_vae_guided_base.py```;
 The testing dataset path is indicated in ```fzj_vpr/```
 
@@ -123,19 +123,19 @@ groups = 4
 
 ### Evaluation for zero-shot classification
 This evaluation is to investigate if this model is able to distinguish a new place from familiar places without any continued pre-training. 
-Firstly, go through a similar pipeline as described in `preprocess dataset` to get four small new additonal dataset representing four new places. Then add the new dataset into the training dataset. Alternatively, download the preprocessed sample from [HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing). 
+Firstly, go through a similar pipeline as described in `preprocess dataset` to get four small new additonal dataset representing four new places. Then add the new dataset into the training dataset. Alternatively, download the preprocessed sample (testing dataset plus one of four new places) from [HERE](https://drive.google.com/drive/folders/15F9Gf88z_g6yJmNX8b13HkPkOqwbVwlE?usp=sharing). 
 Also download the trained model ```epoch00390.tar``` and put it in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```.
 Then, ```cd fzj_vpr/utils```, and ```python evaluation_zero_shot.py```; Remember to modify the path to the dataset through ```dataset_path_test =``` in ```evaluation_zero_shot.py```
 
 ### Evaluation for generalization
 This evaluation is to investigate if this model is able to distinguish several new places when it's surrounded by a complately new environment, without any continued pre-training. 
-Firstly, merge the four new additonal dataset mentioned in the last section into one. Alternatively, download the preprocessed samples ```generalization_samples.zip``` from [HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing). 
+Firstly, merge the four new additonal dataset mentioned in the last section into one. Alternatively, download the preprocessed samples ```generalization_samples.zip```(containing four new places) from [HERE](https://drive.google.com/drive/folders/17qiy4RDu7-7BOo3-SE6ze-fjyQQlz-9o?usp=sharing). 
 Also download the trained model ```epoch00390.tar``` and put it in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```.
 Then, ```cd fzj_vpr/utils```, and ```python evaluation_generalization.py```; Remember to modify the path to the dataset through ```dataset_path_test =``` in ```evaluation_generalization.py```
 
 ### Localization of robot solely based on event camera input
 1) ```cd fzj_vpr/utils```, and ```python localize.py```. This step will generate four dictionaries seq_reference{}.pkl and seq_query{}.pkl, where {} will be the number of samples in either reference dataset (used for training) or query dataset (used for inference).  Mannually delete two of the four which contain unmatched number (for example, if you have 1000 samples in training dataset, you will keep seq_reference1000.pkl and delete the other seq_reference{}.pkl).
-Alternatively, download the preprocessed dictionary from HERE.
+Alternatively, download the preprocessed dictionaries from [HERE](https://drive.google.com/drive/folders/1BpLt6OM6WEpOh230yqi85enrvKnR8Pe9?usp=sharing).
 Also download the trained model ```epoch00390.tar``` and put it in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```.
 The path in ```localize.py/dataset_path =``` should direct to the dataset used for training, and the path in ```localize.py/dataset_path_test =``` should direct to the dataset intended for localization.
 
