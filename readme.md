@@ -134,7 +134,7 @@ Also download the trained model ```epoch00390.tar``` and put it in ```fzj_vpr/tr
 Then, ```cd fzj_vpr/utils```, and ```python evaluation_generalization.py```; Remember to modify the path to the dataset through ```dataset_path_test =``` in ```evaluation_generalization.py```
 
 ### Localization of robot solely based on event camera input
-1) ```cd localization```, and ```python generate_latent_codes```. This step will generate four dictionaries which 
+1) ```cd fzj_vpr/utils```, and ```python localize.py```. This step will generate four dictionaries which 
 
 2) ```python similarity.py```, which step will
 
