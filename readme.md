@@ -135,10 +135,9 @@ Firstly, go through a similar pipeline as described in `preprocess dataset` to g
 Then add the new dataset into 
 
 ### Evaluation for generalization
-Firstly, merge the four new additonal dataset mentioned in the last section into 
-
-Download the preprocessed samples ```generalization_samples.zip``` from [HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing)
-
+Firstly, merge the four new additonal dataset mentioned in the last section into one. Alternatively, download the preprocessed samples ```generalization_samples.zip``` from [HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing)
+Also download the trained model ```epoch00390.tar``` and put it in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```.
+Then, ```cd fzj_vpr/utils```, and ```python evaluation_generalization.py```; Remember to modify the path to the dataset through ```dataset_path_test =``` in ```evaluation_generalization.py```
 
 ### Localization of robot solely based on event camera input
 1) ```cd localization```, and ```python generate_latent_codes```. This step will generate four dictionaries which 
