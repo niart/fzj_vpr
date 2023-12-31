@@ -134,7 +134,10 @@ Also download the trained model ```epoch00390.tar``` and put it in ```fzj_vpr/tr
 Then, ```cd fzj_vpr/utils```, and ```python evaluation_generalization.py```; Remember to modify the path to the dataset through ```dataset_path_test =``` in ```evaluation_generalization.py```
 
 ### Localization of robot solely based on event camera input
-1) ```cd fzj_vpr/utils```, and ```python localize.py```. This step will generate four dictionaries which 
+1) ```cd fzj_vpr/utils```, and ```python localize.py```. This step will generate four dictionaries seq_reference{}.pkl and seq_query{}.pkl, where {} will be the number of samples in either reference dataset (used for training) or query dataset (used for inference).  Mannually delete two of the four which contain unmatched number (for example, if you have 1000 samples in training dataset, you will keep seq_reference1000.pkl and delete the other seq_reference{}.pkl).
+Alternatively, download the preprocessed dictionary from HERE.
+Also download the trained model ```epoch00390.tar``` and put it in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```.
+The path in ```localize.py/dataset_path =``` should direct to the dataset used for training, and the path in ```localize.py/dataset_path_test =``` should direct to the dataset intended for localization.
 
 2) ```python similarity.py```, which step will
 
