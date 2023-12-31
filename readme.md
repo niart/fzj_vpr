@@ -141,7 +141,7 @@ Then, ```cd fzj_vpr/utils```, and ```python evaluation_generalization.py```; Rem
 3) ```python historgram.py```, this step will
 
 ### Compare this model a SNN on RGB data from the same view.
-This evaluation is to investigate the performance of place classification in comparison to that from [^2].
+This evaluation is to investigate the performance of place classification in comparison to that from [^3].
 
 
 [^1]: This project is built on the top of repository **[Hybrid Guided VAE](https://github.com/kennetms/Accenture_Hybrid_Guided_VAE)**. 
