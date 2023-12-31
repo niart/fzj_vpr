@@ -130,11 +130,13 @@ groups = 4
 
 
 ### Evaluation for zero-shot classification
+This evaluation is to investigate if this model is able to distinguish a new place from familiar places without any continued pre-training. 
 Firstly, go through a similar pipeline as described in `preprocess dataset` to get four small new additonal dataset representing four new places.
 
 Then add the new dataset into 
 
 ### Evaluation for generalization
+This evaluation is to investigate if this model is able to distinguish several new places when it's surrounded by a complately new environment, without any continued pre-training. 
 Firstly, merge the four new additonal dataset mentioned in the last section into one. Alternatively, download the preprocessed samples ```generalization_samples.zip``` from [HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing)
 Also download the trained model ```epoch00390.tar``` and put it in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```.
 Then, ```cd fzj_vpr/utils```, and ```python evaluation_generalization.py```; Remember to modify the path to the dataset through ```dataset_path_test =``` in ```evaluation_generalization.py```
