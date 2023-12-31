@@ -181,7 +181,7 @@ cd ..
 cd fzj_vpr/localization
 python similarity.py
 ```
-This step will generate a file `5_Seq_similarity_results.csv' which contains a table with entries: 'Highest Cosine Similarity', 'Distance', 'Query Coordinate', 'Reference Coordinate';
+This step will generate a file `5_Seq_similarity_results.csv` which contains a table with entries: 'Highest Cosine Similarity', 'Distance', 'Query Coordinate', 'Reference Coordinate';
 At the same time, this step will also output a `error - index of sample` graph.
 
 3) ```python historgram.py```, this step will read file `5_Seq_similarity_results.csv' and generate a histogram of error distribution;
