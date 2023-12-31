@@ -76,7 +76,6 @@ to
 ```python
 nn.ConvTranspose2d(ngf * 2, 4, 2, 2, 0, bias=False)
 ```
-;
 
 2) In ```train_params.yml``` or ```test_params.yml```, change 
 ```python
@@ -94,7 +93,6 @@ to
 ```python
 output_shape: - 4
 ```
-;
 
 3) In ```/fzj_vpr/utils/utils.py/def generate_process_target()```, change 
 ```python
@@ -112,7 +110,6 @@ to
 ```python
 t2 = transforms.ExpFilterEvents(tau=tau1, channels =4, length = int(6*tau1), tpad=int(6*tau1), device='cuda')
 ```
-;
 
 4) Modify the PIP package ```torchneuromorphic``` [^2]: 
 In ```anaconda3/envs/fzj_vpr/lib/python3.7/site-packages/torchneuromorphic/transforms.py/class ExpFilterEvents(FilterEvents)```, change 
@@ -123,11 +120,6 @@ to
 ```python
 groups = 4
 ```
-.
-
-
-
-
 
 ### Evaluation for zero-shot classification
 This evaluation is to investigate if this model is able to distinguish a new place from familiar places without any continued pre-training. 
