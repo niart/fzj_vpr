@@ -184,7 +184,7 @@ python similarity.py
 This step will generate a file `5_Seq_similarity_results.csv` which contains a table with entries: 'Highest Cosine Similarity', 'Distance', 'Query Coordinate', 'Reference Coordinate';
 At the same time, this step will also output a `error - index of sample` graph.
 
-3) ```python historgram.py```, this step will read file `5_Seq_similarity_results.csv' and generate a histogram of error distribution;
+3) ```python historgram.py```, this step will read file `5_Seq_similarity_results.csv` and generate a histogram of error distribution;
 
 4)  ```python historgram.py```, this step will compute how the percentage of results that are within a certain tolerance (e.g., 0.5 meters). 
 
