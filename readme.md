@@ -52,8 +52,16 @@ If you need samples from the RGB frames for comparison, run ```python save_png.p
 </p>
 
 #### 1. Setup environment: 
-Use Anaconda to create a virtual environment `fzj_vpr' with ```conda env create -f env.yml```; 
-Then ```conda activate fzj_vpr```. 
+Use Anaconda to create a virtual environment `fzj_vpr' with 
+```python 
+conda env create -f env.yml
+```
+; 
+Then 
+```python 
+conda activate fzj_vpr
+```
+. 
 
 #### 2. To test the trained model:
 Firstly, download the trained model ```epoch00390.tar``` from [HERE](https://drive.google.com/drive/folders/15F9Gf88z_g6yJmNX8b13HkPkOqwbVwlE?usp=sharing) and put it in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```.
@@ -63,7 +71,12 @@ The testing dataset path is indicated in ```fzj_vpr/```
 Have a look at Tensorboard by running: ```tensorbord --logdir= --port=```, where you will see 
 
 #### 3. To train the model yourself:
-```cd train```, and then ```python train.py```.
+```python 
+cd train
+
+python train.py
+```
+.
 This step will result in a series of trained models `xxx.tar` saved in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/```.
 
 #### 4. To train/test on 4-channel event frames, you need these modifications:
