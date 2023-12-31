@@ -19,11 +19,15 @@ First and foremost,
 git clone https://github.com/niart/fzj_vpr.git
 cd fzj_vpr/preprocess
 ``` 
-You can skip the rest of this step if you download preprocessed datasets (titled "wide/narrow_tripx.zip") from [HERE](https://drive.google.com/drive/folders/1Tz2tVOaChiXmHDxMNNozGww2RLLo5FZ2?usp=sharing). Otherwise, if you start from a xxx.aedat4 file:
+You can skip the rest of this step if you download preprocessed datasets (titled `wide/narrow_tripx.zip`) from [HERE](https://drive.google.com/drive/folders/1Tz2tVOaChiXmHDxMNNozGww2RLLo5FZ2?usp=sharing). Otherwise, if you start from a xxx.aedat4 file:
 
 A) Mannually divide the arena into 4*4 sections:
 
-Firstly, ```python get_turtle.py```. This step is to take (X, Y) coordinates of the turtlebot from the motion capture records of multiple objects, resulting in tutle_trip_x.csv. 
+Firstly, 
+```python 
+python get_turtle.py
+```
+This step is to take (X, Y) coordinates of the turtlebot from the motion capture records of multiple objects, resulting in tutle_trip_x.csv. 
 Use ```interpolation.py``` to fill in empty entries if there're empty entries in tutle_trip_x.csv.
 We also need a file all_turtle.csv which contains all entries of turtlebot coordinates from different trips. You can do so by manually merging all tutle_trip_x.csv, or slightly modify ```get_turtle.py```.
 
@@ -50,7 +54,11 @@ This command will generate a **`number of event per sample - sample index'** gra
 
 If you find from the **X**th sample on, the number of events in one sample suddenly increases, you need this number **X** for the ```generate_samples.py``` in the next step.
 
-C) run ```python generate_samples.py``` (or ```python generate_samples_4channel.py``` if you're working on 4-channel event frames) to generate a series of .npy files into ```fzj_vpr/dataset/```.
+C) Run
+```python 
+python generate_samples.py
+``` 
+(or ```python generate_samples_4channel.py``` if you're working on 4-channel event frames) to generate a series of .npy files into ```fzj_vpr/dataset/```.
 Each .npy file contains a dictionary {data, label}. 
 This will be the actual dataset for training and testing.
 If you need samples from the RGB frames for comparison, run ```python save_png.py```. This script preprocess the RGB frames in the same pipeline. In this set of samples, in the name of each sample, the number after word "label" is the label, and the number after workd "timestamp" is the timestamp. To save time, you can download the preprocessed RGB samples (```rgb.zip```) from [HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing).
@@ -81,8 +89,7 @@ Have a look at Tensorboard by running: ```tensorbord --logdir= --port=```, where
 cd train
 python train.py
 ```
-.
-This step will result in a series of trained models `xxx.tar` saved in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/```.
+This step will result in a series of trained models (every 10 epochs) `number_of_epochs.tar` saved in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/```.
 
 #### 4. To train/test on 4-channel event frames, you need these modifications:
 1) In ```/fzj_vpr/utils/hybrid_beta_vae.py```, change 
