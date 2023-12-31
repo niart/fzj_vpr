@@ -73,7 +73,6 @@ Have a look at Tensorboard by running: ```tensorbord --logdir= --port=```, where
 #### 3. To train the model yourself:
 ```python 
 cd train
-
 python train.py
 ```
 .
