@@ -139,9 +139,11 @@ Alternatively, download the preprocessed dictionary from HERE.
 Also download the trained model ```epoch00390.tar``` and put it in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/Oct29_13-10-57_pgi15-gpu5.iff.kfa-juelich.de/checkpoints/```.
 The path in ```localize.py/dataset_path =``` should direct to the dataset used for training, and the path in ```localize.py/dataset_path_test =``` should direct to the dataset intended for localization.
 
-2) ```python similarity.py```, which step will
+2) ```cd ..``` and ```cd fzj_vpr/localization```, then ```python similarity.py```, which step will generate a file `5_Seq_similarity_results.csv' which contains a table with entries: 'Highest Cosine Similarity', 'Distance', 'Query Coordinate', 'Reference Coordinate';
 
-3) ```python historgram.py```, this step will
+3) ```python historgram.py```, this step will read file `5_Seq_similarity_results.csv' and generate a histogram of error distribution;
+
+4)  ```python historgram.py```, this step will compute how the percentage of results that are within a certain tolerance (e.g., 0.5 meters). 
 
 ### Compare this model a SNN on RGB data from the same view.
 This evaluation is to investigate the performance of place classification in comparison to that from [^3].
