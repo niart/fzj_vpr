@@ -2,6 +2,7 @@
 ## Hybrid Guided VAE for Rapid Visual Place Recognition [^1]
 
 A glance at **[dataset recording](https://www.youtube.com/watch?v=3YV6RFQt1Os)**. 
+
 Download our dataset at **[HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing)**. 
 
 ### A quick look at key files:
