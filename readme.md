@@ -93,6 +93,7 @@ python train.py
 ```
 This step will result in a series of trained models (every 10 epochs) `number_of_epochs.tar` saved in ```fzj_vpr/train/logs/train_hybrid_vae_guided_base/default/```.
 
+<!--
 #### 4. To train/test on 4-channel event frames, you need these modifications:
 1) In ```/fzj_vpr/utils/hybrid_beta_vae.py```, change 
 ```python
@@ -146,6 +147,7 @@ to
 ```python
 groups = 4
 ```
+-->
 
 ### Evaluation for zero-shot classification
 This evaluation is to investigate if this model is able to distinguish a new place from familiar places without any continued pre-training. 
