@@ -65,7 +65,7 @@ Each .npy file contains a dictionary {data, label}.
 This will be the actual dataset for training and testing.
 If you need samples from the RGB frames for comparison, run ```python save_png.py```. This script preprocess the RGB frames in the same pipeline. In this set of samples, in the name of each sample, the number after word "label" is the label, and the number after workd "timestamp" is the timestamp. To save time, you can download the preprocessed RGB samples (```rgb.zip```) from [HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing).
 <p align="center">
-<img src="https://github.com/niart/fzj_vpr/blob/9ad4efaacccc3de8674c8d16ed8fcd573cd0a3e9/pic/rgb.png" width=50% height=50%>
+<img src="https://github.com/niart/fzj_vpr/blob/b407e5319897777a98aef113c64ecedfdade19e0/pic/merged_image2.png" width=50% height=50%>
 </p>
 
 #### 1. Setup environment: 
