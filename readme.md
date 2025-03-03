@@ -59,7 +59,8 @@ C) Run
 ```python 
 python generate_samples.py
 ``` 
-(or ```python generate_samples_4channel.py``` if you're working on 4-channel event frames) to generate a series of .npy files into ```fzj_vpr/dataset/```.
+<!--(or ```python generate_samples_4channel.py``` if you're working on 4-channel event frames) -->
+to generate a series of .npy files into ```fzj_vpr/dataset/```.
 Each .npy file contains a dictionary {data, label}. 
 This will be the actual dataset for training and testing.
 If you need samples from the RGB frames for comparison, run ```python save_png.py```. This script preprocess the RGB frames in the same pipeline. In this set of samples, in the name of each sample, the number after word "label" is the label, and the number after workd "timestamp" is the timestamp. To save time, you can download the preprocessed RGB samples (```rgb.zip```) from [HERE](https://github.com/niart/fzj_vpr/blob/05006faf79213c0665bed30899a03077b0e748ce/merged_image2.png).
