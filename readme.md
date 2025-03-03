@@ -51,7 +51,7 @@ B) Align event camera with motion capture system: ```python align.py```.
 This command will generate a **`number of event per sample - sample index'** graph, something similar to:
 
 <p align="center">
-<img src="https://github.com/niart/fzj_vpr/blob/363c64f121bfc2623518ce963be659dd7659912c/pic/align.png" width=100% height=50%>
+<img src="https://github.com/niart/fzj_vpr/blob/363c64f121bfc2623518ce963be659dd7659912c/pic/align.png" width=50% height=50%>
 </p>
 
 If you find from the **X**th sample on, the number of events in one sample suddenly increases, you need this number **X** for the ```generate_samples.py``` in the next step.
@@ -65,7 +65,7 @@ Each .npy file contains a dictionary {data, label}.
 This will be the actual dataset for training and testing.
 If you need samples from the RGB frames for comparison, run ```python save_png.py```. This script preprocess the RGB frames in the same pipeline. In this set of samples, in the name of each sample, the number after word "label" is the label, and the number after workd "timestamp" is the timestamp. To save time, you can download the preprocessed RGB samples (```rgb.zip```) from [HERE](https://drive.google.com/drive/folders/1N3tMr3MM-Fo_GN2T5B4C52VfnCZsQSbC?usp=sharing).
 <p align="center">
-<img src="https://github.com/niart/fzj_vpr/blob/b407e5319897777a98aef113c64ecedfdade19e0/pic/merged_image2.png" width=50% height=50%>
+<img src="https://github.com/niart/fzj_vpr/blob/b407e5319897777a98aef113c64ecedfdade19e0/pic/merged_image2.png" width=100% height=50%>
 </p>
 
 #### 1. Setup environment: 
