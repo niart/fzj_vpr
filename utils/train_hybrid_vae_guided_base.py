@@ -20,6 +20,8 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 # Get the parent directory and append it to sys.path
 parent_dir = os.path.abspath(os.path.join(current_dir, ".."))
 sys.path.append(parent_dir)
+import glob
+from torch.utils.data import DataLoader
 
 # Now you can import the function from the decolle package
 from decolle.utils import (
@@ -246,7 +248,8 @@ class HybridGuidedVAETrainer:
 
         self.filter_data, self.process_target = generate_process_target(self.params)
 
-        self.generate_data_batch_from_aedat4(dataset_path, dataset_path_test, ds)
+        #self.generate_data_batch_from_aedat4(dataset_path, dataset_path_test, ds)
+        self.generate_data_batches(dataset_path, dataset_path_test, ds)
 
         # d, t = next(iter(train_dl))
         self.input_shape = self.data_batch.shape[-3:]
@@ -391,122 +394,25 @@ class HybridGuidedVAETrainer:
         print("\n------Starting training Hybrid VAE-------")
         # --------TRAINING LOOP----------
         self.num_classes = self.params["num_classes"]
+ 
+    def load_data(self, root, batch_size, chunk_size):
+        """Creates a DataLoader for train or test data."""
+        file_paths = glob.glob(os.path.join(root, "*.npy"))
+        sample_shuffle=self.params["sample_shuffle"]
+        num_workers=self.params["num_dl_workers"]
+        dataset = GestureDataset(file_paths, chunk_size=chunk_size)
+        return DataLoader(dataset, batch_size=batch_size, shuffle=sample_shuffle, num_workers=num_workers)
 
-    def generate_data_batch_from_aedat4(self, dataset_path, dataset_path_test, ds):
-        """
-        Generates a batch of data to ensure the data loader is working
-        as well as providing some data to plot images for comparison
-        to reconstructed images
-
-        inputs:
-            - NeuromorphicDataset dataset: A torchneuromorphic dataloader
-            - string dataset_path: The path to the .hdf5 file containing the data to load from
-        """
-        # try:
-        #     create_data = dataset.create_data
-        # except AttributeError:
-        #     create_data = dataset.create_dataloader
-
-        # print("Is this working???",self.params['return_meta'])
-
-        self.train_dl, self.test_dl = self.create_mydata(
-            root_train=dataset_path,
-            root_test=dataset_path_test,
-            chunk_size_train=self.params["chunk_size_train"],
-            chunk_size_test=self.params["chunk_size_test"],
-            batch_size=self.params["batch_size"],
-            dt=self.params["deltat"],
-            num_workers=self.params["num_dl_workers"],
-            return_meta=self.params["return_meta"],  # True,
-            time_shuffle=self.params["time_shuffle"],
-            ds=ds,
-        )  # True)#True)
+    def generate_data_batches(self, dataset_path, dataset_path_test, ds=4):
+        """Initializes train and test dataloaders."""
+        self.train_dl = self.load_data(dataset_path, self.params["batch_size"], self.params["chunk_size_train"])
+        self.test_dl = self.load_data(dataset_path_test, self.params["batch_size"], self.params["chunk_size_test"])
 
         self.data_batch, self.target_batch, _, _ = next(iter(self.train_dl))
+        self.data_batch = self.data_batch.to(self.device)
+        self.target_batch = self.target_batch.to(self.device)
+        print(f"Data batch shape: {self.data_batch.shape}")       
 
-        # if not self.use_other:
-        #     self.data_batch = self.data_batch[self.target_batch[:,-1,:].argmax(1)!=10]
-
-        self.data_batch = torch.Tensor(self.data_batch).to(self.device)
-        print("data_batch shape = ", self.data_batch.shape)
-        self.target_batch = torch.Tensor(self.target_batch).to(self.device)
-
-    def create_mydata(
-        self,
-        root_train="data/npy_data",
-        root_test="data/npy_data",
-        batch_size=1,
-        chunk_size_train=500,
-        chunk_size_test=1800,
-        ds=None,
-        dt=1000,
-        transform_train=None,
-        transform_test=None,
-        target_transform_train=None,
-        target_transform_test=None,
-        n_events_attention=None,
-        return_meta=False,
-        sample_shuffle=True,  # changed from true by Ni
-        time_shuffle=True,  # changed from True by Ni
-        **dl_kwargs,
-    ):
-        if ds is None:
-            ds = 4
-        if isinstance(ds, int):
-            ds = [ds, ds]
-
-        file_names_train = os.listdir(root_train)
-        file_names_test = os.listdir(root_test)
-        events_data_path_train = []
-        events_data_path_test = []
-        # train_ratio = 0.7
-        for file in file_names_train:
-            event_img_path = os.path.join(root_train, file)
-            print("loading training data:", os.path.join(root_train, file))
-            events_data_path_train.append(event_img_path)
-
-        for file in file_names_test:
-            event_img_path = os.path.join(root_test, file)
-            print("loading testing data:", os.path.join(root_test, file))
-            events_data_path_test.append(event_img_path)
-
-        events_data_train = (
-            events_data_path_train  # [0:int(train_ratio * len(events_data_path))]
-        )
-        events_data_test = (
-            events_data_path_test  # [int(train_ratio * len(events_data_path)):]
-        )
-
-        train_d = GestureDataset(
-            events_data_train,
-            train=True,
-            transform=transform_train,
-            target_transform=target_transform_train,
-            chunk_size=chunk_size_train,
-            return_meta=return_meta,
-            time_shuffle=time_shuffle,
-        )
-
-        train_dl = torch.utils.data.DataLoader(
-            train_d, batch_size=batch_size, shuffle=sample_shuffle, **dl_kwargs
-        )
-        # train_dl = torch.utils.data.DataLoader(train_d, batch_size=batch_size, shuffle=False, **dl_kwargs)
-
-        test_d = GestureDataset(
-            events_data_test,
-            transform=transform_test,
-            target_transform=target_transform_test,
-            train=False,
-            chunk_size=chunk_size_test,
-            return_meta=return_meta,
-            time_shuffle=time_shuffle,
-        )  # WAS FALSE
-
-        test_dl = torch.utils.data.DataLoader(
-            test_d, batch_size=batch_size, shuffle=False, **dl_kwargs
-        )
-
-        return train_dl, test_dl
 
     def loss_fn(self, recon_x, x, mu, logvar, vae_beta=4.0):
         """

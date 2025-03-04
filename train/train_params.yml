@@ -38,6 +38,7 @@ dataset_dir: ../data/
 dataset: torchneuromorphic.dvs_gestures.dvsgestures_dataloaders #dvs_gestures_dataloader
 return_meta: True # for dvsgesutres, return light and user data
 time_shuffle: True # Shuffle the data being presented in the time.
+sample_shuffle: True # Shuffle the data being presented in the time.
 deltat: 1000
 input_shape:
 - 2
