@@ -36,7 +36,6 @@ from decolle.utils import MultiOpt
 from torchneuromorphic import transforms
 from tqdm import tqdm
 import math
-import sys
 from utils import generate_process_target
 import argparse
 from torch.nn.parallel import DataParallel
@@ -59,13 +58,13 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--data-file",
-        default="/home/sabrina/mygithub/fzj_vpr/dataset/chop_still_50_firstcamera_0",
+        default="/home/sabrina/dataset/chop_still_50_firstcamera_0",
         type=str,
         help="Path to the file the data is in, should be hdf5 compatible with torchneuromorphic.",
     )
     parser.add_argument(
         "--data-file-test",
-        default="/home/sabrina/mygithub/fzj_vpr/dataset/chop_still_50_firstcamera_1",
+        default="/home/sabrina/dataset/chop_still_50_firstcamera_1",
         type=str,
         help="Path to the file the data is in, should be hdf5 compatible with torchneuromorphic.",
     )
