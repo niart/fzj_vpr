@@ -15,14 +15,14 @@ alpha:
 - 0.99 
 alpharp:
 - 0.65
-batch_size: 8
+batch_size: 2
 beta:
 - 0.97
 betas:
 - 0.
 - 0.95
 resume_from: None #an_example_model/checkpoints # resume from latest checkpoint of the specified model logfile. If you don't want to resume specify None
-device: cuda:1
+device: cuda #cuda:1
 vae_beta: 1.2
 dimz: 64 #20 #32 #64
 num_classes: 16 

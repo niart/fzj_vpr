@@ -39,8 +39,8 @@ if __name__=="__main__":
     parser = argparse.ArgumentParser('HGVAE')
     
     parser.add_argument('--params-file', default = 'train_params.yml', type=str, help='Path to the parameter config file.') 
-    parser.add_argument('--data-file', default = '/Users/nwang/all_preprocessed_dataset/chop_still_50_firstcamera_1/', type=str, help='Path to the file the data is in, should be hdf5 compatible with torchneuromorphic.')
-    parser.add_argument('--data-file-test', default = '/Users/nwang/all_preprocessed_dataset/chop_still_50_firstcamera_0/', type=str, help='Path to the file the data is in, should be hdf5 compatible with torchneuromorphic.')
+    parser.add_argument('--data-file', default = '/home/sabrina/mygithub/fzj_vpr/dataset/chop_still_50_firstcamera_0', type=str, help='Path to the file the data is in, should be hdf5 compatible with torchneuromorphic.')
+    parser.add_argument('--data-file-test', default = '/home/sabrina/mygithub/fzj_vpr/dataset/chop_still_50_firstcamera_1', type=str, help='Path to the file the data is in, should be hdf5 compatible with torchneuromorphic.')
     parser.add_argument('--ds', default = 4, type=int, help='input downsample factor.')
     args = parser.parse_args()
     

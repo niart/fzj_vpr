@@ -41,7 +41,7 @@ from torchvision.transforms import *
 
 import pdb
 
-from dv import AedatFile
+#from dv import AedatFile
 from scipy.ndimage import zoom
 epsilon = sys.float_info.epsilon
 np.set_printoptions(precision=4)
