@@ -188,6 +188,7 @@ class GestureDataset:
         time_steps = 50
         num_classes = 16
         target = [one_hot_label[:] for _ in range(time_steps)]
+
         return (
             data,
             torch.tensor(target, dtype=torch.float32),
