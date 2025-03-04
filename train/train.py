@@ -74,10 +74,10 @@ if __name__ == "__main__":
 
     param_file = (
         args.params_file
-    )  #'parameters/params_hybridvae_dvsgestures-guidedbeta-noaug-Copy1.yml'
+    )  # Alternatively, directly put the path to the config file, for example: 'parameters/params_hybridvae_dvsgestures-guidedbeta-noaug-Copy1.yml'
     dataset_path_train = (
         args.data_file
-    )  #'/home/kennetms/Documents/data/dvs_gestures.hdf5'
+    )  # Alternatively, directly put the path to the config file, for example: '/home/kennetms/Documents/data/dvs_gestures.hdf5'
     dataset_path_test = args.data_file_test
     ds = args.ds
 
