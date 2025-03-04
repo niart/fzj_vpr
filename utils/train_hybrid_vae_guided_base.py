@@ -148,7 +148,6 @@ class GestureDataset:
         time_shuffle=False,
     ):
 
-        self.n = 0
         self.download_and_create = download_and_create
         self.data = data
         self.train = train
@@ -157,10 +156,8 @@ class GestureDataset:
         self.time_shuffle = time_shuffle
         self.transform = transform
 
-        self.n = len(self.data)
-
     def __len__(self):
-        return self.n
+        return len(self.data)
         # return 1000
 
     def one_hot_encode(self, class_index):
