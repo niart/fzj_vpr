@@ -248,7 +248,7 @@ class HybridGuidedVAETrainer:
 
         self.filter_data, self.process_target = generate_process_target(self.params)
 
-        #self.generate_data_batch_from_aedat4(dataset_path, dataset_path_test, ds)
+        # self.generate_data_batch_from_aedat4(dataset_path, dataset_path_test, ds)
         self.generate_data_batches(dataset_path, dataset_path_test, ds)
 
         # d, t = next(iter(train_dl))
@@ -394,25 +394,33 @@ class HybridGuidedVAETrainer:
         print("\n------Starting training Hybrid VAE-------")
         # --------TRAINING LOOP----------
         self.num_classes = self.params["num_classes"]
- 
+
     def load_data(self, root, batch_size, chunk_size):
         """Creates a DataLoader for train or test data."""
         file_paths = glob.glob(os.path.join(root, "*.npy"))
-        sample_shuffle=self.params["sample_shuffle"]
-        num_workers=self.params["num_dl_workers"]
+        sample_shuffle = self.params["sample_shuffle"]
+        num_workers = self.params["num_dl_workers"]
         dataset = GestureDataset(file_paths, chunk_size=chunk_size)
-        return DataLoader(dataset, batch_size=batch_size, shuffle=sample_shuffle, num_workers=num_workers)
+        return DataLoader(
+            dataset,
+            batch_size=batch_size,
+            shuffle=sample_shuffle,
+            num_workers=num_workers,
+        )
 
     def generate_data_batches(self, dataset_path, dataset_path_test, ds=4):
         """Initializes train and test dataloaders."""
-        self.train_dl = self.load_data(dataset_path, self.params["batch_size"], self.params["chunk_size_train"])
-        self.test_dl = self.load_data(dataset_path_test, self.params["batch_size"], self.params["chunk_size_test"])
+        self.train_dl = self.load_data(
+            dataset_path, self.params["batch_size"], self.params["chunk_size_train"]
+        )
+        self.test_dl = self.load_data(
+            dataset_path_test, self.params["batch_size"], self.params["chunk_size_test"]
+        )
 
         self.data_batch, self.target_batch, _, _ = next(iter(self.train_dl))
         self.data_batch = self.data_batch.to(self.device)
         self.target_batch = self.target_batch.to(self.device)
-        print(f"Data batch shape: {self.data_batch.shape}")       
-
+        print(f"Data batch shape: {self.data_batch.shape}")
 
     def loss_fn(self, recon_x, x, mu, logvar, vae_beta=4.0):
         """
