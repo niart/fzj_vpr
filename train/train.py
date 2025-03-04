@@ -21,6 +21,7 @@ from decolle.utils import (
     prepare_experiment,
     write_stats,
     cross_entropy_one_hot,
+    MultiOpt,
 )
 
 # from utils import save_checkpoint, load_model_from_checkpoint
@@ -28,14 +29,11 @@ import datetime, os, socket
 import numpy as np
 import torch
 from torch import nn
-import importlib
 from itertools import chain
 import matplotlib.pyplot as plt
 from torchvision.utils import make_grid
-from decolle.utils import MultiOpt
 from torchneuromorphic import transforms
 from tqdm import tqdm
-import math
 from utils import generate_process_target
 import argparse
 from torch.nn.parallel import DataParallel
