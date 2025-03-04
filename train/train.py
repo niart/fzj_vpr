@@ -24,7 +24,7 @@ from decolle.utils import (
 )
 
 # from utils import save_checkpoint, load_model_from_checkpoint
-import datetime, os, socket, tqdm
+import datetime, os, socket
 import numpy as np
 import torch
 from torch import nn
