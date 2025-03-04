@@ -34,7 +34,7 @@ from decolle.utils import (
     cross_entropy_one_hot,
 )
 
-import datetime, os, socket, tqdm
+import datetime, socket
 import numpy as np
 import torch
 from torch import nn
@@ -49,6 +49,7 @@ import math
 from utils import generate_process_target
 
 from torchvision.transforms import *
+
 # from torchneuromorphic.transforms import *
 
 import pdb
@@ -179,6 +180,11 @@ class GestureDataset:
         data = data_dict["data"]
         label = data_dict["label"]
         one_hot_label = self.one_hot_encode(int(label))
+
+        # Try using one_hot from torch??
+        # label = torch.tensor(int(data_dict["label"]), dtype=torch.long)
+        # one_hot_label = torch.nn.functional.one_hot(label, num_classes=16).float()
+
         # data = data.astype(np.float32)
         # print(data.shape)
 
@@ -188,13 +194,21 @@ class GestureDataset:
         time_steps = 50
         num_classes = 16
         target = [one_hot_label[:] for _ in range(time_steps)]
-
         return (
             data,
             torch.tensor(target, dtype=torch.float32),
             torch.tensor(0, dtype=torch.float32),
             torch.tensor(0, dtype=torch.float32),
         )
+
+    #     # Try using one_hot from torch??
+    #     target = one_hot_label.unsqueeze(0).repeat(time_steps, 1)  # Ensure proper shape
+    #     return (
+    #     torch.tensor(data, dtype=torch.float32),
+    #     target,  # Now correctly formatted as a tensor
+    #     torch.tensor([0.0], dtype=torch.float32),  # Use a list to avoid scalar conversion issues
+    #     torch.tensor([0.0], dtype=torch.float32),  # Use a list to avoid scalar conversion issues
+    # )
 
 
 class HybridGuidedVAETrainer:
