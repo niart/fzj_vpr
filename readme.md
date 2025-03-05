@@ -193,9 +193,12 @@ At the same time, this step will also output a `error - index of sample` graph.
 
 4)  ```python historgram.py```, this step will compute how the percentage of results that are within a certain tolerance (e.g., 0.5 meters). 
 
-#### 3. Compare this model a SNN on RGB data from the same view.
+#### 3. Compare this model to a SNN on RGB data from the same view.
 This evaluation is to investigate the performance of place classification in comparison to that from [^3].
 the rest is coming ...
+
+#### 4. Compare the generalization of this model to VGG16 attached NetVlad and spiking VGG attached NetVad
+See our another [repository](https://github.com/niart/SNN_NetVlad?tab=readme-ov-file#snn-for-visual-place-recognition-with-netvlad).
 
 
 [^1]: This project is built on the top of repository **[Hybrid Guided VAE](https://github.com/kennetms/Accenture_Hybrid_Guided_VAE)**. 
