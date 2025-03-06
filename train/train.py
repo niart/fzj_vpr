@@ -10,7 +10,7 @@ from train_hybrid_vae_guided_base import Guide, HybridGuidedVAETrainer
 import matplotlib
 
 matplotlib.use("Agg")
-from hybrid_beta_vae import Reshape, VAE
+from hybrid_beta_vae import Reshape, VQVAE
 from decolle.utils import (
     parse_args,
     train,
@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
     parser.add_argument(
         "--params-file",
-        default="train_params.yml",
+        default="/home/sabrina/mygithub/fzj_vpr/train/train_params.yml",
         type=str,
         help="Path to the parameter config file.",
     )

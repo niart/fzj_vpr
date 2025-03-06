@@ -12,14 +12,59 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 # Get the parent directory and append it to sys.path
 parent_dir = os.path.abspath(os.path.join(current_dir, ".."))
 sys.path.append(parent_dir)
-
 # Now you can import the function from the decolle package
 from decolle.base_model import *
 from decolle.lenet_decolle_model import LenetDECOLLE
-
 from collections import OrderedDict
-
 import pdb
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import numpy as np
+
+
+class VectorQuantizer(nn.Module):
+    def __init__(self, num_embeddings, embedding_dim, commitment_cost=0.25):
+        super(VectorQuantizer, self).__init__()
+        self.embedding_dim = embedding_dim  # Should be 64
+        self.num_embeddings = num_embeddings  # Size of the VQ codebook
+        self.commitment_cost = commitment_cost
+
+        # Initialize embedding table (Codebook)
+        self.embedding = nn.Embedding(self.num_embeddings, self.embedding_dim)
+        self.embedding.weight.data.uniform_(
+            -1 / self.num_embeddings, 1 / self.num_embeddings
+        )
+
+    def forward(self, z_e):
+        # z_e is what comes out of bottleneck layer (64D)
+        # Reshape to (batch_size, latent_dim)
+        z_e_flattened = z_e.view(-1, self.embedding_dim)
+
+        # Compute L2 distance between input and embedding vectors
+        distances = (
+            torch.sum(z_e_flattened**2, dim=1, keepdim=True)
+            + torch.sum(self.embedding.weight**2, dim=1)
+            - 2 * torch.matmul(z_e_flattened, self.embedding.weight.t())
+        )
+
+        # Find nearest embedding
+        encoding_indices = torch.argmin(distances, dim=1)
+        quantized = self.embedding(encoding_indices).view(z_e.shape)
+
+        # If all latent vectors map to only a few embeddings,
+        # the VQ layer isn’t learning diverse representations.
+        # How to check? Track how many different embeddings are used during training:
+        # unique_codes = torch.unique(encoding_indices).numel()
+        # print(f"Unique codes used: {unique_codes}/{self.num_embeddings}")
+
+        # # Compute loss for VQ (Commitment + Codebook)
+        # commitment_loss = F.mse_loss(quantized.detach(), z_e)
+        # codebook_loss = F.mse_loss(quantized, z_e.detach())
+        # vq_loss = commitment_loss + codebook_loss
+
+        return quantized  # , encoding_indices  #, vq_loss
 
 
 class SpikingLenetEncoder(LenetDECOLLE):
@@ -176,7 +221,7 @@ class CLS_SQ(nn.Module):
         pass
 
 
-class VAE(nn.Module):
+class VQVAE(nn.Module):
     def __init__(
         self,
         input_shape,
@@ -186,7 +231,7 @@ class VAE(nn.Module):
         dimz=64,
         encoder_params={},
     ):
-        super(VAE, self).__init__()
+        super(VQVAE, self).__init__()
 
         self.input_shape = input_shape
         self.seq_len = seq_len
@@ -212,11 +257,19 @@ class VAE(nn.Module):
             with_output_layer=True,
         )
 
-        self.encoder_head = nn.ModuleDict(
-            {
-                "mu": nn.Linear(out_features, self.dimz),
-                "logvar": nn.Linear(out_features, self.dimz),
-            }
+        # self.encoder_head = nn.ModuleDict(
+        #     {
+        #         "mu": nn.Linear(out_features, self.dimz),
+        #         "logvar": nn.Linear(out_features, self.dimz),
+        #     }
+        # )
+
+        # Fully Connected Bottleneck Layer (128 → 64)
+        self.bottleneck = nn.Linear(out_features, dimz)
+
+        # VQ Layer
+        self.vq_layer = VectorQuantizer(
+            num_embeddings=encoder_params["codebook_size"], embedding_dim=dimz
         )
 
         # for 128x128
@@ -233,30 +286,38 @@ class VAE(nn.Module):
             nn.ReLU(),
         )
 
-        self.dimz = dimz
-        self.init_parameters(self.seq_len, self.input_shape)
+        # self.init_parameters(self.seq_len, self.input_shape)
 
         self.cls_sq = CLS_SQ(encoder_params).to(self.device)
 
-    def init_parameters(self, seq_len, input_shape):
-        self.encoder_head["logvar"].weight.data[:] *= 1e-16
-        self.encoder_head["logvar"].bias.data[:] *= 1e-16
-        # self.encoder_head['mu'].weight.data[:] *= 1e-16
-        # self.encoder_head['mu'].bias.data[:] *= 1e-16
-        return
+    # def init_parameters(self, seq_len, input_shape):
+    #     self.encoder_head["logvar"].weight.data[:] *= 1e-16
+    #     self.encoder_head["logvar"].bias.data[:] *= 1e-16
+    #     # self.encoder_head['mu'].weight.data[:] *= 1e-16
+    #     # self.encoder_head['mu'].bias.data[:] *= 1e-16
+    #     return
 
-    def encoder_forward(self, x):
-        return self.encoder(x)
+    # def encoder_forward(self, x):
+    #     return self.encoder(x)
+
+    # def encode(self, x):
+    #     s = self.encoder(x)[0]
+    #     h1 = torch.nn.functional.leaky_relu(s)
+    #     return self.encoder_head["mu"](h1), self.encoder_head["logvar"](h1)
 
     def encode(self, x):
-        s = self.encoder(x)[0]
+        s = self.encoder(x)[0]  # Spiking encoder output
         h1 = torch.nn.functional.leaky_relu(s)
-        return self.encoder_head["mu"](h1), self.encoder_head["logvar"](h1)
+        z_e = self.bottleneck(h1)  # Reduce to 64D
+        # Normalize z_e before quantization to prevent extreme values from dominating L2 distances.
+        z_e = F.normalize(z_e, dim=-1)  # Normalize before VQ
+        quantized = self.vq_layer(z_e)  # Apply VQ
+        return quantized, z_e
 
-    def reparameterize(self, mu, logvar):
-        std = torch.exp(0.5 * logvar)  # - 1
-        eps = torch.randn_like(std)
-        return mu + eps * std
+    # def reparameterize(self, mu, logvar):
+    #     std = torch.exp(0.5 * logvar)  # - 1
+    #     eps = torch.randn_like(std)
+    #     return mu + eps * std
 
     def decode(self, z):
         return self.decoder(z)
@@ -268,16 +329,22 @@ class VAE(nn.Module):
 
         return exc_z
 
+    # def forward(self, x):
+    #     mu, logvar = self.encode(x)
+
+    #     z = self.reparameterize(mu, logvar)
+
+    #     excite_z = self.excite_z(z, self.num_classes).to(self.device)
+
+    #     clas = self.cls_sq(excite_z)
+
+    #     return self.decode(z), mu, logvar, clas
+
     def forward(self, x):
-        mu, logvar = self.encode(x)
-
-        z = self.reparameterize(mu, logvar)
-
-        excite_z = self.excite_z(z, self.num_classes).to(self.device)
-
+        quantized, z_e = self.encode(x)
+        excite_z = self.excite_z(quantized, self.num_classes).to(self.device)
         clas = self.cls_sq(excite_z)
-
-        return self.decode(z), mu, logvar, clas
+        return self.decode(quantized), quantized, z_e, clas
 
 
 class CustomLIFLayer(LIFLayer):

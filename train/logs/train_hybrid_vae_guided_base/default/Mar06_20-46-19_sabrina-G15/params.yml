@@ -39,7 +39,6 @@ dataset: torchneuromorphic.dvs_gestures.dvsgestures_dataloaders #dvs_gestures_da
 return_meta: True # for dvsgesutres, return light and user data
 time_shuffle: True # Shuffle the data being presented in the time.
 sample_shuffle: True # Shuffle the data being presented in the time.
-codebook_size: 512
 deltat: 1000
 input_shape:
   - 2
@@ -69,6 +68,7 @@ num_dl_workers: 12
 optimizer: adamax
 out_channels: 16
 online_update: False
+codebook_size: 512
 pool_size:
   - 2
   - 1

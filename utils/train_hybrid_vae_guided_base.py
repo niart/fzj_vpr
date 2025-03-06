@@ -12,7 +12,7 @@ sys.path.insert(1, "../utils")
 import matplotlib
 
 matplotlib.use("Agg")
-from hybrid_beta_vae import Reshape, VAE
+from hybrid_beta_vae import Reshape, VQVAE
 
 # Get the current script's directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -40,6 +40,7 @@ import datetime, socket
 import numpy as np
 import torch
 from torch import nn
+import torch.nn.functional as F
 import importlib
 from itertools import chain
 import matplotlib.pyplot as plt
@@ -243,7 +244,10 @@ class HybridGuidedVAETrainer:
             self.checkpoint_dir = self.args.resume_from
         verbose = self.args.verbose
 
-        self.device = self.params["device"]
+        # self.device = self.params["device"]
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        print(f"🚀 Using device: {self.device}")
+
         ## Load Data
 
         self.filter_data, self.process_target = generate_process_target(self.params)
@@ -269,7 +273,7 @@ class HybridGuidedVAETrainer:
         else:
             ngf = 16
 
-        self.net = VAE(
+        self.net = VQVAE(
             input_shape=self.params["input_shape"],
             ngf=ngf,
             out_features=out_features,
@@ -329,7 +333,8 @@ class HybridGuidedVAETrainer:
             eps=1e-4,
         )
         opt2 = torch.optim.Adam(
-            chain(*[self.net.encoder_head.parameters(), self.net.decoder.parameters()]),
+            # chain(*[self.net.encoder_head.parameters(), self.net.decoder.parameters()]),
+            chain(*[self.net.bottleneck.parameters(), self.net.vq_layer.parameters(), self.net.decoder.parameters()]),
             lr=self.params["learning_rate"][1],
         )
         if self.params["is_guided"]:
@@ -422,7 +427,7 @@ class HybridGuidedVAETrainer:
         self.target_batch = self.target_batch.to(self.device)
         print(f"Data batch shape: {self.data_batch.shape}")
 
-    def loss_fn(self, recon_x, x, mu, logvar, vae_beta=4.0):
+    def loss_fn(self, recon_x, x, quantized, z_e, vae_beta=4.0):
         """
         VAE loss function using KL Divergence
 
@@ -437,32 +442,39 @@ class HybridGuidedVAETrainer:
             - float: The total loss between the reconstruction loss and kld loss
         """
         # pdb.set_trace()
+        # Reconstruction Loss
         llhood = torch.nn.functional.mse_loss(recon_x, x)
-        # negKLD = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
-        kld_loss = torch.mean(
-            -0.5 * torch.sum(1 + logvar - mu**2 - logvar.exp(), dim=1), dim=0
-        ) / len(self.train_dl)
-        # print(llhood,kld_loss)
-        return llhood + vae_beta * kld_loss
+        # # negKLD = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
+        # kld_loss = torch.mean(
+        #     -0.5 * torch.sum(1 + logvar - mu**2 - logvar.exp(), dim=1), dim=0
+        # ) / len(self.train_dl)
+        # # print(llhood,kld_loss)
 
-    def train_step(self, s, x):
-        """
-        Normal VAE training step without the guided part
+        # Compute loss for VQ (Commitment + Codebook)
+        commitment_loss = F.mse_loss(quantized.detach(), z_e)
+        codebook_loss = F.mse_loss(quantized, z_e.detach())
+        vq_loss = commitment_loss + codebook_loss
 
-        inputs:
-            - torch s: raw event data
-            - torch x: time surface of event data
+        return llhood + vae_beta * vq_loss
 
-        outputs:
-            - float loss.data: the loss
-        """
-        self.net.train()
-        y, mu, logvar = self.net(s)
-        loss = self.loss_fn(y, x, mu, logvar, self.params["vae_beta"])
-        loss.backward()
-        self.opt.step()
-        self.opt.zero_grad()
-        return loss.data
+    # def train_step(self, s, x):
+    #     """
+    #     Normal VAE training step without the guided part
+
+    #     inputs:
+    #         - torch s: raw event data
+    #         - torch x: time surface of event data
+
+    #     outputs:
+    #         - float loss.data: the loss
+    #     """
+    #     self.net.train()
+    #     y, mu, logvar = self.net(s)
+    #     loss = self.loss_fn(y, x, mu, logvar, self.params["vae_beta"])
+    #     loss.backward()
+    #     self.opt.step()
+    #     self.opt.zero_grad()
+    #     return loss.data
 
     def print_grads(self):
         """
@@ -546,8 +558,9 @@ class HybridGuidedVAETrainer:
         self.opt.zero_grad()
         # opt_excite.zero_grad()
         hot_ts = self.batch_one_hot(t)
-        y, mu, logvar, clas = self.net(s)
-        loss = self.loss_fn(y, x, mu, logvar, vae_beta)
+        y, quantized, z_e, clas = self.net(s)
+        loss = self.loss_fn(y, x, quantized, z_e, vae_beta)
+
         clas_loss = (
             self.inhib_criterion(clas, hot_ts.to(self.device))
             * self.params["class_weight"]
@@ -563,7 +576,12 @@ class HybridGuidedVAETrainer:
         # and actual targets.
         self.opt.zero_grad()
         # opt_inhib.zero_grad()
-        z = self.net.reparameterize(mu, logvar).detach()
+
+        # z = self.net.reparameterize(mu, logvar).detach()
+        # !!!!!!!!!!!!!!!!
+        quantized = self.net.vq_layer(z_e) 
+        z = quantized
+        
         inhib_z = self.inhib.inhibit_z(z).to(self.device)
 
         excite_output = self.inhib(inhib_z)
@@ -582,8 +600,12 @@ class HybridGuidedVAETrainer:
         # exactly why or if there's stuff that could be changed to make it better.
         self.opt.zero_grad()
         self.opt_excititory.zero_grad()  # separate but same optimizer that is in the multiopt??? Doe this do anything???
-        mu, logvar = self.net.encode(s)
-        z = self.net.reparameterize(mu, logvar)
+        # mu, logvar = self.net.encode(s)
+        # z = self.net.reparameterize(mu, logvar)
+        # !!!!!!!!!!!!!!!!
+        quantized = self.net.vq_layer(z_e) 
+        z = quantized
+        
         inhib_z = self.inhib.inhibit_z(z)
         # print(inhib_z.shape)
         inhib_output = self.inhib.model(inhib_z.to(self.device))
@@ -1127,8 +1149,8 @@ class HybridGuidedVAETrainer:
                         self.writer.add_figure("inhib_train", fig8, global_step=e)
                         self.writer.add_figure("inhib_test", fig9, global_step=e)
 
-                    # reconstruction
-                    recon_batch, mu, logvar, clas = self.net(
+                    # reconstruction !!!!!!!!!!!!!!
+                    recon_batch, quantized, z_e, clas = self.net(
                         self.data_batch.to(self.device)
                     )
                     # print("recon_batch.shape = ", recon_batch.shape)
