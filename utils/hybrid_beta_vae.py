@@ -56,14 +56,8 @@ class VectorQuantizer(nn.Module):
         # If all latent vectors map to only a few embeddings,
         # the VQ layer isn’t learning diverse representations.
         # How to check? Track how many different embeddings are used during training:
-        # unique_codes = torch.unique(encoding_indices).numel()
-        # print(f"Unique codes used: {unique_codes}/{self.num_embeddings}")
-
-        # # Compute loss for VQ (Commitment + Codebook)
-        # commitment_loss = F.mse_loss(quantized.detach(), z_e)
-        # codebook_loss = F.mse_loss(quantized, z_e.detach())
-        # vq_loss = commitment_loss + codebook_loss
-
+        unique_codes = torch.unique(encoding_indices).numel()
+        print(f"Unique codes used: {unique_codes}/{self.num_embeddings}")
         return quantized  # , encoding_indices  #, vq_loss
 
 

@@ -49,19 +49,19 @@ if __name__ == "__main__":
 
     parser.add_argument(
         "--params-file",
-        default="/home/sabrina/mygithub/fzj_vpr/train/train_params.yml",
+        default="/sabrina/fzj_vpr/train/train_params.yml",
         type=str,
         help="Path to the parameter config file.",
     )
     parser.add_argument(
         "--data-file",
-        default="/home/sabrina/dataset/chop_still_50_firstcamera_0",
+        default="/sabrina/dataset/chop_still_50_firstcamera_0",
         type=str,
         help="Path to the file the data is in, should be hdf5 compatible with torchneuromorphic.",
     )
     parser.add_argument(
         "--data-file-test",
-        default="/home/sabrina/dataset/chop_still_50_firstcamera_1",
+        default="/sabrina/dataset/chop_still_50_firstcamera_1",
         type=str,
         help="Path to the file the data is in, should be hdf5 compatible with torchneuromorphic.",
     )

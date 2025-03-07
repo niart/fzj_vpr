@@ -427,7 +427,7 @@ class HybridGuidedVAETrainer:
         self.target_batch = self.target_batch.to(self.device)
         print(f"Data batch shape: {self.data_batch.shape}")
 
-    def loss_fn(self, recon_x, x, quantized, z_e, vae_beta=4.0):
+    def loss_fn(self, recon_x, x, quantized, z_e, vae_beta=1):
         """
         VAE loss function using KL Divergence
 
@@ -751,8 +751,11 @@ class HybridGuidedVAETrainer:
                 #     l = np.zeros(x.shape) #np.asarray(l)[t[:,-1,:].argmax(1)!=10]
                 #     u = np.zeros(x.shape)#np.asarray(u)[t[:,-1,:].argmax(1)!=10]
                 with torch.no_grad():
-                    mu, logvar = self.net.encode(x.to(self.device))
-                    lat = self.net.reparameterize(mu, logvar).detach().cpu().numpy()
+                    # mu, logvar = self.net.encode(x.to(self.device))
+                    # lat = self.net.reparameterize(mu, logvar).detach().cpu().numpy()
+                    quantized, _ = self.net.encode(x.to(self.device))  # Get quantized latent space
+                    lat = quantized.detach().cpu().numpy()
+
                     lats += lat.tolist()
                     tgts += new_t.tolist()
                     # all_d += process_target(x).tolist()
