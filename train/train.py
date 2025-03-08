@@ -55,13 +55,13 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--data-file",
-        default="/sabrina/dataset/chop_still_50_firstcamera_0",
+        default="/root/autodl-tmp/dataset/chop_still_50_firstcamera_0",
         type=str,
         help="Path to the file the data is in, should be hdf5 compatible with torchneuromorphic.",
     )
     parser.add_argument(
         "--data-file-test",
-        default="/sabrina/dataset/chop_still_50_firstcamera_1",
+        default="/root/autodl-tmp/dataset/chop_still_50_firstcamera_1",
         type=str,
         help="Path to the file the data is in, should be hdf5 compatible with torchneuromorphic.",
     )

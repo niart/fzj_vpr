@@ -235,7 +235,7 @@ class HybridGuidedVAETrainer:
             name=__file__.split("/")[-1].split(".")[0], args=self.args
         )
         self.log_dir = dirs["log_dir"]
-        self.checkpoint_dir = dirs["checkpoint_dir"]
+        self.checkpoint_dir = '/root/autodl-tmp/default' #dirs["checkpoint_dir"]
 
         self.starting_epoch = self.params["start_epoch"]
 
@@ -453,7 +453,7 @@ class HybridGuidedVAETrainer:
         # Compute loss for VQ (Commitment + Codebook)
         commitment_loss = F.mse_loss(quantized.detach(), z_e)
         codebook_loss = F.mse_loss(quantized, z_e.detach())
-        vq_loss = commitment_loss + codebook_loss
+        vq_loss = 0.5 * commitment_loss + codebook_loss
 
         return llhood + vae_beta * vq_loss
 
@@ -755,6 +755,10 @@ class HybridGuidedVAETrainer:
                     # lat = self.net.reparameterize(mu, logvar).detach().cpu().numpy()
                     quantized, _ = self.net.encode(x.to(self.device))  # Get quantized latent space
                     lat = quantized.detach().cpu().numpy()
+                    # Check for NaNs and replace them with 0
+                    if np.isnan(lat).any() or np.isinf(lat).any():
+                        print("⚠️ Warning: NaN or Inf detected in latent space. Replacing with zeros.")
+                        lat = np.nan_to_num(lat)  # Replace NaNs and Infs with 0
 
                     lats += lat.tolist()
                     tgts += new_t.tolist()
@@ -804,13 +808,57 @@ class HybridGuidedVAETrainer:
             "#1b19d4",
         ]
 
-        lat_tsne = TSNE(n_components=2).fit_transform(lats)
-        inhib_tsne = TSNE(n_components=2).fit_transform(
-            self.inhib.inhibit_z(torch.from_numpy(lats)).numpy()
-        )
-        exc_tsne = TSNE(n_components=2).fit_transform(
-            self.inhib.excite_z(torch.from_numpy(lats)).numpy()
-        )
+        # if np.isnan(lats).any() or np.isinf(lats).any():
+        #     print("⚠️ Warning: NaN/Inf detected in latent space for t-SNE. Replacing with zeros.")
+        #     lats = np.nan_to_num(lats)
+
+        # lat_tsne = TSNE(n_components=2).fit_transform(lats)
+
+        # inhib_tsne = TSNE(n_components=2).fit_transform(
+        #     self.inhib.inhibit_z(torch.from_numpy(lats)).numpy()
+        # )
+        # exc_tsne = TSNE(n_components=2).fit_transform(
+        #     self.inhib.excite_z(torch.from_numpy(lats)).numpy()
+        # )
+        
+        if np.isnan(lats).any() or np.isinf(lats).any():
+            print("⚠️ Warning: NaN/Inf detected in latent space for t-SNE. Replacing with zeros.")
+            lats = np.nan_to_num(lats)
+
+        # Check if variance is zero before running t-SNE
+        if np.std(lats[:, 0]) == 0:
+            print("⚠️ Warning: Zero variance detected in t-SNE input. Skipping.")
+            lat_tsne = np.zeros((lats.shape[0], 2))
+        else:
+            lat_tsne = TSNE(n_components=2).fit_transform(lats)
+
+        # Convert lats to PyTorch tensor for inhibit_z and excite_z
+        lats_tensor = torch.from_numpy(lats).float()
+
+        inhib_latents = self.inhib.inhibit_z(lats_tensor).numpy()
+        excite_latents = self.inhib.excite_z(lats_tensor).numpy()
+
+        # Ensure no NaNs or zero variance in inhibitory/excitatory t-SNE
+        if np.isnan(inhib_latents).any() or np.isinf(inhib_latents).any():
+            print("⚠️ Warning: NaN/Inf detected in inhibitory latent space. Replacing with zeros.")
+            inhib_latents = np.nan_to_num(inhib_latents)
+
+        if np.isnan(excite_latents).any() or np.isinf(excite_latents).any():
+            print("⚠️ Warning: NaN/Inf detected in excitatory latent space. Replacing with zeros.")
+            excite_latents = np.nan_to_num(excite_latents)
+
+        if np.std(inhib_latents[:, 0]) == 0:
+            print("⚠️ Warning: Zero variance detected in inhibitory t-SNE input. Skipping.")
+            inhib_tsne = np.zeros((inhib_latents.shape[0], 2))
+        else:
+            inhib_tsne = TSNE(n_components=2).fit_transform(inhib_latents)
+
+        if np.std(excite_latents[:, 0]) == 0:
+            print("⚠️ Warning: Zero variance detected in excitatory t-SNE input. Skipping.")
+            exc_tsne = np.zeros((excite_latents.shape[0], 2))
+        else:
+            exc_tsne = TSNE(n_components=2).fit_transform(excite_latents)
+
         # plot
         fig = plt.figure(figsize=(16, 10))
         fig4 = plt.figure(figsize=(16, 10))
@@ -915,7 +963,10 @@ class HybridGuidedVAETrainer:
             lat[clas] = max_lat - (trav_space / n_plots) * i
 
             with torch.no_grad():
-                lat = torch.tensor(lat, dtype=torch.float).to(self.device)
+                # lat = torch.tensor(lat, dtype=torch.float).to(self.device)
+                # lat = lat.clone().detach().to(self.device)
+                lat = torch.tensor(lat, dtype=torch.float32).to(self.device)
+
                 decoded = self.net.decode(lat).cpu()
                 if i == 0:
                     first_decoded = decoded
@@ -970,7 +1021,13 @@ class HybridGuidedVAETrainer:
                 lat[clas2] = lat[clas2] - (trav_space2 / n_plots)
 
             with torch.no_grad():
-                lat = torch.tensor(lat, dtype=torch.float).to(self.device)
+                # lat = torch.tensor(lat, dtype=torch.float).to(self.device)
+                # lat = torch.from_numpy(lat).float().to(self.device)
+                if isinstance(lat, np.ndarray):
+                    lat = torch.from_numpy(lat).float().to(self.device)
+                else:
+                    lat = lat.clone().detach().to(self.device)
+
                 decoded = self.net.decode(lat).cpu()
 
             axs[i].imshow(decoded[0, 0].T)
@@ -1036,7 +1093,14 @@ class HybridGuidedVAETrainer:
                 ]
 
             with torch.no_grad():
-                lat = torch.tensor(lat, dtype=torch.float).to(self.device)
+                # lat = torch.tensor(lat, dtype=torch.float).to(self.device)
+                # lat = torch.from_numpy(lat).float().to(self.device)
+                if isinstance(lat, np.ndarray):
+                    lat = torch.from_numpy(lat).float().to(self.device)
+                else:
+                    lat = lat.clone().detach().to(self.device)
+
+
                 decoded = self.net.decode(lat).cpu()
 
             axs[i].imshow(decoded[0, 0].T)
@@ -1121,6 +1185,14 @@ class HybridGuidedVAETrainer:
                     lats_test, tgts_test = self.get_latent_space(
                         self.test_dl, iterations=3
                     )
+                    if np.isnan(lats).any() or np.isinf(lats).any():
+                        print("⚠️ Warning: NaN detected in latent space before PCA. Replacing with zeros.")
+                        lats = np.nan_to_num(lats)
+
+                    if np.isnan(lats_test).any() or np.isinf(lats_test).any():
+                        print("⚠️ Warning: NaN detected in test latent space before PCA. Replacing with zeros.")
+                        lats_test = np.nan_to_num(lats_test)
+
 
                     # latent space traversal
                     fig = self.latent_traversal(lats, tgts, 1)
@@ -1212,7 +1284,7 @@ class HybridGuidedVAETrainer:
                     self.writer.add_scalar("train_loss", loss_, e)
 
                 plt.close("all")  # close figures so they don't use too much memory...
-                # torch.cuda.empty_cache() ### suggested by Thorben
+                torch.cuda.empty_cache() ### suggested by Thorben
 
 
 if __name__ == "__main__":
