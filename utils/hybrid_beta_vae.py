@@ -37,9 +37,12 @@ class VectorQuantizer(nn.Module):
             -1 / self.num_embeddings, 1 / self.num_embeddings
         )
 
+
     def forward(self, z_e):
         # z_e is what comes out of bottleneck layer (64D)
         # Reshape to (batch_size, latent_dim)
+        print(f"Variance of z_e before quantization: {z_e.var(dim=0).mean().item()}!!!!!!!!!!!!!")
+
         z_e_flattened = z_e.view(-1, self.embedding_dim)
 
         # Compute L2 distance between input and embedding vectors
@@ -53,11 +56,27 @@ class VectorQuantizer(nn.Module):
         encoding_indices = torch.argmin(distances, dim=1)
         quantized = self.embedding(encoding_indices).view(z_e.shape)
 
-        # If all latent vectors map to only a few embeddings,
-        # the VQ layer isn’t learning diverse representations.
-        # How to check? Track how many different embeddings are used during training:
+        # **Print the number of unique `z_e` vectors**
+        unique_z_e = torch.unique(z_e_flattened, dim=0).shape[0]
+        print(f"Unique z_e vectors: {unique_z_e}/{z_e_flattened.shape[0]}")
+
+        # **Print the number of unique `quantized` vectors**
+        unique_quantized = torch.unique(quantized.view(-1, self.embedding_dim), dim=0).shape[0]
+        print(f"Unique quantized vectors: {unique_quantized}/{quantized.view(-1, self.embedding_dim).shape[0]}")
+
+        # **Print the number of unique codes used**
         unique_codes = torch.unique(encoding_indices).numel()
         print(f"Unique codes used: {unique_codes}/{self.num_embeddings}")
+        
+
+        if unique_quantized/quantized.view(-1, self.embedding_dim).shape[0] < 5/32:  # If fewer than 5 unique codes are used
+            print("⚠️ Codebook collapsing! Resetting embeddings.")
+            # self.vq_layer.embedding.weight.data.uniform_(-1 / self.vq_layer.num_embeddings, 1 / self.vq_layer.num_embeddings)
+
+            self.embedding.weight.data.uniform_(
+                -1 / self.num_embeddings, 1 / self.num_embeddings
+            )
+        
         return quantized  # , encoding_indices  #, vq_loss
 
 

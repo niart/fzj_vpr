@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
     parser.add_argument(
         "--params-file",
-        default="/sabrina/fzj_vpr/train/train_params.yml",
+        default="/root/sabrina/fzj_vpr/train/train_params.yml",
         type=str,
         help="Path to the parameter config file.",
     )

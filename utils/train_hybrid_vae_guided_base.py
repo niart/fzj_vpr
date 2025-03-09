@@ -451,9 +451,9 @@ class HybridGuidedVAETrainer:
         # # print(llhood,kld_loss)
 
         # Compute loss for VQ (Commitment + Codebook)
-        commitment_loss = F.mse_loss(quantized.detach(), z_e)
+        commitment_loss = 0.05 * F.mse_loss(quantized.detach(), z_e)
         codebook_loss = F.mse_loss(quantized, z_e.detach())
-        vq_loss = 0.5 * commitment_loss + codebook_loss
+        vq_loss = commitment_loss + codebook_loss
 
         return llhood + vae_beta * vq_loss
 
@@ -566,7 +566,7 @@ class HybridGuidedVAETrainer:
             * self.params["class_weight"]
         )
         vae_loss = loss
-        loss += clas_loss
+        loss += clas_loss 
         loss.backward()
         self.opt.step()
         # opt_excite.step()
@@ -581,6 +581,7 @@ class HybridGuidedVAETrainer:
         # !!!!!!!!!!!!!!!!
         quantized = self.net.vq_layer(z_e) 
         z = quantized
+        #print(z[5])
         
         inhib_z = self.inhib.inhibit_z(z).to(self.device)
 
@@ -603,7 +604,8 @@ class HybridGuidedVAETrainer:
         # mu, logvar = self.net.encode(s)
         # z = self.net.reparameterize(mu, logvar)
         # !!!!!!!!!!!!!!!!
-        quantized = self.net.vq_layer(z_e) 
+        quantized, z_e = self.net.encode(s)
+        
         z = quantized
         
         inhib_z = self.inhib.inhibit_z(z)
