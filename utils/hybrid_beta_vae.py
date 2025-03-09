@@ -27,39 +27,58 @@ import numpy as np
 class VectorQuantizer(nn.Module):
     def __init__(self, num_embeddings, embedding_dim, commitment_cost=0.25):
         super(VectorQuantizer, self).__init__()
-        self.embedding_dim = embedding_dim
+        self.embedding_dim = embedding_dim  # Should be 64
         self.num_embeddings = num_embeddings  # Size of the VQ codebook
         self.commitment_cost = commitment_cost
 
         # Initialize embedding table (Codebook)
         self.embedding = nn.Embedding(self.num_embeddings, self.embedding_dim)
-        self.embedding.weight.data.uniform_(
-            -1 / self.num_embeddings, 1 / self.num_embeddings
+        # self.embedding.weight.data.uniform_(
+        #     -1 / self.num_embeddings, 1 / self.num_embeddings
+        # )
+
+        # Option 1: Normal distribution initialization (preferred)
+        torch.nn.init.normal_(self.embedding.weight.data, mean=0, std=0.02)
+
+        # Option 2: Kaiming (He) initialization (good for deep networks)
+        # torch.nn.init.kaiming_normal_(self.embedding.weight.data, mode='fan_in', nonlinearity='relu')
+
+        # Option 3: Xavier (Glorot) initialization
+        # torch.nn.init.xavier_uniform_(self.embedding.weight.data)
+
+    def forward(self, h1):
+
+        print(
+            f"Variance of h1 before quantization: {h1.var(dim=0).mean().item()}!!!!!!!!!!!!!"
         )
 
-    def forward(self, z_e):
-        B, C, H, W = z_e.shape  # Get spatial dimensions
-        z_e_flattened = z_e.view(B, C, -1).permute(
-            0, 2, 1
-        )  # Shape: (batch, spatial_dim, 128)
+        h1_flattened = h1.view(-1, self.embedding_dim)
 
         # Compute L2 distance between input and embedding vectors
         distances = (
-            torch.sum(z_e_flattened**2, dim=2, keepdim=True)
+            torch.sum(h1_flattened**2, dim=1, keepdim=True)
             + torch.sum(self.embedding.weight**2, dim=1)
-            - 2 * torch.matmul(z_e_flattened, self.embedding.weight.t())
+            - 2 * torch.matmul(h1_flattened, self.embedding.weight.t())
         )
 
         # Find nearest embedding
-        encoding_indices = torch.argmin(distances, dim=2)  # (batch, spatial_dim)
-        quantized = self.embedding(encoding_indices)  # Retrieve quantized values
+        encoding_indices = torch.argmin(distances, dim=1)
+        quantized = self.embedding(encoding_indices).view(h1.shape)
 
-        # Reshape back to feature map shape (batch, 128, H/8, W/8)
-        quantized = quantized.permute(0, 2, 1).view(B, C, H, W)
+        # **Print the number of unique codes used**
         unique_codes = torch.unique(encoding_indices).numel()
         print(f"Unique codes used: {unique_codes}/{self.num_embeddings}")
 
-        return quantized, encoding_indices
+        if (
+            unique_codes / quantized.view(-1, self.embedding_dim).shape[0] < 5 / 64
+        ):  # If fewer than 5 unique codes are used
+            print("⚠️ Codebook collapsing! Resetting embeddings.")
+            # self.vq_layer.embedding.weight.data.uniform_(-1 / self.vq_layer.num_embeddings, 1 / self.vq_layer.num_embeddings)
+
+            torch.nn.init.normal_(self.embedding.weight.data, mean=0, std=0.02)
+        quantized += 0.02 * torch.randn_like(quantized)
+
+        return quantized  # , encoding_indices  #, vq_loss
 
 
 class SpikingLenetEncoder(LenetDECOLLE):
@@ -110,31 +129,27 @@ class SpikingLenetEncoder(LenetDECOLLE):
             self.pool_layers.append(pool)
         return (Nhid[-1], feature_height, feature_width)
 
-    # def build_mlp_stack(self, Mhid, out_channels):
-    #     output_shape = None
-    #     if self.with_output_layer:
-    #         Mhid += [out_channels]
-    #         self.num_mlp_layers += 1
-    #         self.num_layers += 1
-    #     for i in range(self.num_mlp_layers):
-    #         base_layer = nn.Linear(Mhid[i], Mhid[i + 1]) # Fully connected layer
-    #         layer = self.lif_layer_type[i + self.num_conv_layers](
-    #             base_layer,  # Pass a dummy Linear layer with matching input/output size
-    #             alpha=self.alpha[i],
-    #             beta=self.beta[i],
-    #             alpharp=self.alpharp[i],
-    #             deltat=self.deltat,
-    #             do_detach=True if self.method == "rtrl" else False,
-    #         )
-    #         output_shape = Mhid[i + 1]
-
-    #         self.LIF_layers.append(layer)
-    #         self.pool_layers.append(nn.Sequential())
-    #     return (output_shape,)
-
     def build_mlp_stack(self, Mhid, out_channels):
-        # We skip building any FC layers
-        return (None,)
+        output_shape = None
+        if self.with_output_layer:
+            Mhid += [out_channels]
+            self.num_mlp_layers += 1
+            self.num_layers += 1
+        for i in range(self.num_mlp_layers):
+            base_layer = nn.Linear(Mhid[i], Mhid[i + 1])
+            layer = self.lif_layer_type[i + self.num_conv_layers](
+                base_layer,
+                alpha=self.alpha[i],
+                beta=self.beta[i],
+                alpharp=self.alpharp[i],
+                deltat=self.deltat,
+                do_detach=True if self.method == "rtrl" else False,
+            )
+            output_shape = Mhid[i + 1]
+
+            self.LIF_layers.append(layer)
+            self.pool_layers.append(nn.Sequential())
+        return (output_shape,)
 
     def build_output_layer(self, Mhid, out_channels):
         i = self.num_mlp_layers
@@ -156,9 +171,8 @@ class SpikingLenetEncoder(LenetDECOLLE):
         u_out = []
         i = 0
         for lif, pool in zip(self.LIF_layers, self.pool_layers):
-            # if i == self.num_conv_layers:
-            #     input = input.view(input.size(0), -1) # Flatten before FC
-            # No flattening, keep spatial feature map
+            if i == self.num_conv_layers:
+                input = input.view(input.size(0), -1)
             s, u = lif(input)
             u_p = pool(u)
             if i + 1 == self.num_layers and self.with_output_layer:
@@ -240,7 +254,7 @@ class VQVAE(nn.Module):
         self.device = encoder_params["device"]
 
         self.encoder = SpikingLenetEncoder(
-            out_channels=out_features,
+            out_channels=64,
             Nhid=encoder_params["Nhid"],
             Mhid=encoder_params["Mhid"],
             kernel_size=encoder_params["kernel_size"],
@@ -266,7 +280,7 @@ class VQVAE(nn.Module):
 
         # VQ Layer
         self.vq_layer = VectorQuantizer(
-            num_embeddings=encoder_params["codebook_size"], embedding_dim=128
+            num_embeddings=encoder_params["codebook_size"], embedding_dim=dimz
         )
 
         # for 128x128
@@ -286,13 +300,6 @@ class VQVAE(nn.Module):
         # self.init_parameters(self.seq_len, self.input_shape)
 
         self.cls_sq = CLS_SQ(encoder_params).to(self.device)
-        self.spatial_mlp = nn.Sequential(
-            nn.Flatten(),
-            nn.Linear(128 * 16 * 16, 256),  # First layer matches feature map size
-            nn.ReLU(),
-            nn.Linear(256, 64),  # Compress to final 64D latent vector
-        )
-        # self.spatial_mlp = None  # Will initialize dynamically
 
     # def init_parameters(self, seq_len, input_shape):
     #     self.encoder_head["logvar"].weight.data[:] *= 1e-16
@@ -309,30 +316,13 @@ class VQVAE(nn.Module):
     #     h1 = torch.nn.functional.leaky_relu(s)
     #     return self.encoder_head["mu"](h1), self.encoder_head["logvar"](h1)
 
-    # def encode(self, x):
-    #     s = self.encoder(x)[0]  # Spiking encoder output
-    #     h1 = torch.nn.functional.leaky_relu(s)
-    #     z_e = self.bottleneck(h1)  # Reduce to 64D
-    #     quantized = self.vq_layer(z_e)  # Apply VQ
-    #     return quantized, z_e
     def encode(self, x):
-        s = self.encoder(x)[0]  # Get spatial feature map
+        s = self.encoder(x)[0]  # Spiking encoder output
         h1 = torch.nn.functional.leaky_relu(s)
-        quantized, _ = self.vq_layer(h1)  # Apply VQ
-        # Dynamically determine input size for MLP
-        B, C, H, W = quantized.shape
-        in_features = C * H * W
-
-        # If not already set correctly, update `Linear` layer
-        if self.spatial_mlp[1].in_features != in_features:
-            print(
-                f"Updating spatial_mlp input size from {self.spatial_mlp[1].in_features} to {in_features}"
-            )
-            self.spatial_mlp[1] = nn.Linear(in_features, 256).to(quantized.device)
-
-        quantized_flat = quantized.reshape(B, -1)
-        z_final = self.spatial_mlp(quantized_flat)  # Convert to 64D vector
-        return quantized, h1, z_final  # Return final 64D vector
+        # Normalize h1 before quantization to prevent extreme values from dominating L2 distances.
+        h1 = F.normalize(h1, dim=-1)  # Normalize before VQ
+        quantized = self.vq_layer(h1)  # Apply VQ
+        return quantized, h1
 
     # def reparameterize(self, mu, logvar):
     #     std = torch.exp(0.5 * logvar)  # - 1
@@ -359,12 +349,16 @@ class VQVAE(nn.Module):
     #     clas = self.cls_sq(excite_z)
 
     #     return self.decode(z), mu, logvar, clas
+    def variance_loss(self, z, epsilon=0.01):
+        var = torch.var(z, dim=0)
+        return torch.mean(torch.clamp(epsilon - var, min=0.0))
 
     def forward(self, x):
-        quantized, z_e, z_final = self.encode(x)
-        excite_z = self.excite_z(z_final, self.num_classes).to(self.device)
+        quantized, h1 = self.encode(x)
+        var_loss = self.variance_loss(h1)  #
+        excite_z = self.excite_z(quantized, self.num_classes).to(self.device)
         clas = self.cls_sq(excite_z)
-        return self.decode(z_final), quantized, z_e, z_final, clas
+        return self.decode(quantized), quantized, h1, clas, var_loss
 
 
 class CustomLIFLayer(LIFLayer):

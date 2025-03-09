@@ -226,7 +226,6 @@ class HybridGuidedVAETrainer:
         """
 
         self.use_other = use_other
-        self.used_codes = set()
 
         self.args = parse_args(
             param_file
@@ -236,7 +235,7 @@ class HybridGuidedVAETrainer:
             name=__file__.split("/")[-1].split(".")[0], args=self.args
         )
         self.log_dir = dirs["log_dir"]
-        self.checkpoint_dir = dirs["checkpoint_dir"]  # '/root/autodl-tmp/default'
+        self.checkpoint_dir = dirs["checkpoint_dir"]  #'/root/autodl-tmp/default' #
 
         self.starting_epoch = self.params["start_epoch"]
 
@@ -335,18 +334,9 @@ class HybridGuidedVAETrainer:
         )
         opt2 = torch.optim.Adam(
             # chain(*[self.net.encoder_head.parameters(), self.net.decoder.parameters()]),
-            # chain(*[self.net.bottleneck.parameters(), self.net.vq_layer.parameters(), self.net.decoder.parameters()]),
-            chain(
-                *[
-                    self.net.vq_layer.parameters(),
-                    self.net.spatial_mlp.parameters(),
-                    self.net.decoder.parameters(),
-                ]
-            ),
+            chain(*[self.net.vq_layer.parameters(), self.net.decoder.parameters()]),
             lr=self.params["learning_rate"][1],
-            weight_decay=1e-4,
         )
-
         if self.params["is_guided"]:
             self.opt = MultiOpt(opt1, opt2, self.opt_excititory, self.opt_inhibitory)
         else:
@@ -437,7 +427,7 @@ class HybridGuidedVAETrainer:
         self.target_batch = self.target_batch.to(self.device)
         print(f"Data batch shape: {self.data_batch.shape}")
 
-    def loss_fn(self, recon_x, x, quantized, z_e, vae_beta=1):
+    def loss_fn(self, recon_x, x, quantized, h1, vae_beta=1):
         """
         VAE loss function using KL Divergence
 
@@ -461,9 +451,9 @@ class HybridGuidedVAETrainer:
         # # print(llhood,kld_loss)
 
         # Compute loss for VQ (Commitment + Codebook)
-        commitment_loss = F.mse_loss(quantized.detach(), z_e)
-        codebook_loss = F.mse_loss(quantized, z_e.detach())
-        vq_loss = 0.05 * commitment_loss + codebook_loss
+        commitment_loss = 0.05 * F.mse_loss(quantized.detach(), h1)
+        codebook_loss = F.mse_loss(quantized, h1.detach())
+        vq_loss = commitment_loss + codebook_loss
 
         return llhood + vae_beta * vq_loss
 
@@ -558,9 +548,6 @@ class HybridGuidedVAETrainer:
         # I think I can do this by disabling gradients for the not learning neurons, like what I did with SOEL
         # but I'm not positive how to do this in torch, need to think about this
         # could also be a matter of not propogating forward as well
-        for name, param in self.net.spatial_mlp.named_parameters():
-            if param.requires_grad and param.grad is not None:
-                print(f"MLP Layer: {name}, Grad Norm: {param.grad.norm().item()}")
 
         self.net.train()
         # excite.train()
@@ -571,8 +558,8 @@ class HybridGuidedVAETrainer:
         self.opt.zero_grad()
         # opt_excite.zero_grad()
         hot_ts = self.batch_one_hot(t)
-        y, quantized, z_e, z_final, clas = self.net(s)
-        loss = self.loss_fn(y, x, quantized, z_e, vae_beta)
+        y, quantized, h1, clas, var_loss = self.net(s)
+        loss = self.loss_fn(y, x, quantized, h1, vae_beta)
 
         clas_loss = (
             self.inhib_criterion(clas, hot_ts.to(self.device))
@@ -580,9 +567,7 @@ class HybridGuidedVAETrainer:
         )
         vae_loss = loss
         loss += clas_loss
-        # First self.opt.step() → Updates VAE + Excitatory Guide
         loss.backward()
-        torch.nn.utils.clip_grad_norm_(self.net.spatial_mlp.parameters(), max_norm=5)
         self.opt.step()
         # opt_excite.step()
 
@@ -594,13 +579,8 @@ class HybridGuidedVAETrainer:
 
         # z = self.net.reparameterize(mu, logvar).detach()
         # !!!!!!!!!!!!!!!!
-        quantized, encoding_indices = self.net.vq_layer(z_e)
-        batch_unique_codes = torch.unique(encoding_indices).tolist()
-        self.used_codes.update(batch_unique_codes)  # Add batch codes to global set
-        print(f"Total unique codes so far: {len(self.used_codes)}/1024!!!")
-
-        z_final = self.net.spatial_mlp(quantized)
-        z = z_final
+        quantized = self.net.vq_layer(h1)
+        z = quantized
         # print(z[5])
 
         inhib_z = self.inhib.inhibit_z(z).to(self.device)
@@ -612,7 +592,6 @@ class HybridGuidedVAETrainer:
             * self.params["class_weight"]
         )  # now MultiLabelSoftMarginLoss
         excite_loss = loss
-        # Second self.opt.step() → Updates Inhibitory Guide:
         loss.backward()
         self.opt.step()
         # opt_inhib.step()
@@ -625,9 +604,9 @@ class HybridGuidedVAETrainer:
         # mu, logvar = self.net.encode(s)
         # z = self.net.reparameterize(mu, logvar)
         # !!!!!!!!!!!!!!!!
-        quantized, z_e, z_final = self.net.encode(s)
+        quantized, h1 = self.net.encode(s)
 
-        z = z_final
+        z = quantized
 
         inhib_z = self.inhib.inhibit_z(z)
         # print(inhib_z.shape)
@@ -641,7 +620,6 @@ class HybridGuidedVAETrainer:
             * self.params["class_weight"]
         )  # now MultiLabelSoftMarginLoss
         inhib_loss = loss
-        # Third self.opt.step() → Updates Excitatory Guide Again
         loss.backward()
         self.opt.step()
         self.opt_excititory.step()  # need to check the impact doing this has, if any
@@ -777,10 +755,10 @@ class HybridGuidedVAETrainer:
                 with torch.no_grad():
                     # mu, logvar = self.net.encode(x.to(self.device))
                     # lat = self.net.reparameterize(mu, logvar).detach().cpu().numpy()
-                    quantized, _, z_final = self.net.encode(
+                    quantized, _ = self.net.encode(
                         x.to(self.device)
                     )  # Get quantized latent space
-                    lat = z_final.detach().cpu().numpy()
+                    lat = quantized.detach().cpu().numpy()
                     # Check for NaNs and replace them with 0
                     if np.isnan(lat).any() or np.isinf(lat).any():
                         print(
@@ -1265,7 +1243,7 @@ class HybridGuidedVAETrainer:
                         self.writer.add_figure("inhib_test", fig9, global_step=e)
 
                     # reconstruction !!!!!!!!!!!!!!
-                    recon_batch, quantized, z_e, z_final, clas = self.net(
+                    recon_batch, quantized, h1, clas, var_loss = self.net(
                         self.data_batch.to(self.device)
                     )
                     # print("recon_batch.shape = ", recon_batch.shape)
@@ -1322,9 +1300,6 @@ class HybridGuidedVAETrainer:
                     loss_ = self.train()
                 if not self.args.no_save:
                     self.writer.add_scalar("train_loss", loss_, e)
-                print(
-                    f"Final unique codes used after epoch: {len(self.used_codes)}/1024"
-                )
 
                 plt.close("all")  # close figures so they don't use too much memory...
                 torch.cuda.empty_cache()  ### suggested by Thorben
