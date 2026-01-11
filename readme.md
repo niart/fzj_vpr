@@ -17,8 +17,7 @@ Four were under normal lighting, and one in dim conditions.
 </p>
 
 <div align="center">
-
-<sub>
+<small>
 
 <table>
   <thead>
@@ -43,8 +42,9 @@ Four were under normal lighting, and one in dim conditions.
   </tbody>
 </table>
 
-</sub>
+</small>
 </div>
+
 
 
 | index            | FOV          | illumination | motion-capture | event samples count | usage | number of RGB samples |
