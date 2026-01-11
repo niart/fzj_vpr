@@ -1,7 +1,19 @@
 # Hybrid Guided VAE for Visual Place Recognition [^1]
 ## Aachen-Indoor-VPR: an event/RGB VPR dataset in office-like arena
-an open-source dataset for 
+The dataset is collected using the Turtlebot4 platform with two ‘DAVIS 346’ event cameras mounted at the front. The left camera has a 12mm focal length, and the right has 2.5mm. 
+The environment is a 6m×4m artificial office-like space with four walls and various objects like tables, books,
+and bins (Figure 2). 
 
+A motion capture system [34] tracks the robot’s location,
+providing labels for supervised learning and evaluation. Three recordings were
+made by manually driving the robot along predefined routes. Two were under
+normal lighting, and one in dim conditions.
+Dataset preprocessing Before training, the event stream is converted into 50
+event frames per sample with a 2ms window and 128×128 resolution. Figure 3
+shows RGB and event data from the camera at different preprocessing stages.
+There are 1,500-1,700 event samples per recording. First recording is used for
+training, and second recording for testing. For varying lighting, first and third
+recordings are mixed and split evenly for training and testing.
 A glance at **[dataset recording](https://www.youtube.com/watch?v=3YV6RFQt1Os)**. 
 
 Download our dataset at **[HERE](https://drive.google.com/drive/folders/1oC8KnzzZXLAF_QzLBpGEebBqCXU_yTTT?usp=sharing)**. 
