@@ -1,4 +1,5 @@
 # Hybrid Guided VAE for Visual Place Recognition [^1]
+Ni Wang, Zihan You, Thorben, Emre
 ### Abstract 
 Autonomous agents such as cars, robots and drones need to precisely localize themselves in diverse environments, including in GPS-denied indoor environments. 
 One approach for precise localization is visual place recognition (VPR), which estimates the place of an image based on previously seen places.
