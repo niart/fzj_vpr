@@ -83,7 +83,7 @@ python grid_heatmap_label.py
 ```
 This step will create a x_label.csv file which adds a columnb of "labels" 0-15 (or letters) to the tutle_trip_x.csv. It will also output a graph visualizing robot trajectory and the dividing of sections, as shown below:
 <p align="center">
-<img src="https://github.com/niart/fzj_vpr/blob/be2f063e5d29da0c0a65ed16f0d867a83d281aba/pic/arena.png" width=50% height=50%>
+<img src="https://github.com/niart/fzj_vpr/blob/f06111dd2031cc5a6c824cadd6378180d8bc0888/pic/arena_horizental.png" width=50% height=50%>
 </p>
 At the same time, in the termnial, the representing color for each class will be printed out:
 <p align="center">
