@@ -1,6 +1,6 @@
 # Hybrid Guided VAE for Visual Place Recognition [^1]
-## Aachen-Indoor-VPR, 
-### an open-source dataset 
+## Aachen-Indoor-VPR
+an open-source dataset for 
 
 A glance at **[dataset recording](https://www.youtube.com/watch?v=3YV6RFQt1Os)**. 
 
