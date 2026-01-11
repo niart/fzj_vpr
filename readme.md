@@ -16,7 +16,7 @@ Four were under normal lighting, and one in dim conditions.
 <img src="https://github.com/niart/fzj_vpr/blob/ebe966b83eaa41e0addd24ae2a05df540226658c/pic/merged_image2.png" width=80% height=50%>
 </p>
 <div align="center">
-| index            | FOV          | illumination | motion-capture | event samples count | used? | 
+| index            | FOV          | illumination | motion-capture | event samples count | usage | 
 |------------------|--------------|--------------|----------------|---------------------|-------|
 | trip1            | wide/narrow  | normal       | yes            | 1609                | train | 
 | trip2            | wide/narrow  | normal       | yes            | 1521                | test  | 
