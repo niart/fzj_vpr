@@ -18,7 +18,7 @@ Four were under normal lighting, and one in dim conditions.
 
 <div align="center">
 
-<small>
+<tiny>
 
 <table>
   <thead>
@@ -43,7 +43,7 @@ Four were under normal lighting, and one in dim conditions.
   </tbody>
 </table>
 
-</small>
+</tiny>
 </div>
 
 
