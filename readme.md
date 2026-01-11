@@ -16,19 +16,19 @@ Four were under normal lighting, and one in dim conditions.
 <img src="https://github.com/niart/fzj_vpr/blob/ebe966b83eaa41e0addd24ae2a05df540226658c/pic/merged_image2.png" width=80% height=50%>
 </p>
 
-| index            | FOV          | illumination | motion-capture | event samples count | usage | number of RGB samples |
-|------------------|--------------|--------------|----------------|---------------------|-------|----------------------|
-| trip1            | wide/narrow  | normal       | yes            | 1609                | train | 1/20 of event samples |
-| trip2            | wide/narrow  | normal       | yes            | 1521                | test  | 1/20 of event samples |
-| trip3            | wide/narrow  | dim          | yes            | 1542                | N.A.  | 1/20 of event samples |
-| half of 1 & 3    | wide/narrow  | varying      | yes            | 1575                | train | 1/20 of event samples |
-| half of 1 & 3    | wide/narrow  | varying      | yes            | 1576                | test  | 1/20 of event samples |
-| trip4            | wide/narrow  | normal       | yes            | unpreprocessed     | N.A.  | 1/20 of event samples |
-| trip5            | wide/narrow  | normal       | yes            | unpreprocessed     | N.A.  | 1/20 of event samples |
-| office           | wide/narrow  | a little dim | no             | 61                  | N.A.  | 1/20 of event samples |
-| hall             | wide/narrow  | a little dim | no             | 81                  | test  | 1/20 of event samples |
-| passageway       | wide/narrow  | a little dim | no             | 101                 | test  | 1/20 of event samples |
-| printer room     | wide/narrow  | a little dim | no             | 61                  | test  | 1/20 of event samples |
+| index            | FOV          | illumination | motion-capture | event samples count | usage | 
+|------------------|--------------|--------------|----------------|---------------------|-------|
+| trip1            | wide/narrow  | normal       | yes            | 1609                | train | 
+| trip2            | wide/narrow  | normal       | yes            | 1521                | test  | 
+| trip3            | wide/narrow  | dim          | yes            | 1542                | N.A.  | 
+| half of 1 & 3    | wide/narrow  | varying      | yes            | 1575                | train | 
+| half of 1 & 3    | wide/narrow  | varying      | yes            | 1576                | test  | 
+| trip4            | wide/narrow  | normal       | yes            | unpreprocessed     | N.A.  | 
+| trip5            | wide/narrow  | normal       | yes            | unpreprocessed     | N.A.  | 
+| office           | wide/narrow  | a little dim | no             | 61                  | N.A.  | 
+| hall             | wide/narrow  | a little dim | no             | 81                  | test  | 
+| passageway       | wide/narrow  | a little dim | no             | 101                 | test  | 
+| printer room     | wide/narrow  | a little dim | no             | 61                  | test  |
 
 
 Dataset preprocessing Before training, the event stream is converted into 50
