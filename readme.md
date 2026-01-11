@@ -1,4 +1,3 @@
-**@Thorben & Jamie: this repository is done!**
 ## Hybrid Guided VAE for Rapid Visual Place Recognition [^1]
 
 A glance at **[dataset recording](https://www.youtube.com/watch?v=3YV6RFQt1Os)**. 
