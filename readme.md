@@ -1,13 +1,9 @@
 # Hybrid Guided VAE for Visual Place Recognition [^1]
-Ni Wang, Zihan You, Thorben, Emre
-### Abstract 
-Autonomous agents such as cars, robots and drones need to precisely localize themselves in diverse environments, including in GPS-denied indoor environments. 
-One approach for precise localization is visual place recognition (VPR), which estimates the place of an image based on previously seen places.
-State-of-the-art VPR models require high amounts of memory, making them unwieldy for mobile deployment, while more compact models lack robustness and generalization capabilities. This work overcomes these limitations for robotics using a combination of event-based vision sensors and an event-based novel guided variational autoencoder (VAE). 
-The encoder part of our model is based on a spiking neural network model which is compatible with power-efficient low latency neuromorphic hardware.
+
+This work tackles indoor VPR by using a combination of event-based vision sensors and an event-based novel guided variational autoencoder (VAE). 
+The encoder part of our model is based on an SNN model which is compatible with power-efficient low latency neuromorphic hardware.
 The VAE successfully disentangles the visual features of 16 distinct places in our new indoor VPR dataset with a classification performance comparable to other state-of-the-art approaches while, showing robust performance also under various illumination conditions. 
 When tested with novel visual inputs from unknown scenes, our model can distinguish between these places, which demonstrates a high generalization capability by learning the essential features of location.
-Our compact and robust guided VAE with generalization capabilities poses a promising model for visual place recognition that can significantly enhance mobile robot navigation in known and unknown indoor environments.
 ## Aachen-Indoor-VPR: an event/RGB VPR dataset in office-like arena
 an open-source dataset for 
 
