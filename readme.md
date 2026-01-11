@@ -10,9 +10,12 @@ and bins (see below).
 <img src="https://github.com/niart/fzj_vpr/blob/9ac69682f54a8b9eb82b3acfaac5cda7f956921d/pic/20231024_175849.jpg" width=24% height=50%>
 </p>
 
-A motion capture system tracks the robot’s location, providing labels for supervised learning and evaluation. Three recordings were
-made by manually driving the robot along predefined routes. Two were under
-normal lighting, and one in dim conditions.
+A motion capture system tracks the robot’s location, providing labels for supervised learning and evaluation. Five recordings were made by manually driving the robot along predefined routes, each consisting of three rounds in the office. 
+Four were under normal lighting, and one in dim conditions.
+<p align="center">
+<img src="https://github.com/niart/fzj_vpr/blob/ebe966b83eaa41e0addd24ae2a05df540226658c/pic/merged_image2.png" width=50% height=50%>
+</p>
+
 Dataset preprocessing Before training, the event stream is converted into 50
 event frames per sample with a 2ms window and 128×128 resolution. Figure 3
 shows RGB and event data from the camera at different preprocessing stages.
