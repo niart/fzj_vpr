@@ -16,6 +16,37 @@ Four were under normal lighting, and one in dim conditions.
 <img src="https://github.com/niart/fzj_vpr/blob/ebe966b83eaa41e0addd24ae2a05df540226658c/pic/merged_image2.png" width=80% height=50%>
 </p>
 
+<div align="center">
+
+<small>
+
+<table>
+  <thead>
+    <tr>
+      <th>index</th>
+      <th>FOV</th>
+      <th>illumination</th>
+      <th>motion-capture</th>
+      <th>event samples</th>
+      <th>usage</th>
+      <th>RGB samples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>trip1</td><td>wide/narrow</td><td>normal</td><td>yes</td><td>1609</td><td>train</td><td>1/20</td></tr>
+    <tr><td>trip2</td><td>wide/narrow</td><td>normal</td><td>yes</td><td>1521</td><td>test</td><td>1/20</td></tr>
+    <tr><td>trip3</td><td>wide/narrow</td><td>dim</td><td>yes</td><td>1542</td><td>N.A.</td><td>1/20</td></tr>
+    <tr><td>half of 1 &amp; 3</td><td>wide/narrow</td><td>varying</td><td>yes</td><td>1575</td><td>train</td><td>1/20</td></tr>
+    <tr><td>half of 1 &amp; 3</td><td>wide/narrow</td><td>varying</td><td>yes</td><td>1576</td><td>test</td><td>1/20</td></tr>
+    <tr><td>office</td><td>wide/narrow</td><td>a little dim</td><td>no</td><td>61</td><td>N.A.</td><td>1/20</td></tr>
+    <tr><td>hall</td><td>wide/narrow</td><td>a little dim</td><td>no</td><td>81</td><td>test</td><td>1/20</td></tr>
+  </tbody>
+</table>
+
+</small>
+</div>
+
+
 | index            | FOV          | illumination | motion-capture | event samples count | usage | number of RGB samples |
 |------------------|--------------|--------------|----------------|---------------------|-------|----------------------|
 | trip1            | wide/narrow  | normal       | yes            | 1609                | train | 1/20 of event samples |
