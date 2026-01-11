@@ -33,10 +33,10 @@ Four were under normal lighting, and one in dim conditions.
 
 </div>
 <p align="center">
-<img src="https://github.com/niart/fzj_vpr/blob/148ab4c55be6560ed1afbdae02ebec3ea6da51ce/pic/gui_hall.png" width=48% height=49%>
-<img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_office.png" width=49% height=49%>
-<img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_passway.png" width=49% height=49%>
-<img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_printer.png" width=49% height=49%>
+<img src="https://github.com/niart/fzj_vpr/blob/148ab4c55be6560ed1afbdae02ebec3ea6da51ce/pic/gui_hall.png" width=48% height=48%>
+<img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_office.png" width=48% height=48%>
+<img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_passway.png" width=48% height=48%>
+<img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_printer.png" width=48% height=48%>
 </p>
 
 Dataset preprocessing Before training, the event stream is converted into 50
