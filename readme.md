@@ -33,8 +33,6 @@ Four were under normal lighting, and one in dim conditions.
 
 </div>
 
-
-
 Dataset preprocessing Before training, the event stream is converted into 50
 event frames per sample with a 2ms window and 128×128 resolution. Figure 3
 shows RGB and event data from the camera at different preprocessing stages.
