@@ -15,8 +15,8 @@ Four were under normal lighting, and one in dim conditions.
 <p align="center">
 <img src="https://github.com/niart/fzj_vpr/blob/ebe966b83eaa41e0addd24ae2a05df540226658c/pic/merged_image2.png" width=80% height=50%>
 </p>
-
-| index            | FOV          | illumination | motion-capture | event samples count | usage | 
+<div align="center">
+| index            | FOV          | illumination | motion-capture | event samples count | used? | 
 |------------------|--------------|--------------|----------------|---------------------|-------|
 | trip1            | wide/narrow  | normal       | yes            | 1609                | train | 
 | trip2            | wide/narrow  | normal       | yes            | 1521                | test  | 
@@ -29,7 +29,7 @@ Four were under normal lighting, and one in dim conditions.
 | hall             | wide/narrow  | a little dim | no             | 81                  | test  | 
 | passageway       | wide/narrow  | a little dim | no             | 101                 | test  | 
 | printer room     | wide/narrow  | a little dim | no             | 61                  | test  |
-
+</div>
 
 Dataset preprocessing Before training, the event stream is converted into 50
 event frames per sample with a 2ms window and 128×128 resolution. Figure 3
