@@ -34,9 +34,9 @@ Four were under normal lighting, and one in dim conditions.
 </div>
 <p align="center">
 <img src="https://github.com/niart/fzj_vpr/blob/148ab4c55be6560ed1afbdae02ebec3ea6da51ce/pic/gui_hall.png" width=48% height=50%>
-<img src="https://github.com/niart/fzj_vpr/blob/9ac69682f54a8b9eb82b3acfaac5cda7f956921d/pic/20231024_175824.jpg" width=49% height=50%>
-<img src="https://github.com/niart/fzj_vpr/blob/9ac69682f54a8b9eb82b3acfaac5cda7f956921d/pic/20231024_175836.jpg" width=49% height=50%>
-<img src="https://github.com/niart/fzj_vpr/blob/9ac69682f54a8b9eb82b3acfaac5cda7f956921d/pic/20231024_175849.jpg" width=49% height=50%>
+<img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_office.png" width=49% height=50%>
+<img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_passway.png" width=49% height=50%>
+<img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_printer.png" width=49% height=50%>
 </p>
 
 Dataset preprocessing Before training, the event stream is converted into 50
