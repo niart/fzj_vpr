@@ -1,9 +1,4 @@
 # Hybrid Guided VAE for Visual Place Recognition [^1]
-
-This work tackles indoor VPR by using a combination of event-based vision sensors and an event-based novel guided variational autoencoder (VAE). 
-The encoder part of our model is based on an SNN model which is compatible with power-efficient low latency neuromorphic hardware.
-The VAE successfully disentangles the visual features of 16 distinct places in our new indoor VPR dataset with a classification performance comparable to other state-of-the-art approaches while, showing robust performance also under various illumination conditions. 
-When tested with novel visual inputs from unknown scenes, our model can distinguish between these places, which demonstrates a high generalization capability by learning the essential features of location.
 ## Aachen-Indoor-VPR: an event/RGB VPR dataset in office-like arena
 an open-source dataset for 
 
