@@ -4,11 +4,10 @@ The dataset is collected using the Turtlebot4 platform with two ‘DAVIS 346’ 
 The environment is a 6m×4m artificial office-like space with four walls and various objects like tables, books,
 and bins (Figure 2). 
 <p align="center">
-<img src="https://github.com/niart/fzj_vpr/blob/2101c45eaba791144ba56666facd6f67f058342c/pic/20231024_175530.jpg" width=48% height=50%>
-<img src="https://github.com/niart/fzj_vpr/blob/9ac69682f54a8b9eb82b3acfaac5cda7f956921d/pic/20231024_175824.jpg" width=48% height=50%>
-
-<img src="https://github.com/niart/fzj_vpr/blob/9ac69682f54a8b9eb82b3acfaac5cda7f956921d/pic/20231024_175836.jpg" width=48% height=50%>
-<img src="https://github.com/niart/fzj_vpr/blob/9ac69682f54a8b9eb82b3acfaac5cda7f956921d/pic/20231024_175849.jpg" width=48% height=50%>
+<img src="https://github.com/niart/fzj_vpr/blob/2101c45eaba791144ba56666facd6f67f058342c/pic/20231024_175530.jpg" width=24% height=50%>
+<img src="https://github.com/niart/fzj_vpr/blob/9ac69682f54a8b9eb82b3acfaac5cda7f956921d/pic/20231024_175824.jpg" width=24% height=50%>
+<img src="https://github.com/niart/fzj_vpr/blob/9ac69682f54a8b9eb82b3acfaac5cda7f956921d/pic/20231024_175836.jpg" width=24% height=50%>
+<img src="https://github.com/niart/fzj_vpr/blob/9ac69682f54a8b9eb82b3acfaac5cda7f956921d/pic/20231024_175849.jpg" width=24% height=50%>
 </p>
 
 A motion capture system [34] tracks the robot’s location,
