@@ -23,7 +23,7 @@ Four were under normal lighting, and one in dim conditions.
 | index            | FOV          | illumination | motion-capture | event samples count | usage |
 |------------------|--------------|--------------|----------------|---------------------|-------|
 | trip0            | wide/narrow  | normal       | yes            | [1609](https://drive.google.com/drive/folders/1ahJrSccRAaw5_b9a6JukkTtGcL_W8vZM?usp=sharing)                | train |
-| trip1            | wide/narrow  | normal       | yes            | 1521                | test  |
+| trip1            | wide/narrow  | normal       | yes            | [1521](https://drive.google.com/drive/folders/1QtNJkDYJ7hjYtlpeAGLjRQt0FEytbNzS?usp=sharing)                | test  |
 | trip2            | wide/narrow  | dim          | yes            | 1542                | N.A.  |
 | half of 0 & 2    | wide/narrow  | varying      | yes            | 1575                | train |
 | half of 0 & 2    | wide/narrow  | varying      | yes            | 1576                | test  |
