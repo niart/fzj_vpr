@@ -22,13 +22,13 @@ Four were under normal lighting, and one in dim conditions.
 
 | index            | FOV          | illumination | motion-capture | event samples count | usage |
 |------------------|--------------|--------------|----------------|---------------------|-------|
-| trip1            | wide/narrow  | normal       | yes            | 1609                | train |
-| trip2            | wide/narrow  | normal       | yes            | 1521                | test  |
-| trip3            | wide/narrow  | dim          | yes            | 1542                | N.A.  |
-| half of 1 & 3    | wide/narrow  | varying      | yes            | 1575                | train |
-| half of 1 & 3    | wide/narrow  | varying      | yes            | 1576                | test  |
+| trip0            | wide/narrow  | normal       | yes            | [1609](https://drive.google.com/drive/folders/1ahJrSccRAaw5_b9a6JukkTtGcL_W8vZM?usp=sharing)                | train |
+| trip1            | wide/narrow  | normal       | yes            | 1521                | test  |
+| trip2            | wide/narrow  | dim          | yes            | 1542                | N.A.  |
+| half of 0 & 2    | wide/narrow  | varying      | yes            | 1575                | train |
+| half of 0 & 2    | wide/narrow  | varying      | yes            | 1576                | test  |
+| trip3            | wide/narrow  | normal       | yes            | unpreprocessed     | N.A.  |
 | trip4            | wide/narrow  | normal       | yes            | unpreprocessed     | N.A.  |
-| trip5            | wide/narrow  | normal       | yes            | unpreprocessed     | N.A.  |
 | office           | wide/narrow  | a little dim | no             | 61                  | N.A.  |
 | [hall](https://drive.google.com/drive/folders/1zPb46yEeaDAr45U7X6fuWbYsF6c60BHG?usp=sharing)             | wide/narrow  | a little dim | no             | 81                  | test  |
 | [passageway](https://drive.google.com/drive/folders/1e3P96lYFEWstRqDICTadmXncUB1CWOQJ?usp=sharing)       | wide/narrow  | a little dim | no             | 101                 | test  |
