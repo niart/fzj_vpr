@@ -1,4 +1,7 @@
 # Hybrid Guided VAE for Visual Place Recognition [^1]
+This project contributes a full set of open-source event/RGB dataset ‘Aachen-indoor-VPR’ recorded with Turtlebot4 maneuvering within an artificial office-like arena, which encompasses two FOVs and two levels of illumination, along with an additional dataset of robot maneuvers recorded in four new places.
+Based on the new dataset, we implement and improve a hybrid guided VAE on the new task of VPR while exploring into a smaller latent space, resulting in a compact, low-power low-latency and robust indoor localization approach. Finally, we assess the capability of cross-scene generalization and analyse into latent variable activity of this model.
+
 ## Aachen-Indoor-VPR: an event/RGB VPR dataset in office-like arena
 The dataset is collected using the Turtlebot4 platform with two ‘DAVIS 346’ event cameras mounted at the front. The left camera has a 12mm focal length, and the right has 2.5mm. 
 The environment is a 6m×4m artificial office-like space with four walls and various objects like tables, books,
