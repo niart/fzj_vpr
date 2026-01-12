@@ -20,8 +20,8 @@ Four were under normal lighting, and one in dim conditions.
 </p>
 <div align="center">
 
-| index            | FOV          | illumination | motion-capture | event samples |event samples |
-|------------------|--------------|--------------|----------------|---------------------|-------|-------|
+| index            | FOV          | illumination | motion-capture | event samples |RGB samples |
+|------------------|--------------|--------------|----------------|---------------------|-------|
 | trip0            | wide/narrow  | normal       | yes            | [1609](https://drive.google.com/drive/folders/1ahJrSccRAaw5_b9a6JukkTtGcL_W8vZM?usp=sharing)                | [982](https://drive.google.com/drive/folders/10r9cldtQ90J0mUnxnYpSKZDuRW2bL9km?usp=sharing) |
 | trip1            | wide/narrow  | normal       | yes            | [1521](https://drive.google.com/drive/folders/1QtNJkDYJ7hjYtlpeAGLjRQt0FEytbNzS?usp=sharing)                | test  |
 | trip2            | wide/narrow  | dim          | yes            | 1542                | N.A.  |
