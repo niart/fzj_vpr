@@ -34,9 +34,6 @@ Four were under normal lighting, and one in dim conditions.
 
 </div>
 
-[Separate preprocessed event samples of 4 places](https://drive.google.com/drive/folders/1my6dlBTbCLGFQbgt7vtA_p1CzQ0qLFSK?usp=sharing)
-
-[Mixed preprocessed event samples of 4 places](https://drive.google.com/drive/folders/1nZ3-wxASmEZqGppqZyQt3n5ng8PFXbWK?usp=sharing)
 
 <p align="center">
 <img src="https://github.com/niart/fzj_vpr/blob/148ab4c55be6560ed1afbdae02ebec3ea6da51ce/pic/gui_hall.png" width=40% height=40%>
