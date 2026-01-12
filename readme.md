@@ -30,9 +30,9 @@ Four were under normal lighting, and one in dim conditions.
 | trip4            | wide/narrow  | normal       | yes            | unpreprocessed     | N.A.  |
 | trip5            | wide/narrow  | normal       | yes            | unpreprocessed     | N.A.  |
 | office           | wide/narrow  | a little dim | no             | 61                  | N.A.  |
-| hall             | wide/narrow  | a little dim | no             | 81                  | test  |
-| passageway       | wide/narrow  | a little dim | no             | 101                 | test  |
-| printer room     | wide/narrow  | a little dim | no             | 61                  | test  |
+| [hall](https://drive.google.com/drive/folders/1zPb46yEeaDAr45U7X6fuWbYsF6c60BHG?usp=sharing)             | wide/narrow  | a little dim | no             | 81                  | test  |
+| [passageway](https://drive.google.com/drive/folders/1e3P96lYFEWstRqDICTadmXncUB1CWOQJ?usp=sharing)       | wide/narrow  | a little dim | no             | 101                 | test  |
+| [printer room](https://drive.google.com/drive/folders/1F0UBaiKh9kxd-z8anEpvE3KJrJuoX62D?usp=sharing)     | wide/narrow  | a little dim | no             | 61                  | test  |
 
 </div>
 <p align="center">
