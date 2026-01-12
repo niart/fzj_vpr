@@ -28,7 +28,7 @@ Four were under normal lighting, and one in dim conditions.
 | trip3            |  normal       | yes            | unpreprocessed     | N.A.  |
 | trip4            |  normal       | yes            | unpreprocessed     | N.A.  |
 | office           |  a little dim | no             | 61                  | N.A.  |
-| [hall](https://drive.google.com/drive/folders/1zPb46yEeaDAr45U7X6fuWbYsF6c60BHG?usp=sharing)             |  a little dim | no             | 81                  | test  |
+| [hall](https://drive.google.com/drive/folders/1zPb46yEeaDAr45U7X6fuWbYsF6c60BHG?usp=sharing)             |  a little dim | no             | 81                  | [33 (wide FOV)](https://drive.google.com/drive/folders/12MBOxBvuT-rzqKKIC_5jFAhZSKrgOTIY?usp=sharing)  |
 | [passageway](https://drive.google.com/drive/folders/1e3P96lYFEWstRqDICTadmXncUB1CWOQJ?usp=sharing)       |  a little dim | no             | 101                 | test  |
 | [printer room](https://drive.google.com/drive/folders/1F0UBaiKh9kxd-z8anEpvE3KJrJuoX62D?usp=sharing)     |  a little dim | no             | 61                  | test  |
 
