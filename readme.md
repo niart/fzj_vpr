@@ -20,19 +20,19 @@ Four were under normal lighting, and one in dim conditions.
 </p>
 <div align="center">
 
-| index            | FOV          | illumination | motion-capture |event samples|RGB samples|
-|------------------|--------------|--------------|----------------|---------------------|-------|
-| trip0            | wide/narrow  | normal       | yes            | [1609](https://drive.google.com/drive/folders/1ahJrSccRAaw5_b9a6JukkTtGcL_W8vZM?usp=sharing)                | [982](https://drive.google.com/drive/folders/10r9cldtQ90J0mUnxnYpSKZDuRW2bL9km?usp=sharing) |
-| trip1            | wide/narrow  | normal       | yes            | [1521](https://drive.google.com/drive/folders/1QtNJkDYJ7hjYtlpeAGLjRQt0FEytbNzS?usp=sharing)                | test  |
-| trip2            | wide/narrow  | dim          | yes            | 1542                | N.A.  |
-| half of 0 & 2    | wide/narrow  | varying      | yes            | 1575                | train |
-| half of 0 & 2    | wide/narrow  | varying      | yes            | 1576                | test  |
-| trip3            | wide/narrow  | normal       | yes            | unpreprocessed     | N.A.  |
-| trip4            | wide/narrow  | normal       | yes            | unpreprocessed     | N.A.  |
-| office           | wide/narrow  | a little dim | no             | 61                  | N.A.  |
-| [hall](https://drive.google.com/drive/folders/1zPb46yEeaDAr45U7X6fuWbYsF6c60BHG?usp=sharing)             | wide/narrow  | a little dim | no             | 81                  | test  |
-| [passageway](https://drive.google.com/drive/folders/1e3P96lYFEWstRqDICTadmXncUB1CWOQJ?usp=sharing)       | wide/narrow  | a little dim | no             | 101                 | test  |
-| [printer room](https://drive.google.com/drive/folders/1F0UBaiKh9kxd-z8anEpvE3KJrJuoX62D?usp=sharing)     | wide/narrow  | a little dim | no             | 61                  | test  |
+| index            | illumination | motion-capture |event samples|RGB samples|
+|------------------|--------------|----------------|---------------------|-------|
+| trip0            |  normal       | yes            | [1609 (wide FOV)](https://drive.google.com/drive/folders/1ahJrSccRAaw5_b9a6JukkTtGcL_W8vZM?usp=sharing); [1608 (narrow FOV)](https://drive.google.com/drive/folders/1AY7ccdSfTU_SYOrMCnm3m3g1RIZpYZcJ?usp=sharing)| [982](https://drive.google.com/drive/folders/10r9cldtQ90J0mUnxnYpSKZDuRW2bL9km?usp=sharing)|
+| trip1            |  normal       | yes            | [1521](https://drive.google.com/drive/folders/1QtNJkDYJ7hjYtlpeAGLjRQt0FEytbNzS?usp=sharing)                | test  |
+| trip2            |  dim          | yes            | 1542                | N.A.  |
+| half of 0 & 2    |  varying      | yes            | 1575                | train |
+| half of 0 & 2    |  varying      | yes            | 1576                | test  |
+| trip3            |  normal       | yes            | unpreprocessed     | N.A.  |
+| trip4            |  normal       | yes            | unpreprocessed     | N.A.  |
+| office           |  a little dim | no             | 61                  | N.A.  |
+| [hall](https://drive.google.com/drive/folders/1zPb46yEeaDAr45U7X6fuWbYsF6c60BHG?usp=sharing)             |  a little dim | no             | 81                  | test  |
+| [passageway](https://drive.google.com/drive/folders/1e3P96lYFEWstRqDICTadmXncUB1CWOQJ?usp=sharing)       |  a little dim | no             | 101                 | test  |
+| [printer room](https://drive.google.com/drive/folders/1F0UBaiKh9kxd-z8anEpvE3KJrJuoX62D?usp=sharing)     |  a little dim | no             | 61                  | test  |
 
 </div>
 
