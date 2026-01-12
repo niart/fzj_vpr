@@ -34,6 +34,8 @@ Four were under normal lighting, and one in dim conditions.
 | [passageway](https://drive.google.com/drive/folders/1e3P96lYFEWstRqDICTadmXncUB1CWOQJ?usp=sharing)       | wide/narrow  | a little dim | no             | 101                 | test  |
 | [printer room](https://drive.google.com/drive/folders/1F0UBaiKh9kxd-z8anEpvE3KJrJuoX62D?usp=sharing)     | wide/narrow  | a little dim | no             | 61                  | test  |
 
+[preprocessed event samples containing hall, office, and passway](https://drive.google.com/drive/folders/1my6dlBTbCLGFQbgt7vtA_p1CzQ0qLFSK?usp=sharing)
+
 </div>
 <p align="center">
 <img src="https://github.com/niart/fzj_vpr/blob/148ab4c55be6560ed1afbdae02ebec3ea6da51ce/pic/gui_hall.png" width=40% height=40%>
