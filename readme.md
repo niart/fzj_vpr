@@ -109,8 +109,8 @@ A typical RGB frame and its synchronous event frame (rendered by software DV), t
     </td>
 </table>
 
-A motion capture system tracks the robot’s location, providing labels for supervised learning and evaluation. Five recordings were made by manually driving the robot along predefined routes, each consisting of three rounds in the office. 
-Four were under normal lighting, and one in dim conditions.
+A motion capture system tracks the robot’s location in each trip, providing labels for supervised learning and evaluation. Five recordings were made by manually driving the robot along predefined routes, each consisting of three rounds in the office. 
+Four were under normal lighting, and one (trip2) in dim conditions. An overview and downloading path of each dataset is in the table below: 
 
 
 
@@ -128,13 +128,33 @@ Four were under normal lighting, and one in dim conditions.
 
 </div>
 
+Four additonal datasets were recorded in new places for the purpose of testing corss-scene generalization. 
 
-<p align="center">
-<img src="https://github.com/niart/fzj_vpr/blob/148ab4c55be6560ed1afbdae02ebec3ea6da51ce/pic/gui_hall.png" width=40% height=40%>
-<img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_office.png" width=40% height=40%>
-<img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_passway.png" width=40% height=40%>
-<img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_printer.png" width=40% height=40%>
-</p>
+<table align="center">
+  <tr>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/148ab4c55be6560ed1afbdae02ebec3ea6da51ce/pic/gui_hall.png" width=40% height=40%><br>
+      <b>Hall</b>
+    </td>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_office.png" width=40% height=40%><br>
+      <b>Office</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_passway.png" width=40% height=40%><br>
+      <b>Passageway</b>
+    </td>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_printer.png" width=40% height=40%><br>
+      <b>Printer Room</b>
+    </td>
+  </tr>
+</table>
+
+
+
 
 Dataset preprocessing Before training, the event stream is converted into 50
 event frames per sample with a 2ms window and 128×128 resolution. Figure 3
