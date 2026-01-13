@@ -139,7 +139,6 @@ Four additonal datasets were recorded in new places for the purpose of testing c
 
 An overview and downloading path of each dataset is in the table below: 
 
-<div align="center">
 | Original recording            | illumination | motion-capture |event samples|RGB samples|
 |------------------|--------------|----------------|---------------------|-------|
 | trip0            |  normal       | yes            | [1609 (wide FOV)](https://drive.google.com/drive/folders/1ahJrSccRAaw5_b9a6JukkTtGcL_W8vZM?usp=sharing); [1608 (narrow FOV)](https://drive.google.com/drive/folders/1AY7ccdSfTU_SYOrMCnm3m3g1RIZpYZcJ?usp=sharing)| [982 (wide FOV)](https://drive.google.com/drive/folders/10r9cldtQ90J0mUnxnYpSKZDuRW2bL9km?usp=sharing)|
@@ -152,7 +151,7 @@ An overview and downloading path of each dataset is in the table below:
 | [passageway](https://drive.google.com/drive/folders/1e3P96lYFEWstRqDICTadmXncUB1CWOQJ?usp=sharing)       |  slightly dim | no             | [81 (wide FOV)](https://drive.google.com/drive/folders/1CFPD7Ad3NJ9CFWGxl1zynKTOuMAudgrD?usp=sharing)                 | [91 (wide FOV)](https://drive.google.com/drive/folders/1CFPD7Ad3NJ9CFWGxl1zynKTOuMAudgrD?usp=sharing) |
 | [printer room](https://drive.google.com/drive/folders/1F0UBaiKh9kxd-z8anEpvE3KJrJuoX62D?usp=sharing)     |  slightly dim | no             | [61 (wide FOV)](https://drive.google.com/drive/folders/1OSqQ-W4Lr3jOr5Cj8sWt3QjZIoCwcy_7?usp=sharing)                  | [37 (wide FOV)](https://drive.google.com/drive/folders/1oXsaL-ugkE9VolfXIkW6YfBIUHAbE2Kx?usp=sharing)  |
 
-</div>
+
 
 
 
