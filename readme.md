@@ -1,4 +1,4 @@
-# Hybrid Guided-VAE for Visual Place Recognition [^1]
+# Hybrid Guided-VAE for Visual Place Recognition
 This project contributes a full set of open-source event/RGB dataset *__Aachen-indoor-VPR__*
 Based on the new dataset, we implement and improve a hybrid guided VAE on the new task of VPR while exploring into a smaller latent space, resulting in a compact, low-power low-latency and robust indoor localization approach. Finally, we assess the capability of cross-scene generalization and analyse into latent variable activity of this model.
 
@@ -52,6 +52,28 @@ Image samples recorded in each cell are classified into a unique class denoted b
       <b>E</b>
     </td>
   </tr>
+</table>
+
+
+<table align="center">
+  <tr>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
+      <b>A</b>
+    </td>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/1d70a2a536a9b4dc49605cc0f9898676d86d854c/pic/label_1_timestamp_1697816783245649.png" width="180"><br>
+      <b>B</b>
+    </td>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/1d70a2a536a9b4dc49605cc0f9898676d86d854c/pic/label_2_timestamp_1697816894631643.png" width="180"><br>
+      <b>C</b>
+    </td>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/1d70a2a536a9b4dc49605cc0f9898676d86d854c/pic/label_4_timestamp_1697816877759941.png" width="180"><br>
+      <b>E</b>
+    </td>
+  </tr>
 
   <tr>
     <td align="center" valign="middle">
@@ -74,15 +96,15 @@ Image samples recorded in each cell are classified into a unique class denoted b
 
   <tr>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/1d70a2a536a9b4dc49605cc0f9898676d86d854c/pic/label_11_timestamp_1697816855155136.png" width="180"><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/5ed26e619268007c5bfef6ac5853dcb6b6243634/pic/rgb_frame.png" width="360"><br>
       <b>L</b>
     </td>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/1d70a2a536a9b4dc49605cc0f9898676d86d854c/pic/label_12_timestamp_1697816762934085.png" width="180"><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/5ed26e619268007c5bfef6ac5853dcb6b6243634/pic/event.png" width="180"><br>
       <b>M</b>
     </td>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/dfa380b12906493cf88a67c9a0db6f6545589af6/pic/label_13_timestamp_1697816758019998.png" width="180"><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/5ed26e619268007c5bfef6ac5853dcb6b6243634/pic/dark_rgb.png" width="180"><br>
       <b>N</b>
     </td>
     <td align="center" valign="middle">
@@ -91,6 +113,7 @@ Image samples recorded in each cell are classified into a unique class denoted b
     </td>
   </tr>
 </table>
+
 A motion capture system tracks the robot’s location, providing labels for supervised learning and evaluation. Five recordings were made by manually driving the robot along predefined routes, each consisting of three rounds in the office. 
 Four were under normal lighting, and one in dim conditions.
 
