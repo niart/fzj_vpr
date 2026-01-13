@@ -25,6 +25,10 @@ and bins (see below).
 <img src="https://github.com/niart/fzj_vpr/blob/9ac69682f54a8b9eb82b3acfaac5cda7f956921d/pic/20231024_175849.jpg" width=24% height=50%>
 </p>
 
+<p align="center">
+<img src="https://github.com/niart/fzj_vpr/blob/f06111dd2031cc5a6c824cadd6378180d8bc0888/pic/arena_horizental.png" width=80% height=50%>
+</p>
+
 A motion capture system tracks the robot’s location, providing labels for supervised learning and evaluation. Five recordings were made by manually driving the robot along predefined routes, each consisting of three rounds in the office. 
 Four were under normal lighting, and one in dim conditions.
 <p align="center">
@@ -97,9 +101,7 @@ Then,
 python grid_heatmap_label.py
 ```
 This step will create a x_label.csv file which adds a columnb of "labels" 0-15 (or letters) to the tutle_trip_x.csv. It will also output a graph visualizing robot trajectory and the dividing of sections, as shown below:
-<p align="center">
-<img src="https://github.com/niart/fzj_vpr/blob/f06111dd2031cc5a6c824cadd6378180d8bc0888/pic/arena_horizental.png" width=80% height=50%>
-</p>
+
 At the same time, in the termnial, the representing color for each class will be printed out:
 <p align="center">
 <img src="https://github.com/niart/fzj_vpr/blob/15af6c2fc26ec1858ee1ab15de003f94b57eb2fc/pic/colors.png" width=20% height=20%>
