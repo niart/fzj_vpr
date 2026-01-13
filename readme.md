@@ -25,8 +25,10 @@ and bins (see below).
 <img src="https://github.com/niart/fzj_vpr/blob/9ac69682f54a8b9eb82b3acfaac5cda7f956921d/pic/20231024_175849.jpg" width=24% height=50%>
 </p>
 
+The entire arena is evenly divided into 4 × 4 = 16 labeled square cells as shown below:
+
 <p align="center">
-<img src="https://github.com/niart/fzj_vpr/blob/f06111dd2031cc5a6c824cadd6378180d8bc0888/pic/arena_horizental.png" width=80% height=50%>
+<img src="https://github.com/niart/fzj_vpr/blob/f06111dd2031cc5a6c824cadd6378180d8bc0888/pic/arena_horizental.png" width=60% height=50%>
 </p>
 
 A motion capture system tracks the robot’s location, providing labels for supervised learning and evaluation. Five recordings were made by manually driving the robot along predefined routes, each consisting of three rounds in the office. 
