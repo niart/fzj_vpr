@@ -5,12 +5,16 @@ Based on the new dataset, we implement and improve a hybrid guided VAE on the ne
 ## *Aachen-Indoor-VPR*: an event/RGB VPR dataset in office-like arena
 The dataset is recorded with Turtlebot4 maneuvering within an artificial office-like arena, which encompasses two FOVs and two levels of illumination, along with an additional dataset of robot maneuvers recorded in four new places. 
 Two ‘DAVIS 346’ event cameras were mounted at the front of the robot. 
-<div style="display: flex; justify-content: center; align-items: center;">
-  <img src="https://github.com/niart/fzj_vpr/blob/09921aff16455c8cfc2cfcd2f142a1b605a9b2ca/pic/robot.png"
-       width="30%">
-  <img src="https://github.com/niart/fzj_vpr/blob/09921aff16455c8cfc2cfcd2f142a1b605a9b2ca/pic/cameras.png"
-       width="60%">
-</div>
+<table align="center">
+  <tr>
+    <td valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/09921aff16455c8cfc2cfcd2f142a1b605a9b2ca/pic/robot.png" width="220">
+    </td>
+    <td valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/09921aff16455c8cfc2cfcd2f142a1b605a9b2ca/pic/cameras.png" width="520">
+    </td>
+  </tr>
+</table>
 
 
 
