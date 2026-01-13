@@ -52,10 +52,6 @@ Image samples recorded in each cell are classified into a unique class denoted b
       <b>E</b>
     </td>
   </tr>
-</table>
-
-
-<table align="center">
   <tr>
     <td align="center" valign="middle">
       <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
@@ -95,18 +91,20 @@ Image samples recorded in each cell are classified into a unique class denoted b
   </tr>
 </table>
 
+
+A typycal 
 <table align="center">
   <tr>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/5ed26e619268007c5bfef6ac5853dcb6b6243634/pic/rgb_frame.png" width="360"><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/5ed26e619268007c5bfef6ac5853dcb6b6243634/pic/rgb_frame.png" height="180"><br>
       <b>L</b>
     </td>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/5ed26e619268007c5bfef6ac5853dcb6b6243634/pic/event.png" width="180"><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/5ed26e619268007c5bfef6ac5853dcb6b6243634/pic/event.png" height="180"><br>
       <b>M</b>
     </td>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/5ed26e619268007c5bfef6ac5853dcb6b6243634/pic/dark_rgb.png" width="180"><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/5ed26e619268007c5bfef6ac5853dcb6b6243634/pic/dark_rgb.png" height="180"><br>
       <b>N</b>
     </td>
 </table>
