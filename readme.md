@@ -11,7 +11,7 @@ Two ‘DAVIS 346’ event cameras were mounted at the front of the robot.
        width="24%">
 
   <img src="https://github.com/niart/fzj_vpr/blob/09921aff16455c8cfc2cfcd2f142a1b605a9b2ca/pic/cameras.png"
-       width="50%">
+       width="48%">
 
 </div>
 
