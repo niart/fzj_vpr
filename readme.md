@@ -100,11 +100,11 @@ A typycal
       <b>L</b>
     </td>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/5ed26e619268007c5bfef6ac5853dcb6b6243634/pic/event.png" height="160"><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/9cd5d94124e57e36faafb185ae3eeacb883ae410/pic/time_window.png" height="160"><br>
       <b>M</b>
     </td>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/5ed26e619268007c5bfef6ac5853dcb6b6243634/pic/dark_rgb.png" height="160"><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/5ed26e619268007c5bfef6ac5853dcb6b6243634/pic/event.png" height="160"><br>
       <b>N</b>
     </td>
 </table>
