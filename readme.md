@@ -139,6 +139,7 @@ Four additonal datasets were recorded in new places for the purpose of testing c
 
 An overview and downloading path of each dataset is in the table below: 
 
+<div align="center">
 | Original recording            | illumination | motion-capture |event samples|RGB samples|
 |------------------|--------------|----------------|---------------------|-------|
 | trip0            |  normal       | yes            | [1609 (wide FOV)](https://drive.google.com/drive/folders/1ahJrSccRAaw5_b9a6JukkTtGcL_W8vZM?usp=sharing); [1608 (narrow FOV)](https://drive.google.com/drive/folders/1AY7ccdSfTU_SYOrMCnm3m3g1RIZpYZcJ?usp=sharing)| [982 (wide FOV)](https://drive.google.com/drive/folders/10r9cldtQ90J0mUnxnYpSKZDuRW2bL9km?usp=sharing)|
