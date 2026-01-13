@@ -92,20 +92,20 @@ Image samples recorded in each cell are classified into a unique class denoted b
 </table>
 
 
-A typycal 
+A typical RGB frame and its synchronous event frame (rendered by software DV), the process of creating event-based sample, as well as the eventul preprocessed event sample are shown below: 
 <table align="center">
   <tr>
     <td align="center" valign="middle">
       <img src="https://github.com/niart/fzj_vpr/blob/5ed26e619268007c5bfef6ac5853dcb6b6243634/pic/rgb_frame.png" height="160"><br>
-      <b>L</b>
+      <b>A typical RGB frame and its synchronous event frame</b>
     </td>
     <td align="center" valign="middle">
       <img src="https://github.com/niart/fzj_vpr/blob/9cd5d94124e57e36faafb185ae3eeacb883ae410/pic/time_window.png" height="160"><br>
-      <b>M</b>
+      <b>Process of creating event-based sample</b>
     </td>
     <td align="center" valign="middle">
       <img src="https://github.com/niart/fzj_vpr/blob/5ed26e619268007c5bfef6ac5853dcb6b6243634/pic/event.png" height="160"><br>
-      <b>N</b>
+      <b>Preprocessed event sample</b>
     </td>
 </table>
 
