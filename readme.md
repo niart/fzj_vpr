@@ -82,7 +82,7 @@ Image samples recorded in each cell are classified into a unique class. An examp
       <b>M</b>
     </td>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/1d70a2a536a9b4dc49605cc0f9898676d86d854c/pic/label_13_timestamp_1697816864819510.png" width="180"><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/dfa380b12906493cf88a67c9a0db6f6545589af6/pic/label_13_timestamp_1697816758019998.png" width="180"><br>
       <b>N</b>
     </td>
     <td align="center" valign="middle">
