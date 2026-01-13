@@ -106,7 +106,7 @@ A typical RGB frame and its synchronous event frame (rendered by software DV), t
       <b>Process of creating event-based sample</b>
     </td>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/5ed26e619268007c5bfef6ac5853dcb6b6243634/pic/event.png" height="160"><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/5ed26e619268007c5bfef6ac5853dcb6b6243634/pic/event.png" height="140"><br>
       <b>Preprocessed event sample</b>
     </td>
 </table>
