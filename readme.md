@@ -93,7 +93,9 @@ Image samples recorded in each cell are classified into a unique class denoted b
       <b>K</b>
     </td>
   </tr>
+</table>
 
+<table align="center">
   <tr>
     <td align="center" valign="middle">
       <img src="https://github.com/niart/fzj_vpr/blob/5ed26e619268007c5bfef6ac5853dcb6b6243634/pic/rgb_frame.png" width="360"><br>
@@ -107,11 +109,6 @@ Image samples recorded in each cell are classified into a unique class denoted b
       <img src="https://github.com/niart/fzj_vpr/blob/5ed26e619268007c5bfef6ac5853dcb6b6243634/pic/dark_rgb.png" width="180"><br>
       <b>N</b>
     </td>
-    <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/1d70a2a536a9b4dc49605cc0f9898676d86d854c/pic/label_14_timestamp_1697816864000494.png" width="180"><br>
-      <b>O</b>
-    </td>
-  </tr>
 </table>
 
 A motion capture system tracks the robot’s location, providing labels for supervised learning and evaluation. Five recordings were made by manually driving the robot along predefined routes, each consisting of three rounds in the office. 
