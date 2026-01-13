@@ -154,7 +154,7 @@ An overview and downloading path of each dataset is in the table below:
 | [printer room](https://drive.google.com/drive/folders/1F0UBaiKh9kxd-z8anEpvE3KJrJuoX62D?usp=sharing)     |  slightly dim | no             | [61 (wide FOV)](https://drive.google.com/drive/folders/1OSqQ-W4Lr3jOr5Cj8sWt3QjZIoCwcy_7?usp=sharing)                  | [37 (wide FOV)](https://drive.google.com/drive/folders/1oXsaL-ugkE9VolfXIkW6YfBIUHAbE2Kx?usp=sharing)  |
 
 
-## Training
+## Model Training
 ### A quick look at key files:
 1) key settings: The parameters for training are in ```/fzj_vpr/train/train_params.yml```;
 The parameters for testing are in ```/fzj_vpr/utils/test_params.yml```
