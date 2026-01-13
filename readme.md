@@ -5,10 +5,16 @@ Based on the new dataset, we implement and improve a hybrid guided VAE on the ne
 ## *Aachen-Indoor-VPR*: an event/RGB VPR dataset in office-like arena
 The dataset is recorded with Turtlebot4 maneuvering within an artificial office-like arena, which encompasses two FOVs and two levels of illumination, along with an additional dataset of robot maneuvers recorded in four new places. 
 Two ‘DAVIS 346’ event cameras were mounted at the front of the robot. 
-<p align="center">
-<img src="https://github.com/niart/fzj_vpr/blob/09921aff16455c8cfc2cfcd2f142a1b605a9b2ca/pic/robot.png" width=24% height=50%>
-<img src="https://github.com/niart/fzj_vpr/blob/09921aff16455c8cfc2cfcd2f142a1b605a9b2ca/pic/cameras.png" width=50% height=50%>
-</p>
+<div style="display: flex; align-items: center; justify-content: center; gap: 16px;">
+
+  <img src="https://github.com/niart/fzj_vpr/blob/09921aff16455c8cfc2cfcd2f142a1b605a9b2ca/pic/robot.png"
+       width="24%">
+
+  <img src="https://github.com/niart/fzj_vpr/blob/09921aff16455c8cfc2cfcd2f142a1b605a9b2ca/pic/cameras.png"
+       width="50%">
+
+</div>
+
 
 The left camera has a 12mm focal length, and the right has 2.5mm. 
 The environment is a 6m×4m artificial office-like space with four walls and various objects like tables, books,
