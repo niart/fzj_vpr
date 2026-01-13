@@ -2,7 +2,7 @@
 This project contributes a full set of open-source event/RGB dataset *__Aachen-indoor-VPR__*
 Based on the new dataset, we implement and improve a hybrid guided VAE on the new task of VPR while exploring into a smaller latent space, resulting in a compact, low-power low-latency and robust indoor localization approach. Finally, we assess the capability of cross-scene generalization and analyse into latent variable activity of this model.
 
-## *Aachen-Indoor-VPR*: an event/RGB VPR dataset in office-like arena
+## 1. *Aachen-Indoor-VPR*: an event/RGB VPR dataset in office-like arena
 The dataset is recorded with Turtlebot4 maneuvering within an artificial office-like arena, which encompasses two FOVs and two levels of illumination, along with an additional dataset of robot maneuvers recorded in four new places. A glance at **[dataset recording](https://www.youtube.com/watch?v=3YV6RFQt1Os)**. 
 Two ‘DAVIS 346’ event cameras were mounted at the front of the robot. The left camera has a 12mm focal length, and the right has 2.5mm. See images below for our robot platform and event cameras:
 <table align="center" width="100%">
@@ -154,7 +154,7 @@ An overview and downloading path of each dataset is in the table below:
 | [printer room](https://drive.google.com/drive/folders/1F0UBaiKh9kxd-z8anEpvE3KJrJuoX62D?usp=sharing)     |  slightly dim | no             | [61 (wide FOV)](https://drive.google.com/drive/folders/1OSqQ-W4Lr3jOr5Cj8sWt3QjZIoCwcy_7?usp=sharing)                  | [37 (wide FOV)](https://drive.google.com/drive/folders/1oXsaL-ugkE9VolfXIkW6YfBIUHAbE2Kx?usp=sharing)  |
 
 
-## Model Training
+## 2. Model Training
 ### A quick look at key files:
 1) key settings: The parameters for training are in ```/fzj_vpr/train/train_params.yml```;
 The parameters for testing are in ```/fzj_vpr/utils/test_params.yml```
