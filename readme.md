@@ -31,7 +31,7 @@ The entire arena is evenly divided into 4 × 4 = 16 labeled square cells as show
 <img src="https://github.com/niart/fzj_vpr/blob/f06111dd2031cc5a6c824cadd6378180d8bc0888/pic/arena_horizental.png" width=60% height=50%>
 </p>
 
-Image samples recorded in each cell are classified into a unique class denoted by a letter. An example RGB of each class from the first recording "Trip0" is displayed in the table below. Only 12 classes are displayed here because the robot finished this trip without entering the rest four cells.  
+Image samples recorded in each cell are classified into a unique class denoted by a letter. An example RGB image of each class from the first recording "Trip0" is displayed in the table below. Only 12 classes are displayed here because the robot finished this trip without entering the rest four cells.  
 
 <table align="center">
   <tr>
