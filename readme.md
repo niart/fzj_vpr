@@ -110,23 +110,7 @@ A typical RGB frame and its synchronous event frame (rendered by software DV), t
 </table>
 
 A motion capture system tracks the robot’s location in each trip, providing labels for supervised learning and evaluation. Five recordings were made by manually driving the robot along predefined routes, each consisting of three rounds in the office. 
-Four were under normal lighting, and one (trip2) in dim conditions. An overview and downloading path of each dataset is in the table below: 
-
-
-
-| Original recording            | illumination | motion-capture |event samples|RGB samples|
-|------------------|--------------|----------------|---------------------|-------|
-| trip0            |  normal       | yes            | [1609 (wide FOV)](https://drive.google.com/drive/folders/1ahJrSccRAaw5_b9a6JukkTtGcL_W8vZM?usp=sharing); [1608 (narrow FOV)](https://drive.google.com/drive/folders/1AY7ccdSfTU_SYOrMCnm3m3g1RIZpYZcJ?usp=sharing)| [982 (wide FOV)](https://drive.google.com/drive/folders/10r9cldtQ90J0mUnxnYpSKZDuRW2bL9km?usp=sharing)|
-| trip1            |  normal       | yes            | [1521 (wide FOV)](https://drive.google.com/drive/folders/1QtNJkDYJ7hjYtlpeAGLjRQt0FEytbNzS?usp=sharing); [1519 (narrow FOV)](https://drive.google.com/drive/folders/1h0lqVe3fvMuYCGibscuoe_OqOMXQx-io?usp=sharing) | test  |
-| trip2            |  dim          | yes            | [1542 (wide FOV](https://drive.google.com/drive/folders/1nTZHuGDlwheCHlOsluTbNIczBEh13Xcp?usp=sharing)); [1538 (narrow FOV)](https://drive.google.com/drive/folders/1-ZbSuMk8r_E6v3hQXdGOhfVptDG8VNSG?usp=sharing)  | N.A.  |
-| trip3            |  normal       | yes            | unpreprocessed     | N.A.  |
-| trip4            |  normal       | yes            | unpreprocessed     | N.A.  |
-| office           |  slightly dim | no             | [61 (wide FOV)](https://drive.google.com/drive/folders/13kZj3drs-1sSpw4cS1S6XIYfANM6ZrdN?usp=sharing)                  | N.A.  |
-| [hall](https://drive.google.com/drive/folders/1zPb46yEeaDAr45U7X6fuWbYsF6c60BHG?usp=sharing)             |  slightly dim | no             | [81 (wide FOV)](https://drive.google.com/drive/folders/1qkHnRY-gYLmOxK315b3bcKqGHN4YjttO?usp=sharing) | [33 (wide FOV)](https://drive.google.com/drive/folders/12MBOxBvuT-rzqKKIC_5jFAhZSKrgOTIY?usp=sharing)  |
-| [passageway](https://drive.google.com/drive/folders/1e3P96lYFEWstRqDICTadmXncUB1CWOQJ?usp=sharing)       |  slightly dim | no             | [81 (wide FOV)](https://drive.google.com/drive/folders/1CFPD7Ad3NJ9CFWGxl1zynKTOuMAudgrD?usp=sharing)                 | [91 (wide FOV)](https://drive.google.com/drive/folders/1CFPD7Ad3NJ9CFWGxl1zynKTOuMAudgrD?usp=sharing) |
-| [printer room](https://drive.google.com/drive/folders/1F0UBaiKh9kxd-z8anEpvE3KJrJuoX62D?usp=sharing)     |  slightly dim | no             | [61 (wide FOV)](https://drive.google.com/drive/folders/1OSqQ-W4Lr3jOr5Cj8sWt3QjZIoCwcy_7?usp=sharing)                  | [37 (wide FOV)](https://drive.google.com/drive/folders/1oXsaL-ugkE9VolfXIkW6YfBIUHAbE2Kx?usp=sharing)  |
-
-</div>
+Four were under normal lighting, and one (trip2) in dim conditions. 
 
 Four additonal datasets were recorded in new places for the purpose of testing corss-scene generalization. 
 
@@ -152,6 +136,24 @@ Four additonal datasets were recorded in new places for the purpose of testing c
     </td>
   </tr>
 </table>
+
+An overview and downloading path of each dataset is in the table below: 
+
+| Original recording            | illumination | motion-capture |event samples|RGB samples|
+|------------------|--------------|----------------|---------------------|-------|
+| trip0            |  normal       | yes            | [1609 (wide FOV)](https://drive.google.com/drive/folders/1ahJrSccRAaw5_b9a6JukkTtGcL_W8vZM?usp=sharing); [1608 (narrow FOV)](https://drive.google.com/drive/folders/1AY7ccdSfTU_SYOrMCnm3m3g1RIZpYZcJ?usp=sharing)| [982 (wide FOV)](https://drive.google.com/drive/folders/10r9cldtQ90J0mUnxnYpSKZDuRW2bL9km?usp=sharing)|
+| trip1            |  normal       | yes            | [1521 (wide FOV)](https://drive.google.com/drive/folders/1QtNJkDYJ7hjYtlpeAGLjRQt0FEytbNzS?usp=sharing); [1519 (narrow FOV)](https://drive.google.com/drive/folders/1h0lqVe3fvMuYCGibscuoe_OqOMXQx-io?usp=sharing) | test  |
+| trip2            |  dim          | yes            | [1542 (wide FOV](https://drive.google.com/drive/folders/1nTZHuGDlwheCHlOsluTbNIczBEh13Xcp?usp=sharing)); [1538 (narrow FOV)](https://drive.google.com/drive/folders/1-ZbSuMk8r_E6v3hQXdGOhfVptDG8VNSG?usp=sharing)  | N.A.  |
+| trip3            |  normal       | yes            | unpreprocessed     | N.A.  |
+| trip4            |  normal       | yes            | unpreprocessed     | N.A.  |
+| office           |  slightly dim | no             | [61 (wide FOV)](https://drive.google.com/drive/folders/13kZj3drs-1sSpw4cS1S6XIYfANM6ZrdN?usp=sharing)                  | N.A.  |
+| [hall](https://drive.google.com/drive/folders/1zPb46yEeaDAr45U7X6fuWbYsF6c60BHG?usp=sharing)             |  slightly dim | no             | [81 (wide FOV)](https://drive.google.com/drive/folders/1qkHnRY-gYLmOxK315b3bcKqGHN4YjttO?usp=sharing) | [33 (wide FOV)](https://drive.google.com/drive/folders/12MBOxBvuT-rzqKKIC_5jFAhZSKrgOTIY?usp=sharing)  |
+| [passageway](https://drive.google.com/drive/folders/1e3P96lYFEWstRqDICTadmXncUB1CWOQJ?usp=sharing)       |  slightly dim | no             | [81 (wide FOV)](https://drive.google.com/drive/folders/1CFPD7Ad3NJ9CFWGxl1zynKTOuMAudgrD?usp=sharing)                 | [91 (wide FOV)](https://drive.google.com/drive/folders/1CFPD7Ad3NJ9CFWGxl1zynKTOuMAudgrD?usp=sharing) |
+| [printer room](https://drive.google.com/drive/folders/1F0UBaiKh9kxd-z8anEpvE3KJrJuoX62D?usp=sharing)     |  slightly dim | no             | [61 (wide FOV)](https://drive.google.com/drive/folders/1OSqQ-W4Lr3jOr5Cj8sWt3QjZIoCwcy_7?usp=sharing)                  | [37 (wide FOV)](https://drive.google.com/drive/folders/1oXsaL-ugkE9VolfXIkW6YfBIUHAbE2Kx?usp=sharing)  |
+
+</div>
+
+
 
 
 
