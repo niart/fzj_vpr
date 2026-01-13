@@ -33,6 +33,68 @@ The entire arena is evenly divided into 4 × 4 = 16 labeled square cells as show
 
 A motion capture system tracks the robot’s location, providing labels for supervised learning and evaluation. Five recordings were made by manually driving the robot along predefined routes, each consisting of three rounds in the office. 
 Four were under normal lighting, and one in dim conditions.
+
+<table align="center">
+  <tr>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
+      <b>A</b>
+    </td>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
+      <b>B</b>
+    </td>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
+      <b>C</b>
+    </td>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
+      <b>D</b>
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
+      <b>E</b>
+    </td>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
+      <b>F</b>
+    </td>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
+      <b>G</b>
+    </td>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
+      <b>H</b>
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
+      <b>I</b>
+    </td>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
+      <b>J</b>
+    </td>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
+      <b>K</b>
+    </td>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
+      <b>L</b>
+    </td>
+  </tr>
+</table>
+
+
+
 <p align="center">
 <img src="https://github.com/niart/fzj_vpr/blob/ebe966b83eaa41e0addd24ae2a05df540226658c/pic/merged_image2.png" width=90% height=50%>
 </p>
