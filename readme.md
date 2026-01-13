@@ -133,21 +133,21 @@ Four additonal datasets were recorded in new places for the purpose of testing c
 <table align="center">
   <tr>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/148ab4c55be6560ed1afbdae02ebec3ea6da51ce/pic/gui_hall.png" width=40% height=40%><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/148ab4c55be6560ed1afbdae02ebec3ea6da51ce/pic/gui_hall.png" height="150"><br>
       <b>Hall</b>
     </td>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_office.png" width=40% height=40%><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_office.png" height="150"><br>
       <b>Office</b>
     </td>
   </tr>
   <tr>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_passway.png" width=40% height=40%><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_passway.png" height="150"><br>
       <b>Passageway</b>
     </td>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_printer.png" width=40% height=40%><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/e24b841188b157ef99a3fea468548dd639b73162/pic/gui_printer.png" height="150"><br>
       <b>Printer Room</b>
     </td>
   </tr>
