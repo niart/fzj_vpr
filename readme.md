@@ -73,19 +73,19 @@ Image samples recorded in each cell are classified into a unique class denoted b
 
   <tr>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/1d70a2a536a9b4dc49605cc0f9898676d86d854c/pic/label_6_timestamp_1697816845818370.png" width="180"><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/1d70a2a536a9b4dc49605cc0f9898676d86d854c/pic/label_6_timestamp_1697816845818370.png" width="160"><br>
       <b>G</b>
     </td>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/1d70a2a536a9b4dc49605cc0f9898676d86d854c/pic/label_7_timestamp_1697816850732457.png" width="180"><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/1d70a2a536a9b4dc49605cc0f9898676d86d854c/pic/label_7_timestamp_1697816850732457.png" width="160"><br>
       <b>H</b>
     </td>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/1d70a2a536a9b4dc49605cc0f9898676d86d854c/pic/label_8_timestamp_1697816872518247.png" width="180"><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/1d70a2a536a9b4dc49605cc0f9898676d86d854c/pic/label_8_timestamp_1697816872518247.png" width="160"><br>
       <b>I</b>
     </td>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/1d70a2a536a9b4dc49605cc0f9898676d86d854c/pic/label_10_timestamp_1697816858922603.png" width="180"><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/1d70a2a536a9b4dc49605cc0f9898676d86d854c/pic/label_10_timestamp_1697816858922603.png" width="160"><br>
       <b>K</b>
     </td>
   </tr>
