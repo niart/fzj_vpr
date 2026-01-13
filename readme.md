@@ -41,64 +41,57 @@ Four were under normal lighting, and one in dim conditions.
       <b>A</b>
     </td>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_1_timestamp_1697816830748499.png" width="180"><br>
       <b>B</b>
     </td>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_2_timestamp_1697816830748499.png" width="180"><br>
       <b>C</b>
     </td>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
-      <b>D</b>
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_4_timestamp_1697816830748499.png" width="180"><br>
+      <b>E</b>
     </td>
   </tr>
 
   <tr>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
-      <b>E</b>
-    </td>
-    <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
-      <b>F</b>
-    </td>
-    <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_6_timestamp_1697816830748499.png" width="180"><br>
       <b>G</b>
     </td>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_7_timestamp_1697816830748499.png" width="180"><br>
       <b>H</b>
+    </td>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_8_timestamp_1697816830748499.png" width="180"><br>
+      <b>I</b>
+    </td>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_10_timestamp_1697816830748499.png" width="180"><br>
+      <b>K</b>
     </td>
   </tr>
 
   <tr>
     <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
-      <b>I</b>
-    </td>
-    <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
-      <b>J</b>
-    </td>
-    <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
-      <b>K</b>
-    </td>
-    <td align="center" valign="middle">
-      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_0_timestamp_1697816830748499.png" width="180"><br>
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_11_timestamp_1697816830748499.png" width="180"><br>
       <b>L</b>
+    </td>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_12_timestamp_1697816830748499.png" width="180"><br>
+      <b>M</b>
+    </td>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_13_timestamp_1697816830748499.png" width="180"><br>
+      <b>N</b>
+    </td>
+    <td align="center" valign="middle">
+      <img src="https://github.com/niart/fzj_vpr/blob/95c4b527979eeb65342f908a61ce08f34ff25840/pic/label_14_timestamp_1697816830748499.png" width="180"><br>
+      <b>O</b>
     </td>
   </tr>
 </table>
-
-
-
-<p align="center">
-<img src="https://github.com/niart/fzj_vpr/blob/ebe966b83eaa41e0addd24ae2a05df540226658c/pic/merged_image2.png" width=90% height=50%>
-</p>
-<div align="center">
 
 | Original recording            | illumination | motion-capture |event samples|RGB samples|
 |------------------|--------------|----------------|---------------------|-------|
